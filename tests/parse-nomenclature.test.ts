@@ -40,13 +40,15 @@ describe("parseCsvContent", () => {
     expect(nodes[2].parent).toBe("0101");
   });
 
-  it("excludes TOTAL rows", () => {
+  it("excludes aggregate TOTAL row but keeps section=TOTAL codes", () => {
     const csvWithTotal = `section,hscode,description,parent,level
 I,01,Animals; live,TOTAL,2
+TOTAL,99,Commodities not specified according to kind,TOTAL,2
 TOTAL,TOTAL,Total of all HS2022 commodities,TOTAL,5`;
     const nodes = parseCsvContent(csvWithTotal);
-    expect(nodes).toHaveLength(1);
+    expect(nodes).toHaveLength(2);
     expect(nodes[0].code).toBe("01");
+    expect(nodes[1].code).toBe("99");
   });
 });
 

@@ -41,8 +41,8 @@ export function parseCsvContent(csv: string): HsNode[] {
 
     const [section, hscode, description, parent, levelStr] = fields;
 
-    // Skip TOTAL rows and non-standard levels
-    if (section === "TOTAL" || hscode === "TOTAL") continue;
+    // Skip the aggregate TOTAL row (hscode=TOTAL, level=5)
+    if (hscode === "TOTAL") continue;
     const level = Number(levelStr);
     if (level !== 2 && level !== 4 && level !== 6) continue;
 
