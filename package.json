@@ -1,0 +1,25 @@
+{
+  "name": "tariff-engine",
+  "version": "0.1.0",
+  "description": "Rule-based HS code classification engine",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "classify": "tsx cli/index.ts"
+  },
+  "keywords": ["hs-code", "tariff", "classification", "harmonized-system"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
