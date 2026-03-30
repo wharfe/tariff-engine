@@ -26,6 +26,7 @@ export interface HsNode {
   code: string;
   description: string;
   level: number;
+  section?: string;
   parent?: string;
   children: HsNode[];
 }

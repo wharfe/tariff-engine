@@ -39,4 +39,17 @@ describe("types", () => {
     expect(result.candidates[0].hscode).toBe("940360");
     expect(result.needs_review).toBe(false);
   });
+
+  it("HsNode supports section field", () => {
+    const node: HsNode = {
+      code: "01",
+      description: "Animals; live",
+      level: 2,
+      section: "I",
+      parent: undefined,
+      children: [],
+    };
+    expect(node.section).toBe("I");
+    expect(node.children).toHaveLength(0);
+  });
 });
