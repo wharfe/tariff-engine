@@ -17,9 +17,21 @@
     "test:watch": "vitest",
     "classify": "tsx cli/index.ts"
   },
-  "keywords": ["hs-code", "tariff", "classification", "harmonized-system"],
+  "keywords": [
+    "hs-code",
+    "tariff",
+    "classification",
+    "harmonized-system"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.2"
   }
 }
