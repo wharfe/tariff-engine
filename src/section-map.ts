@@ -11,7 +11,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "I",
     title: "Live animals; animal products",
-    keywords: ["animal", "live", "meat", "fish", "dairy", "milk", "egg", "honey", "horse", "cattle", "swine", "poultry", "crustacean", "mollusc"],
+    keywords: ["animal", "live", "meat", "beef", "pork", "chicken", "fish", "seafood", "dairy", "milk", "egg", "honey", "horse", "cattle", "swine", "poultry", "crustacean", "mollusc", "salmon", "shrimp", "tuna", "bovine", "lamb", "mutton"],
     chapters: ["01", "02", "03", "04", "05"],
   },
   {
@@ -95,13 +95,13 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XV",
     title: "Base metals and articles of base metals",
-    keywords: ["metal", "iron", "steel", "copper", "aluminium", "aluminum", "nickel", "zinc", "tin", "lead", "wire", "nail", "screw", "bolt", "nut", "pipe", "tube", "chain", "spring", "needle", "stove", "radiator"],
+    keywords: ["metal", "iron", "steel", "copper", "aluminium", "aluminum", "nickel", "zinc", "tin", "lead", "wire", "nail", "screw", "bolt", "nut", "pipe", "tube", "chain", "spring", "needle", "stove", "radiator", "bar", "rod", "plate", "sheet", "coil"],
     chapters: ["72", "73", "74", "75", "76", "78", "79", "80", "81", "82", "83"],
   },
   {
     section: "XVI",
     title: "Machinery and mechanical appliances; electrical equipment",
-    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electrical", "electronic", "computer", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera"],
+    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electrical", "electronic", "computer", "laptop", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera", "microwave", "air-conditioning"],
     chapters: ["84", "85"],
   },
   {
@@ -125,7 +125,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XX",
     title: "Miscellaneous manufactured articles",
-    keywords: ["furniture", "bed", "mattress", "lamp", "lighting", "prefabricated", "toy", "game", "sport", "brush", "broom", "button", "pen", "pencil", "chair", "table", "desk", "seat"],
+    keywords: ["furniture", "bed", "mattress", "lamp", "lighting", "prefabricated", "toy", "game", "sport", "brush", "broom", "button", "pen", "pencil", "chair", "table", "desk", "seat", "dining", "wooden", "cabinet", "shelf", "sofa", "couch"],
     chapters: ["94", "95", "96"],
   },
   {

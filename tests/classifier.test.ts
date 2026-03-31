@@ -251,6 +251,7 @@ describe("classify", () => {
 
   it("completes within 100ms", () => {
     loadTree(); // ensure cached
+    classify({ description: "warmup" }); // warm up JIT
     const start = performance.now();
     classify({ description: "electrical motor generator" });
     const elapsed = performance.now() - start;

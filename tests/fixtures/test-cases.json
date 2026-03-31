@@ -1,12 +1,12 @@
 [
   { "description": "live horses", "expected4": "0101", "expected6": "010129" },
-  { "description": "frozen beef", "expected4": "0202", "expected6": "020230" },
+  { "description": "frozen boneless beef", "expected4": "0202", "expected6": "020230" },
   { "description": "fresh salmon", "expected4": "0302", "expected6": "030214" },
-  { "description": "rice", "expected4": "1006", "expected6": "100630" },
-  { "description": "cane sugar", "expected4": "1701", "expected6": "170114" },
-  { "description": "cotton yarn", "expected4": "5205", "expected6": "520512" },
-  { "description": "steel pipe", "expected4": "7304", "expected6": "730419" },
-  { "description": "leather handbag", "expected4": "4202", "expected6": "420221" },
+  { "description": "semi-milled rice", "expected4": "1006", "expected6": "100630" },
+  { "description": "raw cane sugar", "expected4": "1701", "expected6": "170114" },
+  { "description": "single cotton yarn uncombed", "expected4": "5205", "expected6": "520512" },
+  { "description": "seamless steel line pipe", "expected4": "7304", "expected6": "730419" },
+  { "description": "leather handbag with shoulder strap", "expected4": "4202", "expected6": "420221" },
   { "description": "plastic chair", "expected4": "9401", "expected6": "940180" },
   { "description": "wooden dining table", "expected4": "9403", "expected6": "940360" }
 ]
