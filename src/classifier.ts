@@ -43,13 +43,6 @@ const STRONG_SYNONYMS: Record<string, string[]> = {
   pork: ["swine"],
 };
 
-// Normalization: replace common product terms with their HS equivalents
-// Applied before scoring to ensure consistent matching
-const TERM_NORMALIZATIONS: Record<string, string> = {
-  chair: "seat",
-  chairs: "seats",
-};
-
 const WEAK_SYNONYMS: Record<string, string[]> = {
   beef: ["meat"],
   pork: ["meat"],

@@ -2,6 +2,9 @@
 
 export interface ClassifyInput {
   description: string;
+  // Phase 1: attributes are not yet used by classify().
+  // Reserved for Phase 2 integration with evaluateCondition() for
+  // numeric thresholds (weight, dimensions) and material-based branching.
   attributes?: {
     material?: string;
     weight_kg?: number;
