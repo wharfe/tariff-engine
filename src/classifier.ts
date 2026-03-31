@@ -30,11 +30,19 @@ export interface ScoredSection {
 
 // Simple English stemmer: reduce common plurals/suffixes to a base form.
 // This handles the most frequent mismatches (bicycle vs bicycles, knife vs knives).
+// Known limitations: irregular forms (leaves→leafe not leaf), -ing over-stems (running→runn).
+// These are acceptable for Phase 1 since stem matching is additive (original tokens still match).
+const STEM_EXCEPTIONS = new Set([
+  "series", "species", "indices", "matrices", "vertices", "cookies",
+  "leaves", "lives",
+]);
+
 function simpleStem(word: string): string {
   if (word.length <= 3) return word;
-  // -ies → -y (batteries→battery) but not series
+  if (STEM_EXCEPTIONS.has(word)) return word;
+  // -ies → -y (batteries→battery)
   if (word.endsWith("ies") && word.length > 4) return word.slice(0, -3) + "y";
-  // -ves → -f/-fe (knives→knife, wolves→wolf)
+  // -ves → -f/-fe (knives→knife)
   if (word.endsWith("ves")) return word.slice(0, -3) + "fe";
   // -ses → -s (cases) or -se (buses→bus) — keep as-is for safety, just strip trailing "es"
   if (word.endsWith("sses")) return word.slice(0, -2);
@@ -43,7 +51,6 @@ function simpleStem(word: string): string {
   if (word.endsWith("ied") && word.length > 4) return word.slice(0, -3) + "y";
   // -ed → base (rolled→roll, plated→plate) but not "bed", "red"
   if (word.endsWith("ed") && word.length > 4) {
-    // -xed → -x (mixed→mix)
     if (word.endsWith("ked") || word.endsWith("ged") || word.endsWith("med") ||
         word.endsWith("ned") || word.endsWith("ped") || word.endsWith("ted") ||
         word.endsWith("xed") || word.endsWith("ved") || word.endsWith("wed") ||
