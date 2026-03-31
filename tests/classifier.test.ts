@@ -2,6 +2,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { loadTree, classify, scoreSection, scoreNodes, scoreSubheading } from "../src/classifier.js";
 import { tokenize } from "../src/tokenizer.js";
+// performance is available globally in Node.js 16+
 import type { HsNode } from "../src/types.js";
 import path from "node:path";
 
@@ -187,5 +188,71 @@ describe("scoreSubheading", () => {
     };
     const score = scoreSubheading(tokens, nesiNode);
     expect(score).toBeLessThanOrEqual(0.3);
+  });
+});
+
+describe("classify", () => {
+  beforeAll(() => {
+    loadTree(undefined, { force: true });
+  });
+
+  it("returns candidates for 'live horses'", () => {
+    const result = classify({ description: "live horses" });
+    expect(result.candidates.length).toBeGreaterThan(0);
+    expect(result.candidates.length).toBeLessThanOrEqual(3);
+  });
+
+  it("each candidate has required fields", () => {
+    const result = classify({ description: "wooden dining table" });
+    for (const c of result.candidates) {
+      expect(c.hscode).toBeTruthy();
+      expect(c.description).toBeTruthy();
+      expect(typeof c.confidence).toBe("number");
+      expect(c.confidence).toBeGreaterThanOrEqual(0);
+      expect(c.confidence).toBeLessThanOrEqual(1);
+      expect(Array.isArray(c.reasoning)).toBe(true);
+      expect(c.reasoning.length).toBeGreaterThanOrEqual(1);
+      expect(typeof c.matchedTokenCount).toBe("number");
+    }
+  });
+
+  it("reasoning path includes section, chapter, heading, subheading", () => {
+    const result = classify({ description: "live horses" });
+    const top = result.candidates[0];
+    expect(top.reasoning.some((r) => r.startsWith("Section"))).toBe(true);
+    expect(top.reasoning.some((r) => r.startsWith("Chapter"))).toBe(true);
+    expect(top.reasoning.some((r) => r.startsWith("Heading"))).toBe(true);
+    expect(top.reasoning.some((r) => r.startsWith("Subheading"))).toBe(true);
+  });
+
+  it("candidates are sorted by confidence descending", () => {
+    const result = classify({ description: "wooden furniture" });
+    for (let i = 1; i < result.candidates.length; i++) {
+      expect(result.candidates[i].confidence).toBeLessThanOrEqual(
+        result.candidates[i - 1].confidence,
+      );
+    }
+  });
+
+  it("sets needs_review based on confidence threshold", () => {
+    const result = classify({ description: "wooden dining table" });
+    const topConfidence = result.candidates[0]?.confidence ?? 0;
+    if (topConfidence < 0.7) {
+      expect(result.needs_review).toBe(true);
+    }
+  });
+
+  it("returns empty candidates for empty description", () => {
+    const result = classify({ description: "" });
+    expect(result.candidates).toEqual([]);
+    expect(result.needs_review).toBe(true);
+  });
+
+  it("completes within 100ms", () => {
+    loadTree(); // ensure cached
+    const start = performance.now();
+    classify({ description: "electrical motor generator" });
+    const elapsed = performance.now() - start;
+    expect(elapsed).toBeLessThan(100);
   });
 });

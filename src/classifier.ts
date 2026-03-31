@@ -1,9 +1,10 @@
 // src/classifier.ts
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import type { HsNode, ClassifyInput, ClassifyResult } from "./types.js";
+import type { HsNode, ClassifyInput, ClassifyResult, Candidate } from "./types.js";
 import { SECTION_MAP } from "./section-map.js";
 import { tokenize } from "./tokenizer.js";
+import { applyGir3a, applyGir3c } from "./gir.js";
 
 let cachedTree: HsNode[] | null = null;
 
@@ -110,11 +111,99 @@ export function scoreSubheading(inputTokens: string[], node: HsNode): number {
   return score;
 }
 
+const NEEDS_REVIEW_THRESHOLD = 0.7;
+const WEIGHTS = { section: 0.1, chapter: 0.2, heading: 0.4, subheading: 0.3 };
+
 export function classify(input: ClassifyInput): ClassifyResult {
-  // Phase 1 implementation will be built incrementally
-  // For now, return empty result to validate the pipeline
-  return {
-    candidates: [],
-    needs_review: true,
-  };
+  const tree = cachedTree;
+  if (!tree) {
+    throw new Error("Tree not loaded. Call loadTree() first.");
+  }
+
+  const tokens = tokenize(input.description);
+  if (tokens.length === 0) {
+    return { candidates: [], needs_review: true };
+  }
+
+  // Step 1: Score sections
+  const sections = scoreSection(tokens);
+  if (sections.length === 0) {
+    return { candidates: [], needs_review: true };
+  }
+
+  // Step 2: Get candidate chapters from matched sections
+  const sectionChapterCodes = new Set(sections.flatMap((s) => s.chapters));
+  const candidateChapters = tree.filter((ch) => sectionChapterCodes.has(ch.code));
+  const chapterScores = scoreNodes(tokens, candidateChapters);
+
+  // Step 3: For each candidate chapter, score headings, then subheadings
+  const allCandidates: Candidate[] = [];
+
+  for (const { node: chapter, score: chScore } of chapterScores) {
+    const sectionEntry = sections.find((s) => s.chapters.includes(chapter.code));
+    const sScore = sectionEntry?.score ?? 0;
+
+    const headingScores = scoreNodes(tokens, chapter.children);
+
+    for (const { node: heading, score: hScore } of headingScores) {
+      if (heading.children.length === 0) {
+        // Heading with no subheadings
+        const descTokens = new Set(tokenize(heading.description));
+        const matchedCount = tokens.filter((t) => descTokens.has(t)).length;
+        const confidence =
+          WEIGHTS.section * sScore +
+          WEIGHTS.chapter * chScore +
+          WEIGHTS.heading * hScore +
+          WEIGHTS.subheading * hScore;
+
+        allCandidates.push({
+          hscode: heading.code,
+          description: heading.description,
+          confidence,
+          matchedTokenCount: matchedCount,
+          reasoning: [
+            `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
+            `Chapter ${chapter.code}: ${chapter.description}`,
+            `Heading ${heading.code}: ${heading.description}`,
+          ],
+        });
+        continue;
+      }
+
+      for (const sub of heading.children) {
+        const subScore = scoreSubheading(tokens, sub);
+        const descTokens = new Set(tokenize(sub.description));
+        const matchedCount = tokens.filter((t) => descTokens.has(t)).length;
+
+        const confidence =
+          WEIGHTS.section * sScore +
+          WEIGHTS.chapter * chScore +
+          WEIGHTS.heading * hScore +
+          WEIGHTS.subheading * subScore;
+
+        allCandidates.push({
+          hscode: sub.code,
+          description: sub.description,
+          confidence,
+          matchedTokenCount: matchedCount,
+          reasoning: [
+            `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
+            `Chapter ${chapter.code}: ${chapter.description}`,
+            `Heading ${heading.code}: ${heading.description}`,
+            `Subheading ${sub.code}: ${sub.description}`,
+          ],
+        });
+      }
+    }
+  }
+
+  // Step 4: GIR resolution and ranking
+  let ranked = applyGir3a(allCandidates);
+  ranked = applyGir3c(ranked);
+
+  const top3 = ranked.slice(0, 3);
+  const topConfidence = top3[0]?.confidence ?? 0;
+  const needs_review = topConfidence < NEEDS_REVIEW_THRESHOLD;
+
+  return { candidates: top3, needs_review };
 }
