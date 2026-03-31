@@ -29,7 +29,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "IV",
     title: "Prepared foodstuffs; beverages, spirits and vinegar; tobacco",
-    keywords: ["food", "beverage", "drink", "alcohol", "wine", "beer", "spirit", "tobacco", "cigarette", "sugar", "chocolate", "cocoa", "bread", "pasta", "vinegar", "sauce", "juice"],
+    keywords: ["food", "beverage", "drink", "energy", "alcohol", "wine", "beer", "spirit", "tobacco", "cigarette", "sugar", "chocolate", "cocoa", "bread", "pasta", "vinegar", "sauce", "juice"],
     chapters: ["16", "17", "18", "19", "20", "21", "22", "23", "24"],
   },
   {
@@ -41,7 +41,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "VI",
     title: "Products of the chemical or allied industries",
-    keywords: ["chemical", "pharmaceutical", "drug", "medicine", "fertilizer", "dye", "pigment", "paint", "varnish", "soap", "detergent", "cosmetic", "perfume", "essential-oil", "photographic", "explosive"],
+    keywords: ["chemical", "pharmaceutical", "drug", "medicine", "medicament", "aspirin", "tablet", "capsule", "sanitizer", "disinfectant", "fertilizer", "dye", "pigment", "paint", "varnish", "soap", "detergent", "cosmetic", "perfume", "essential-oil", "photographic", "explosive", "insecticide", "herbicide", "fungicide"],
     chapters: ["28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38"],
   },
   {
@@ -101,19 +101,19 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XVI",
     title: "Machinery and mechanical appliances; electrical equipment",
-    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electrical", "electronic", "computer", "laptop", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera", "microwave", "air-conditioning"],
+    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electric", "electrical", "electronic", "computer", "laptop", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera", "microwave", "air-conditioning", "oven", "toothbrush", "blender", "mixer", "dryer", "heater", "fan", "vacuum"],
     chapters: ["84", "85"],
   },
   {
     section: "XVII",
     title: "Vehicles, aircraft, vessels and associated transport equipment",
-    keywords: ["vehicle", "car", "automobile", "truck", "bus", "motorcycle", "bicycle", "railway", "train", "aircraft", "airplane", "helicopter", "ship", "boat", "vessel", "trailer", "carriage"],
+    keywords: ["vehicle", "car", "automobile", "truck", "bus", "motorcycle", "bicycle", "cycle", "scooter", "railway", "train", "aircraft", "airplane", "helicopter", "ship", "boat", "vessel", "trailer", "carriage"],
     chapters: ["86", "87", "88", "89"],
   },
   {
     section: "XVIII",
     title: "Optical, photographic, cinematographic, measuring, checking, precision, medical or surgical instruments; clocks and watches; musical instruments",
-    keywords: ["optical", "lens", "microscope", "telescope", "photographic", "measuring", "instrument", "medical", "surgical", "clock", "watch", "musical", "piano", "guitar", "violin"],
+    keywords: ["optical", "lens", "microscope", "telescope", "photographic", "measuring", "instrument", "medical", "surgical", "clock", "watch", "musical", "piano", "guitar", "violin", "thermometer", "meter", "sensor", "tracker", "barometer", "thermostat"],
     chapters: ["90", "91", "92"],
   },
   {
@@ -131,7 +131,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XXI",
     title: "Works of art, collectors' pieces and antiques",
-    keywords: ["art", "painting", "sculpture", "statue", "antique", "collector", "stamp", "collection"],
+    keywords: ["art", "painting", "sculpture", "statue", "antique", "collector", "stamp", "collection", "original"],
     chapters: ["97"],
   },
 ];
