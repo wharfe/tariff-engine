@@ -301,4 +301,23 @@ describe("accuracy: manual test cases", () => {
     console.log(`6-digit accuracy: ${correct6}/${testCases.length} = ${(accuracy6 * 100).toFixed(0)}%`);
     expect(accuracy6).toBeGreaterThanOrEqual(0.5);
   });
+
+  it("reports accuracy by difficulty", () => {
+    const stats = { easy: { total: 0, correct4: 0, correct6: 0 }, hard: { total: 0, correct4: 0, correct6: 0 } };
+    for (const tc of testCases) {
+      const d = (tc as { difficulty?: string }).difficulty === "hard" ? "hard" : "easy";
+      stats[d].total++;
+      const result = classify({ description: tc.description });
+      if (result.candidates.length > 0) {
+        if (result.candidates[0].hscode.slice(0, 4) === tc.expected4) stats[d].correct4++;
+        if (result.candidates[0].hscode === tc.expected6) stats[d].correct6++;
+      }
+    }
+    console.log(`Easy 4-digit: ${stats.easy.correct4}/${stats.easy.total} = ${((stats.easy.correct4/stats.easy.total)*100).toFixed(0)}%`);
+    console.log(`Easy 6-digit: ${stats.easy.correct6}/${stats.easy.total} = ${((stats.easy.correct6/stats.easy.total)*100).toFixed(0)}%`);
+    console.log(`Hard 4-digit: ${stats.hard.correct4}/${stats.hard.total} = ${((stats.hard.correct4/stats.hard.total)*100).toFixed(0)}%`);
+    console.log(`Hard 6-digit: ${stats.hard.correct6}/${stats.hard.total} = ${((stats.hard.correct6/stats.hard.total)*100).toFixed(0)}%`);
+    // This test always passes — it's a diagnostic reporter
+    expect(true).toBe(true);
+  });
 });
