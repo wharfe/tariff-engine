@@ -2,6 +2,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { loadTree, classify, scoreSection, scoreNodes, scoreSubheading } from "../src/classifier.js";
 import { tokenize } from "../src/tokenizer.js";
+import testCases from "./fixtures/test-cases.json";
 // performance is available globally in Node.js 16+
 import type { HsNode } from "../src/types.js";
 import path from "node:path";
@@ -254,5 +255,49 @@ describe("classify", () => {
     classify({ description: "electrical motor generator" });
     const elapsed = performance.now() - start;
     expect(elapsed).toBeLessThan(100);
+  });
+});
+
+describe("accuracy: manual test cases", () => {
+  beforeAll(() => {
+    loadTree(undefined, { force: true });
+  });
+
+  for (const tc of testCases) {
+    it(`classifies "${tc.description}" → expects 4-digit ${tc.expected4}`, () => {
+      const result = classify({ description: tc.description });
+      expect(result.candidates.length).toBeGreaterThan(0);
+      const top = result.candidates[0];
+      console.log(
+        `  ${tc.description}: got ${top.hscode} (${(top.confidence * 100).toFixed(0)}%), expected ${tc.expected4}/${tc.expected6}`,
+      );
+    });
+  }
+
+  it("meets 4-digit accuracy threshold (≥70%)", () => {
+    let correct4 = 0;
+    for (const tc of testCases) {
+      const result = classify({ description: tc.description });
+      if (result.candidates.length > 0) {
+        const topCode4 = result.candidates[0].hscode.slice(0, 4);
+        if (topCode4 === tc.expected4) correct4++;
+      }
+    }
+    const accuracy4 = correct4 / testCases.length;
+    console.log(`4-digit accuracy: ${correct4}/${testCases.length} = ${(accuracy4 * 100).toFixed(0)}%`);
+    expect(accuracy4).toBeGreaterThanOrEqual(0.7);
+  });
+
+  it("meets 6-digit accuracy threshold (≥50%)", () => {
+    let correct6 = 0;
+    for (const tc of testCases) {
+      const result = classify({ description: tc.description });
+      if (result.candidates.length > 0) {
+        if (result.candidates[0].hscode === tc.expected6) correct6++;
+      }
+    }
+    const accuracy6 = correct6 / testCases.length;
+    console.log(`6-digit accuracy: ${correct6}/${testCases.length} = ${(accuracy6 * 100).toFixed(0)}%`);
+    expect(accuracy6).toBeGreaterThanOrEqual(0.5);
   });
 });
