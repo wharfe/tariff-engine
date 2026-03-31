@@ -15,6 +15,7 @@ export interface Candidate {
   description: string;
   confidence: number;
   reasoning: string[];
+  matchedTokenCount: number;
 }
 
 export interface ClassifyResult {

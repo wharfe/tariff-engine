@@ -4,10 +4,14 @@ import type { Candidate } from "./types.js";
 
 /**
  * GIR 3(a): Most specific description wins.
- * Among equally matched candidates, prefer the one with more matching conditions.
+ * Primary sort by confidence descending.
+ * Tie-break by matchedTokenCount (more matched tokens = more specific description).
  */
 export function applyGir3a(candidates: Candidate[]): Candidate[] {
-  return candidates.sort((a, b) => b.confidence - a.confidence);
+  return [...candidates].sort((a, b) => {
+    if (b.confidence !== a.confidence) return b.confidence - a.confidence;
+    return b.matchedTokenCount - a.matchedTokenCount;
+  });
 }
 
 /**
@@ -16,8 +20,14 @@ export function applyGir3a(candidates: Candidate[]): Candidate[] {
 export function applyGir3c(candidates: Candidate[]): Candidate[] {
   if (candidates.length < 2) return candidates;
   const topConfidence = candidates[0].confidence;
-  const tied = candidates.filter((c) => c.confidence === topConfidence);
+  const topMatchCount = candidates[0].matchedTokenCount;
+  const tied = candidates.filter(
+    (c) => c.confidence === topConfidence && c.matchedTokenCount === topMatchCount,
+  );
   if (tied.length <= 1) return candidates;
   tied.sort((a, b) => b.hscode.localeCompare(a.hscode));
-  return [tied[0], ...candidates.filter((c) => c.confidence !== topConfidence)];
+  const rest = candidates.filter(
+    (c) => !(c.confidence === topConfidence && c.matchedTokenCount === topMatchCount),
+  );
+  return [tied[0], ...rest];
 }
