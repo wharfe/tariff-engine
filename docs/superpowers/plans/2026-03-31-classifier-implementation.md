@@ -564,6 +564,10 @@ git commit -m "feat: implement node scoring for chapter and heading matching"
 
 ### Task 5: サブヘディングパターン解析
 
+**Note:** `tokenize(node.description)`は"other than X"句のトークンも含むため、通常マッチで
+高スコアが出た後にother thanチェックで0に戻す流れになる。ヘディングレベルのscoreNodesでは
+descriptionにother than句が含まれていてもトークンマッチに影響するが、Phase 1ではこのまま許容。
+
 **Files:**
 - Modify: `src/classifier.ts`
 - Modify: `tests/classifier.test.ts`
@@ -808,10 +812,29 @@ git commit -m "fix: normalize equals comparison to case-insensitive"
 ### Task 7: GIR 3(a) 改善 — マッチトークン数ベース
 
 **Files:**
+- Modify: `src/types.ts` (CandidateにmatchedTokenCount追加)
 - Modify: `src/gir.ts`
 - Test: `tests/gir.test.ts`
 
-- [ ] **Step 1: テストを書く**
+**Note:** GIR 3(a)のtie-break指標は`reasoning.length`ではなく`matchedTokenCount`を使用する。
+reasoning.lengthはほぼ全候補が4（Section/Chapter/Heading/Subheading）で横並びになるため機能しない。
+descriptionに実際にマッチしたトークンの絶対数が「最も特定的な記述」の適切な指標となる。
+
+- [ ] **Step 1: Candidate型にmatchedTokenCount追加**
+
+`src/types.ts` のCandidate interfaceを修正:
+
+```typescript
+export interface Candidate {
+  hscode: string;
+  description: string;
+  confidence: number;
+  reasoning: string[];
+  matchedTokenCount: number; // number of input tokens that matched description
+}
+```
+
+- [ ] **Step 2: テストを書く**
 
 ```typescript
 // tests/gir.test.ts
@@ -822,17 +845,17 @@ import type { Candidate } from "../src/types.js";
 describe("applyGir3a", () => {
   it("sorts by confidence descending", () => {
     const candidates: Candidate[] = [
-      { hscode: "0101", description: "Horses", confidence: 0.5, reasoning: [] },
-      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: [] },
+      { hscode: "0101", description: "Horses", confidence: 0.5, reasoning: [], matchedTokenCount: 1 },
+      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: [], matchedTokenCount: 1 },
     ];
     const result = applyGir3a(candidates);
     expect(result[0].hscode).toBe("0102");
   });
 
-  it("breaks ties by reasoning length (more specific wins)", () => {
+  it("breaks ties by matchedTokenCount (more matched tokens = more specific)", () => {
     const candidates: Candidate[] = [
-      { hscode: "0101", description: "Horses", confidence: 0.8, reasoning: ["a"] },
-      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: ["a", "b", "c"] },
+      { hscode: "0101", description: "Horses", confidence: 0.8, reasoning: ["a", "b", "c", "d"], matchedTokenCount: 2 },
+      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: ["a", "b", "c", "d"], matchedTokenCount: 5 },
     ];
     const result = applyGir3a(candidates);
     expect(result[0].hscode).toBe("0102");
@@ -840,11 +863,11 @@ describe("applyGir3a", () => {
 });
 
 describe("applyGir3c", () => {
-  it("picks last heading numerically when tied", () => {
+  it("picks last heading numerically when tied on both confidence and matchedTokenCount", () => {
     const candidates: Candidate[] = [
-      { hscode: "0101", description: "Horses", confidence: 0.8, reasoning: ["a"] },
-      { hscode: "0103", description: "Swine", confidence: 0.8, reasoning: ["a"] },
-      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: ["a"] },
+      { hscode: "0101", description: "Horses", confidence: 0.8, reasoning: ["a"], matchedTokenCount: 3 },
+      { hscode: "0103", description: "Swine", confidence: 0.8, reasoning: ["a"], matchedTokenCount: 3 },
+      { hscode: "0102", description: "Cattle", confidence: 0.8, reasoning: ["a"], matchedTokenCount: 3 },
     ];
     const result = applyGir3c(candidates);
     expect(result[0].hscode).toBe("0103");
@@ -852,8 +875,8 @@ describe("applyGir3c", () => {
 
   it("does not reorder when no tie exists", () => {
     const candidates: Candidate[] = [
-      { hscode: "0102", description: "Cattle", confidence: 0.9, reasoning: [] },
-      { hscode: "0101", description: "Horses", confidence: 0.5, reasoning: [] },
+      { hscode: "0102", description: "Cattle", confidence: 0.9, reasoning: [], matchedTokenCount: 2 },
+      { hscode: "0101", description: "Horses", confidence: 0.5, reasoning: [], matchedTokenCount: 1 },
     ];
     const result = applyGir3c(candidates);
     expect(result[0].hscode).toBe("0102");
@@ -861,12 +884,12 @@ describe("applyGir3c", () => {
 });
 ```
 
-- [ ] **Step 2: テスト実行 — 失敗確認**
+- [ ] **Step 3: テスト実行 — 失敗確認**
 
 Run: `npx vitest run tests/gir.test.ts`
-Expected: FAIL — GIR 3(a) tie-breaking by reasoning length fails
+Expected: FAIL — GIR 3(a) tie-breaking by matchedTokenCount fails
 
-- [ ] **Step 3: GIR 3(a)を改善**
+- [ ] **Step 4: GIR 3(a)を改善**
 
 ```typescript
 // src/gir.ts
@@ -875,12 +898,12 @@ import type { Candidate } from "./types.js";
 /**
  * GIR 3(a): Most specific description wins.
  * Primary sort by confidence descending.
- * Tie-break by reasoning length (more reasoning steps = more specific match).
+ * Tie-break by matchedTokenCount (more matched tokens = more specific description).
  */
 export function applyGir3a(candidates: Candidate[]): Candidate[] {
   return [...candidates].sort((a, b) => {
     if (b.confidence !== a.confidence) return b.confidence - a.confidence;
-    return b.reasoning.length - a.reasoning.length;
+    return b.matchedTokenCount - a.matchedTokenCount;
   });
 }
 
@@ -890,34 +913,39 @@ export function applyGir3a(candidates: Candidate[]): Candidate[] {
 export function applyGir3c(candidates: Candidate[]): Candidate[] {
   if (candidates.length < 2) return candidates;
   const topConfidence = candidates[0].confidence;
-  const topReasoning = candidates[0].reasoning.length;
+  const topMatchCount = candidates[0].matchedTokenCount;
   const tied = candidates.filter(
-    (c) => c.confidence === topConfidence && c.reasoning.length === topReasoning,
+    (c) => c.confidence === topConfidence && c.matchedTokenCount === topMatchCount,
   );
   if (tied.length <= 1) return candidates;
   tied.sort((a, b) => b.hscode.localeCompare(a.hscode));
   const rest = candidates.filter(
-    (c) => !(c.confidence === topConfidence && c.reasoning.length === topReasoning),
+    (c) => !(c.confidence === topConfidence && c.matchedTokenCount === topMatchCount),
   );
   return [tied[0], ...rest];
 }
 ```
 
-- [ ] **Step 4: テスト実行 — パス確認**
+- [ ] **Step 5: テスト実行 — パス確認**
 
 Run: `npx vitest run tests/gir.test.ts`
 Expected: PASS（全4テスト）
 
-- [ ] **Step 5: コミット**
+- [ ] **Step 6: コミット**
 
 ```bash
-git add src/gir.ts tests/gir.test.ts
-git commit -m "feat: improve GIR 3(a) with reasoning-length tie-breaking"
+git add src/types.ts src/gir.ts tests/gir.test.ts
+git commit -m "feat: improve GIR 3(a) with matchedTokenCount tie-breaking"
 ```
 
 ---
 
 ### Task 8: classify() メインフロー統合
+
+**Note: パフォーマンス考慮事項**
+3重ループ（chapter × heading × subheading）で最悪9,000候補が生成される可能性がある。
+フィルタリングで実際には数百程度に収まるはず。ただし`tokenize(node.description)`が各ノードで
+毎回呼ばれるため、もし100ms目標を超える場合はtokenize結果のメモ化が最初のチューニングポイント。
 
 **Files:**
 - Modify: `src/classifier.ts`
@@ -1047,6 +1075,8 @@ export function classify(input: ClassifyInput): ClassifyResult {
       // Step 4: Score subheadings
       if (heading.children.length === 0) {
         // Heading with no subheadings — use heading as final
+        const descTokens = new Set(tokenize(heading.description));
+        const matchedCount = tokens.filter((t) => descTokens.has(t)).length;
         const confidence =
           WEIGHTS.section * sScore +
           WEIGHTS.chapter * chScore +
@@ -1057,6 +1087,7 @@ export function classify(input: ClassifyInput): ClassifyResult {
           hscode: heading.code,
           description: heading.description,
           confidence,
+          matchedTokenCount: matchedCount,
           reasoning: [
             `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
             `Chapter ${chapter.code}: ${chapter.description}`,
@@ -1068,6 +1099,8 @@ export function classify(input: ClassifyInput): ClassifyResult {
 
       for (const sub of heading.children) {
         const subScore = scoreSubheading(tokens, sub);
+        const descTokens = new Set(tokenize(sub.description));
+        const matchedCount = tokens.filter((t) => descTokens.has(t)).length;
 
         const confidence =
           WEIGHTS.section * sScore +
@@ -1079,6 +1112,7 @@ export function classify(input: ClassifyInput): ClassifyResult {
           hscode: sub.code,
           description: sub.description,
           confidence,
+          matchedTokenCount: matchedCount,
           reasoning: [
             `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
             `Chapter ${chapter.code}: ${chapter.description}`,
@@ -1207,11 +1241,17 @@ git commit -m "feat: update exports and CLI to use loadTree"
   { "description": "cane sugar", "expected4": "1701", "expected6": "170114" },
   { "description": "cotton yarn", "expected4": "5205", "expected6": "520512" },
   { "description": "steel pipe", "expected4": "7304", "expected6": "730419" },
-  { "description": "laptop computer", "expected4": "8471", "expected6": "847130" },
-  { "description": "motor car gasoline engine 1500cc", "expected4": "8703", "expected6": "870322" },
+  { "description": "leather handbag", "expected4": "4202", "expected6": "420221" },
+  { "description": "plastic chair", "expected4": "9401", "expected6": "940180" },
   { "description": "wooden dining table", "expected4": "9403", "expected6": "940360" }
 ]
 ```
+
+**テストケース選定の根拠:**
+- 7件は素直なケース（セクションキーワードが明確に対応）
+- "leather handbag": Section VIII（leather）とSection XII（accessories）にまたがる境界ケース → 正解は4202（旅行用品・ハンドバッグ）
+- "plastic chair": Section VII（plastics）とSection XX（furniture）にまたがる境界ケース → 正解は9401（着席用の家具）
+- "rice": 1語入力のエッジケース（短い入力で高スコアが出すぎる問題の検出用）
 
 ファイル: `tests/fixtures/test-cases.json`
 
