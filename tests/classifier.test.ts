@@ -1,6 +1,8 @@
 // tests/classifier.test.ts
 import { describe, it, expect, beforeAll } from "vitest";
-import { loadTree } from "../src/classifier.js";
+import { loadTree, classify, scoreSection, scoreNodes, scoreSubheading } from "../src/classifier.js";
+import { tokenize } from "../src/tokenizer.js";
+import type { HsNode } from "../src/types.js";
 import path from "node:path";
 
 describe("loadTree", () => {
@@ -38,5 +40,152 @@ describe("loadTree", () => {
       { force: true },
     );
     expect(tree.length).toBe(97);
+  });
+});
+
+describe("scoreSection", () => {
+  it("scores animal-related input highest for section I", () => {
+    const tokens = tokenize("live horses");
+    const scores = scoreSection(tokens);
+    const sec1 = scores.find((s) => s.section === "I");
+    expect(sec1).toBeDefined();
+    expect(sec1!.score).toBeGreaterThan(0);
+    scores.sort((a, b) => b.score - a.score);
+    expect(scores[0].section).toBe("I");
+  });
+
+  it("scores machinery input highest for section XVI", () => {
+    const tokens = tokenize("electrical motor generator");
+    const scores = scoreSection(tokens);
+    scores.sort((a, b) => b.score - a.score);
+    expect(scores[0].section).toBe("XVI");
+  });
+
+  it("filters sections below 50% of max score (min 3)", () => {
+    const tokens = tokenize("live horses");
+    const scores = scoreSection(tokens);
+    const maxScore = Math.max(...scores.map((s) => s.score));
+    const threshold = maxScore * 0.5;
+    if (scores.length > 3) {
+      for (const s of scores) {
+        expect(s.score).toBeGreaterThanOrEqual(threshold);
+      }
+    } else {
+      expect(scores.length).toBeGreaterThanOrEqual(3);
+    }
+  });
+
+  it("returns at least 3 sections even if only 1 matches", () => {
+    const tokens = tokenize("antique painting");
+    const scores = scoreSection(tokens);
+    expect(scores.length).toBeGreaterThanOrEqual(3);
+  });
+});
+
+describe("scoreNodes", () => {
+  beforeAll(() => {
+    loadTree(undefined, { force: true });
+  });
+
+  it("scores chapter 01 highest for 'live horses'", () => {
+    const tokens = tokenize("live horses");
+    const tree = loadTree();
+    const scores = scoreNodes(tokens, tree);
+    scores.sort((a, b) => b.score - a.score);
+    expect(scores[0].node.code).toBe("01");
+  });
+
+  it("scores chapter 94 for 'wooden furniture'", () => {
+    const tokens = tokenize("wooden furniture");
+    const tree = loadTree();
+    const scores = scoreNodes(tokens, tree);
+    const ch94 = scores.find((s) => s.node.code === "94");
+    expect(ch94).toBeDefined();
+    expect(ch94!.score).toBeGreaterThan(0);
+  });
+
+  it("filters by 50% threshold with minimum 3", () => {
+    const tokens = tokenize("live horses");
+    const tree = loadTree();
+    const scores = scoreNodes(tokens, tree);
+    expect(scores.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it("scores headings within a chapter", () => {
+    const tokens = tokenize("live horses");
+    const tree = loadTree();
+    const ch01 = tree.find((ch) => ch.code === "01")!;
+    const headingScores = scoreNodes(tokens, ch01.children);
+    headingScores.sort((a, b) => b.score - a.score);
+    expect(headingScores[0].node.code).toBe("0101");
+  });
+});
+
+describe("scoreSubheading", () => {
+  it("returns normal score for plain description", () => {
+    const tokens = tokenize("live horses pure-bred breeding animals");
+    const node: HsNode = {
+      code: "010121",
+      description: "Horses; live, pure-bred breeding animals",
+      level: 6,
+      children: [],
+    };
+    const score = scoreSubheading(tokens, node);
+    expect(score).toBeGreaterThan(0);
+  });
+
+  it("returns 0 for 'other than' match", () => {
+    const tokens = tokenize("live horses pure-bred breeding");
+    const node: HsNode = {
+      code: "010129",
+      description: "Horses; live, other than pure-bred breeding animals",
+      level: 6,
+      children: [],
+    };
+    const score = scoreSubheading(tokens, node);
+    expect(score).toBe(0);
+  });
+
+  it("does not trigger 'other than' when excluded tokens are absent", () => {
+    const tokens = tokenize("live horses working");
+    const node: HsNode = {
+      code: "010129",
+      description: "Horses; live, other than pure-bred breeding animals",
+      level: 6,
+      children: [],
+    };
+    const score = scoreSubheading(tokens, node);
+    expect(score).toBeGreaterThan(0);
+  });
+
+  it("applies fallback penalty for description starting with Other", () => {
+    const tokens = tokenize("bovine animals live");
+    const normalNode: HsNode = {
+      code: "010221",
+      description: "Cattle; live, pure-bred breeding animals",
+      level: 6,
+      children: [],
+    };
+    const otherNode: HsNode = {
+      code: "010290",
+      description: "Other live bovine animals",
+      level: 6,
+      children: [],
+    };
+    const normalScore = scoreSubheading(tokens, normalNode);
+    const otherScore = scoreSubheading(tokens, otherNode);
+    expect(otherScore).toBeLessThan(normalScore);
+  });
+
+  it("applies fallback penalty for n.e.s.i. description", () => {
+    const tokens = tokenize("some product");
+    const nesiNode: HsNode = {
+      code: "999999",
+      description: "Products n.e.s.i.",
+      level: 6,
+      children: [],
+    };
+    const score = scoreSubheading(tokens, nesiNode);
+    expect(score).toBeLessThanOrEqual(0.3);
   });
 });
