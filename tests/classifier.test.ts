@@ -259,7 +259,7 @@ describe("classify", () => {
   });
 });
 
-describe("accuracy: manual test cases", () => {
+describe("accuracy: per-case regression", () => {
   beforeAll(() => {
     loadTree(undefined, { force: true });
   });
@@ -274,6 +274,12 @@ describe("accuracy: manual test cases", () => {
       );
     });
   }
+});
+
+describe("accuracy: phase1 gates", () => {
+  beforeAll(() => {
+    loadTree(undefined, { force: true });
+  });
 
   it("meets 4-digit accuracy threshold (≥70%)", () => {
     let correct4 = 0;
@@ -300,6 +306,12 @@ describe("accuracy: manual test cases", () => {
     const accuracy6 = correct6 / testCases.length;
     console.log(`6-digit accuracy: ${correct6}/${testCases.length} = ${(accuracy6 * 100).toFixed(0)}%`);
     expect(accuracy6).toBeGreaterThanOrEqual(0.5);
+  });
+});
+
+describe("accuracy: diagnostics", () => {
+  beforeAll(() => {
+    loadTree(undefined, { force: true });
   });
 
   it("reports accuracy by difficulty", () => {
