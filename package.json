@@ -1,7 +1,7 @@
 {
   "name": "tariff-engine",
   "version": "0.1.0",
-  "description": "Rule-based HS code classification engine",
+  "description": "Rule-based HS code classification engine — zero runtime AI, offline-capable, explainable",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,19 +11,36 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "bin": {
+    "tariff-engine": "./dist/cli/index.js"
+  },
+  "files": [
+    "dist",
+    "data/hs-tree.json"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
     "test:watch": "vitest",
-    "classify": "tsx cli/index.ts"
+    "classify": "tsx cli/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "hs-code",
     "tariff",
     "classification",
-    "harmonized-system"
+    "harmonized-system",
+    "customs",
+    "trade",
+    "rule-engine"
   ],
+  "author": "wharfe",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wharfe/tariff-engine.git"
+  },
+  "homepage": "https://github.com/wharfe/tariff-engine#readme",
   "engines": {
     "node": ">=18"
   },

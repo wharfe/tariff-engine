@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cli/index.ts
 
 import { classify, loadTree } from "../src/index.js";
