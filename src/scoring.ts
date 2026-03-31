@@ -39,7 +39,7 @@ export const SCORING = {
   CHAPTER_WEIGHT: 0.2,
   HEADING_WEIGHT: 0.4,
   SUBHEADING_WEIGHT: 0.3,
-  NEEDS_REVIEW_THRESHOLD: 0.7,
+  NEEDS_REVIEW_THRESHOLD: 0.6,
 } as const;
 
 // Regex to detect incidental/cross-reference mentions of terms
