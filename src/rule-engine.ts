@@ -11,7 +11,7 @@ export function evaluateCondition(
 
   switch (condition.type) {
     case "equals":
-      return value === condition.value;
+      return String(value).toLowerCase() === String(condition.value).toLowerCase();
     case "contains":
       return String(value).includes(String(condition.value));
     case "not_contains":
