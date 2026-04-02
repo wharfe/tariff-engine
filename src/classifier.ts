@@ -30,6 +30,12 @@ export function loadTree(
   return cachedTree;
 }
 
+// Inject a pre-loaded tree directly, bypassing fs.
+// Useful in browser environments where readFileSync is unavailable.
+export function setTree(tree: HsNode[]): void {
+  cachedTree = tree;
+}
+
 export interface ScoredSection {
   section: string;
   title: string;

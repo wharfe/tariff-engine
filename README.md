@@ -2,6 +2,8 @@
 
 Rule-based HS (Harmonized System) code classification engine.
 
+**[Try the live demo →](https://tariff-engine.vercel.app)**
+
 Given a product description, returns 6-digit HS code candidates with **confidence scores** and **full reasoning paths**. No runtime AI — offline-capable, deterministic, sub-100ms.
 
 ## Why
