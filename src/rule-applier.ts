@@ -60,9 +60,10 @@ export function matchesConditions(
   conditions: { type: string; field: string; value: string | number }[],
   input: ClassifyInput,
 ): boolean {
+  const { dimensions_cm: _, ...flatAttrs } = input.attributes ?? {};
   const attrs: Record<string, string | number | undefined> = {
     description: input.description.toLowerCase(),
-    ...input.attributes,
+    ...flatAttrs,
   };
   return conditions.every((cond) =>
     evaluateCondition(
@@ -139,12 +140,16 @@ export function applyScoringAdjustments(
     if (rule.clauseType === "definition") {
       const params = rule.params as DefinitionParams;
       const termLower = params.term.toLowerCase();
+      // Match singular/plural: strip trailing 's' for comparison
+      const termBase = termLower.replace(/s$/, "");
       // Check if the input description contains the defined term
-      if (desc.includes(termLower)) {
+      if (desc.includes(termLower) || desc.includes(termBase)) {
         // Check if the candidate heading matches one of the appliesTo codes
-        const matchesHeading = params.appliesTo.some((code) =>
-          candidate.hscode.startsWith(code),
-        );
+        // Strip "Chapter " / "Section " prefixes from appliesTo values
+        const matchesHeading = params.appliesTo.some((code) => {
+          const normalized = code.replace(/^(Chapter|Section)\s+/i, "");
+          return candidate.hscode.startsWith(normalized);
+        });
         if (matchesHeading) {
           // Boost: input uses the defined term and candidate is the correct heading
           adjustments.push({
