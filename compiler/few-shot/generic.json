@@ -1,0 +1,116 @@
+[
+  {
+    "input": "This Section does not cover articles of heading 9503 or 9508, or bobsleighs, toboggans or the like of heading 9506.",
+    "output": {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": ["9503", "9508", "9506"],
+        "reason": "Section XVII Note 1: articles of headings 9503, 9508, 9506 are excluded from this Section"
+      }
+    }
+  },
+  {
+    "input": "This Chapter does not cover railway or tramway rolling-stock designed solely for running on rails.",
+    "output": {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": ["87"],
+        "reason": "Chapter 87 Note 1: railway/tramway rolling-stock for rails only is excluded"
+      }
+    }
+  },
+  {
+    "input": "For the purposes of this Chapter, \"tractors\" means vehicles constructed essentially for hauling or pushing another vehicle, appliance or load, whether or not they contain subsidiary provision for the transport, in connection with the main use of the tractor, of tools, seeds, fertilisers or other goods.",
+    "output": {
+      "clauseType": "definition",
+      "params": {
+        "term": "tractors",
+        "meaning": "vehicles constructed essentially for hauling or pushing another vehicle, appliance or load",
+        "appliesTo": ["8701"]
+      }
+    }
+  },
+  {
+    "input": "Heading 87.12 includes all children's bicycles. Other children's wheeled toys are classified in heading 95.03.",
+    "output": {
+      "clauseType": "definition",
+      "params": {
+        "term": "children's bicycles",
+        "meaning": "all children's bicycles fall under heading 87.12; other wheeled toys go to 95.03",
+        "appliesTo": ["8712"]
+      }
+    }
+  },
+  {
+    "input": "vehicles specially constructed to travel on both road and rail are classified in the appropriate heading of Chapter 87;",
+    "output": {
+      "clauseType": "routing",
+      "params": {
+        "target": "87",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "road" },
+          { "type": "contains", "field": "description", "value": "rail" }
+        ]
+      }
+    }
+  },
+  {
+    "input": "Motor chassis fitted with cabs fall in headings 87.02 to 87.04, and not in heading 87.06.",
+    "output": {
+      "clauseType": "routing",
+      "params": {
+        "target": "8702-8704",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "chassis" },
+          { "type": "contains", "field": "description", "value": "cab" }
+        ]
+      }
+    }
+  },
+  {
+    "input": "References in Chapters 86 to 88 to \"parts\" or \"accessories\" do not apply to parts or accessories which are not suitable for use solely or principally with the articles of those Chapters. A part or accessory which answers to a description in two or more of the headings of those Chapters is to be classified in the heading appropriate to the principal use of that part or accessory.",
+    "output": {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "principal_use",
+        "affectedCodes": ["86", "87", "88"]
+      }
+    }
+  },
+  {
+    "input": "Machines and working tools designed for fitting to tractors of heading 87.01 as their sole or principal source of power remain classified in their respective headings even when presented with the tractor, and whether or not mounted on it.",
+    "output": {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "stay_in_own_heading",
+        "affectedCodes": ["8701"]
+      }
+    }
+  },
+  {
+    "input": "Subheading 8708.22 covers front windscreens (windshields), rear windows and other windows, framed, for use with vehicles of headings 87.01 to 87.05.",
+    "output": {
+      "clauseType": "scope",
+      "params": {
+        "heading": "870822",
+        "covers": "front windscreens, rear windows and other windows, framed",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "windscreen" }
+        ]
+      }
+    }
+  },
+  {
+    "input": "amphibious motor vehicles are classified in the appropriate heading of Chapter 87;",
+    "output": {
+      "clauseType": "scope",
+      "params": {
+        "heading": "87",
+        "covers": "amphibious motor vehicles",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "amphibious" }
+        ]
+      }
+    }
+  }
+]
