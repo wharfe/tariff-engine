@@ -1,6 +1,19 @@
 // tests/types.test.ts
 import { describe, it, expect } from "vitest";
 import type {
+  PreScoringRule,
+  ScoringRule,
+  PartsRule,
+  ChapterRuleSet,
+  ScoringAdjustment,
+} from "../src/rule-types.js";
+import type {
+  NoteClause,
+  ClassifiedClause,
+  ClauseType,
+  ExclusionParams as CompilerExclusionParams,
+} from "../compiler/types.js";
+import type {
   ClassifyInput,
   ClassifyResult,
   Candidate,
@@ -51,5 +64,66 @@ describe("types", () => {
     };
     expect(node.section).toBe("I");
     expect(node.children).toHaveLength(0);
+  });
+});
+
+describe("rule-types type checking", () => {
+  it("ChapterRuleSet is structurally valid", () => {
+    const ruleSet: ChapterRuleSet = {
+      chapter: "87",
+      preScoringRules: [
+        {
+          clauseType: "exclusion",
+          params: { excludedCodes: ["8706"], reason: "test" },
+        },
+      ],
+      scoringRules: [
+        {
+          clauseType: "definition",
+          params: { term: "tractor", meaning: "hauling vehicle", appliesTo: ["8701"] },
+        },
+      ],
+      partsRules: [
+        {
+          clauseType: "parts_rule",
+          params: { rule: "principal_use" },
+        },
+      ],
+    };
+    expect(ruleSet.chapter).toBe("87");
+    expect(ruleSet.preScoringRules).toHaveLength(1);
+    expect(ruleSet.scoringRules).toHaveLength(1);
+    expect(ruleSet.partsRules).toHaveLength(1);
+  });
+
+  it("ScoringAdjustment is structurally valid", () => {
+    const adj: ScoringAdjustment = { factor: 1.05, reason: "Definition match" };
+    expect(adj.factor).toBe(1.05);
+  });
+
+  it("NoteClause is structurally valid", () => {
+    const clause: NoteClause = {
+      source: "chapter",
+      noteNumber: 2,
+      text: "For the purposes of this Chapter...",
+    };
+    expect(clause.source).toBe("chapter");
+    expect(clause.subItem).toBeUndefined();
+  });
+
+  it("ClassifiedClause extends NoteClause", () => {
+    const classified: ClassifiedClause = {
+      source: "section",
+      noteNumber: 1,
+      text: "This Section does not cover...",
+      clauseType: "exclusion",
+      params: { excludedCodes: ["9503", "9508"], reason: "Section XVII Note 1" },
+    };
+    expect(classified.clauseType).toBe("exclusion");
+  });
+
+  it("ClauseType covers all 5 types", () => {
+    const types: ClauseType[] = ["exclusion", "definition", "routing", "parts_rule", "scope"];
+    expect(types).toHaveLength(5);
   });
 });

@@ -5,3 +5,4 @@ data/*.json
 !data/.gitkeep
 data/raw/
 .env
+.vercel

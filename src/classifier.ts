@@ -14,6 +14,8 @@ import {
 } from "./lexicon.js";
 import { FUNCTION_SECTION_ROUTES, PRODUCT_CHAPTER_ROUTES } from "./routes.js";
 import { SCORING, bestDescScore, scoreSubheading } from "./scoring.js";
+import { loadRules as loadChapterRules, applyPreScoringRules, applyScoringAdjustments, matchesConditions } from "./rule-applier.js";
+import type { ChapterRuleSet, RoutingParams } from "./rule-types.js";
 
 let cachedTree: HsNode[] | null = null;
 
@@ -192,7 +194,23 @@ export function classify(input: ClassifyInput): ClassifyResult {
   }
 
   const candidateChapters = tree.filter((ch) => sectionChapterCodes.has(ch.code));
-  let chapterScores = scoreNodes(tokens, candidateChapters);
+
+  // Apply pre-scoring rules for chapters that have rules
+  let filteredCandidateChapters = candidateChapters;
+  const chapterRulesMap = new Map<string, ChapterRuleSet>();
+  for (const ch of candidateChapters) {
+    const rules = loadChapterRules(ch.code);
+    if (rules) {
+      chapterRulesMap.set(ch.code, rules);
+      filteredCandidateChapters = applyPreScoringRules(
+        rules.preScoringRules,
+        input,
+        filteredCandidateChapters,
+      );
+    }
+  }
+
+  let chapterScores = scoreNodes(tokens, filteredCandidateChapters);
 
   // Boost routed chapters and demote non-routed when function routing is active
   if (routedChapterCodes.size > 0) {
@@ -240,6 +258,38 @@ export function classify(input: ClassifyInput): ClassifyResult {
       headingScores = scoreNodes(tokens, chapter.children);
     }
 
+    // Apply heading-level routing from chapter rules
+    const chRules = chapterRulesMap.get(chapter.code);
+    if (chRules) {
+      for (const rule of chRules.preScoringRules) {
+        if (rule.clauseType === "routing") {
+          const params = rule.params as RoutingParams;
+          if (matchesConditions(params.conditions, input)) {
+            const target = params.target;
+            if (target.includes("-")) {
+              const [start, end] = target.split("-");
+              // Penalize headings outside the target range
+              headingScores = headingScores.map((hs) => {
+                const code = hs.node.code;
+                if (code >= start && code <= end) return hs;
+                // Heavy penalization for headings outside routing range
+                return { node: hs.node, score: hs.score * 0.1 };
+              });
+            } else {
+              // Single target: boost matching heading
+              headingScores = headingScores.map((hs) => {
+                if (hs.node.code.startsWith(target)) {
+                  return { node: hs.node, score: Math.max(hs.score, 0.8) };
+                }
+                return hs;
+              });
+            }
+            headingScores.sort((a, b) => b.score - a.score);
+          }
+        }
+      }
+    }
+
     for (const { node: heading, score: hScore } of headingScores) {
       if (heading.children.length === 0) {
         const descTokens = new Set(tokenize(heading.description));
@@ -250,15 +300,37 @@ export function classify(input: ClassifyInput): ClassifyResult {
           SCORING.HEADING_WEIGHT * hScore +
           SCORING.SUBHEADING_WEIGHT * hScore;
 
+        let adjustedConfidence = confidence;
+        const extraReasoning: string[] = [];
+        const chRules = chapterRulesMap.get(chapter.code);
+        if (chRules && chRules.scoringRules.length > 0) {
+          const tempCandidate = {
+            hscode: heading.code,
+            description: heading.description,
+            confidence,
+            reasoning: [] as string[],
+            matchedTokenCount: matchedCount,
+          };
+          const adjustments = applyScoringAdjustments(chRules.scoringRules, input, tempCandidate);
+          const totalFactor = adjustments.reduce((acc, a) => acc * a.factor, 1.0);
+          adjustedConfidence = confidence * totalFactor;
+          for (const a of adjustments) {
+            if (a.factor !== 1.0) {
+              extraReasoning.push(a.reason);
+            }
+          }
+        }
+
         allCandidates.push({
           hscode: heading.code,
           description: heading.description,
-          confidence,
+          confidence: adjustedConfidence,
           matchedTokenCount: matchedCount,
           reasoning: [
             `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
             `Chapter ${chapter.code}: ${chapter.description}`,
             `Heading ${heading.code}: ${heading.description}`,
+            ...extraReasoning,
           ],
         });
         continue;
@@ -275,16 +347,38 @@ export function classify(input: ClassifyInput): ClassifyResult {
           SCORING.HEADING_WEIGHT * hScore +
           SCORING.SUBHEADING_WEIGHT * subScore;
 
+        let adjustedConfidence = confidence;
+        const extraReasoning: string[] = [];
+        const chRules = chapterRulesMap.get(chapter.code);
+        if (chRules && chRules.scoringRules.length > 0) {
+          const tempCandidate = {
+            hscode: sub.code,
+            description: sub.description,
+            confidence,
+            reasoning: [] as string[],
+            matchedTokenCount: matchedCount,
+          };
+          const adjustments = applyScoringAdjustments(chRules.scoringRules, input, tempCandidate);
+          const totalFactor = adjustments.reduce((acc, a) => acc * a.factor, 1.0);
+          adjustedConfidence = confidence * totalFactor;
+          for (const a of adjustments) {
+            if (a.factor !== 1.0) {
+              extraReasoning.push(a.reason);
+            }
+          }
+        }
+
         allCandidates.push({
           hscode: sub.code,
           description: sub.description,
-          confidence,
+          confidence: adjustedConfidence,
           matchedTokenCount: matchedCount,
           reasoning: [
             `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
             `Chapter ${chapter.code}: ${chapter.description}`,
             `Heading ${heading.code}: ${heading.description}`,
             `Subheading ${sub.code}: ${sub.description}`,
+            ...extraReasoning,
           ],
         });
       }

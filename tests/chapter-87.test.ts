@@ -1,0 +1,75 @@
+// tests/chapter-87.test.ts
+// A/B comparison test: Chapter 87 accuracy with and without rules.
+
+import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { classify, loadTree } from "../src/classifier.js";
+import { loadRules, clearRules } from "../src/rule-applier.js";
+import testCases from "./fixtures/chapter-87-cases.json";
+
+interface TestCase {
+  description: string;
+  expected4: string;
+  expected6: string;
+  notes: string;
+}
+
+describe.each([
+  { label: "without rules", useRules: false },
+  { label: "with rules", useRules: true },
+])("Chapter 87 accuracy ($label)", ({ label, useRules }) => {
+  beforeAll(() => {
+    loadTree();
+    clearRules();
+    if (useRules) {
+      loadRules("87");
+    }
+  });
+
+  afterAll(() => {
+    clearRules();
+  });
+
+  let correct4 = 0;
+  let correct6 = 0;
+  const total = (testCases as TestCase[]).length;
+
+  it.each(testCases as TestCase[])(
+    "$description -> $expected4",
+    ({ description, expected4, expected6, notes }) => {
+      const result = classify({ description });
+      const top = result.candidates[0];
+
+      const match4 = top?.hscode.startsWith(expected4) ?? false;
+      const match6 = top?.hscode === expected6;
+
+      if (match4) correct4++;
+      if (match6) correct6++;
+
+      if (!match4) {
+        console.log(
+          `  [${label}] MISS: "${description}" -> got ${top?.hscode ?? "none"}, expected ${expected4}* (${notes})`,
+        );
+      }
+
+      // For test #9 (chassis+cab): dual assertion per spec
+      if (description.includes("chassis") && description.includes("cab")) {
+        expect(top?.hscode.startsWith("8703")).toBe(true);
+        expect(top?.hscode.startsWith("8706")).toBe(false);
+      }
+
+      // Basic assertion: result should have candidates
+      expect(result.candidates.length).toBeGreaterThan(0);
+    },
+  );
+
+  // Report accuracy after all cases
+  it("reports accuracy", () => {
+    console.log(`\n  [${label}] 4-digit: ${correct4}/${total} (${((correct4 / total) * 100).toFixed(0)}%)`);
+    console.log(`  [${label}] 6-digit: ${correct6}/${total} (${((correct6 / total) * 100).toFixed(0)}%)\n`);
+
+    if (useRules) {
+      // Success criteria: 4-digit accuracy >= 80% with rules
+      expect(correct4).toBeGreaterThanOrEqual(8);
+    }
+  });
+});

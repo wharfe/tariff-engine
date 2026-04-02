@@ -1,0 +1,12 @@
+[
+  { "description": "sedan car, 1500cc gasoline engine", "expected4": "8703", "expected6": "870322", "notes": "basic passenger car" },
+  { "description": "diesel truck for cargo, GVW 10 tons", "expected4": "8704", "expected6": "870422", "notes": "cargo vehicle" },
+  { "description": "agricultural tractor, 90 HP", "expected4": "8701", "expected6": "870191", "notes": "definition: tractor = hauling/pushing" },
+  { "description": "children's bicycle with training wheels", "expected4": "8712", "expected6": "871200", "notes": "Note 4: children bicycle -> 8712" },
+  { "description": "bus for 25 passengers", "expected4": "8702", "expected6": "870210", "notes": "scope: >= 10 persons" },
+  { "description": "motorcycle, 250cc", "expected4": "8711", "expected6": "871120", "notes": "basic motorcycle" },
+  { "description": "bicycle parts, rear derailleur", "expected4": "8714", "expected6": "871491", "notes": "parts classification" },
+  { "description": "electric scooter for personal transport", "expected4": "8711", "expected6": "871160", "notes": "electric mobility" },
+  { "description": "motor chassis fitted with cab, for passenger car", "expected4": "8703", "expected6": "870390", "notes": "Note 3: chassis+cab -> 8702-8704 NOT 8706" },
+  { "description": "baby stroller with wheels", "expected4": "8715", "expected6": "871500", "notes": "baby carriages" }
+]
