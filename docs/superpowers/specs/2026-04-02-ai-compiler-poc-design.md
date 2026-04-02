@@ -318,7 +318,7 @@ classify(input)
 | 6 | motorcycle, 250cc | 8711 | 基本的なバイク |
 | 7 | bicycle parts, rear derailleur | 8714 | 部品分類 |
 | 8 | electric scooter for personal transport | 8711 | 電動モビリティ |
-| 9 | motor chassis fitted with cab, for passenger car | 8703 | Note 3: chassis+cab→8702-8704 (NOT 8706) |
+| 9 | motor chassis fitted with cab, for passenger car | 8703 | Note 3: chassis+cab→8702-8704 (NOT 8706). Assertion: expected4 === "8703" AND hscode !== "8706" |
 | 10 | baby stroller with wheels | 8715 | 乳母車（Chapter 87の端のケース） |
 
 注: 6桁コードはルール適用後に検証・確定する。テストケースのHSコードはWCOのHS 2022 Nomenclatureで確認してから最終化。
