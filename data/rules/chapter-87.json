@@ -4,17 +4,220 @@
     {
       "clauseType": "exclusion",
       "params": {
-        "excludedCodes": ["87"],
-        "reason": "Chapter 87 Note 1: railway/tramway rolling-stock designed solely for rails is excluded from Chapter 87"
+        "excludedCodes": [
+          "9503",
+          "9508",
+          "9506"
+        ],
+        "reason": "Section does not cover articles of headings 9503, 9508, 9506 (including bobsleighs, toboggans and the like)"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8484",
+          "4016"
+        ],
+        "reason": "Joints, washers and similar articles of any material (classified by constituent material or in heading 8484) and other vulcanised rubber articles except hard rubber (heading 4016) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15",
+          "39"
+        ],
+        "reason": "Parts of general use from Section XV (base metal) or Chapter 39 (plastics) are excluded from this classification"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82"
+        ],
+        "reason": "Articles of Chapter 82 (tools) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8306"
+        ],
+        "reason": "articles of heading 8306 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "85"
+        ],
+        "reason": "electrical machinery or equipment of Chapter 85 is excluded from this context"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90"
+        ],
+        "reason": "articles of Chapter 90 are excluded from the current classification context"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "articles of Chapter 91 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "93"
+        ],
+        "reason": "arms classified in Chapter 93 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9405"
+        ],
+        "reason": "lamps and lighting fittings of heading 9405 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "87",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "road"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rail"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "87",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "amphibious motor vehicles"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "88",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "aircraft"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "road"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "86",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "guide-track"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "hovertrain"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "87",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "travel over land"
+          },
+          {
+            "type": "or",
+            "field": "description",
+            "value": "travel over both land and water"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "89",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "travel over water"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "railway or tramway rolling-stock"
+        ],
+        "reason": "Chapter 87 Note 1: railway or tramway rolling-stock designed solely for running on rails is excluded from Chapter 87"
       }
     },
     {
       "clauseType": "routing",
       "params": {
         "target": "8702-8704",
+        "excludedCode": "8706",
         "conditions": [
-          { "type": "contains", "field": "description", "value": "chassis" },
-          { "type": "contains", "field": "description", "value": "cab" }
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "motor chassis"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cab"
+          }
         ]
       }
     },
@@ -23,28 +226,108 @@
       "params": {
         "target": "8712",
         "conditions": [
-          { "type": "contains", "field": "description", "value": "children" },
-          { "type": "contains", "field": "description", "value": "bicycle" }
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "children"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bicycle"
+          }
         ]
       }
     }
   ],
   "scoringRules": [
     {
-      "clauseType": "definition",
+      "clauseType": "scope",
       "params": {
-        "term": "tractor",
-        "meaning": "vehicles constructed essentially for hauling or pushing another vehicle, appliance or load",
-        "appliesTo": ["8701"]
+        "heading": "8401-8479, 8481, 8482, 8483",
+        "covers": "machines and apparatus of headings 8401 to 8479, or parts thereof; articles of heading 8481 or 8482 or articles of heading 8483 when they constitute integral parts of engines or motors",
+        "conditions": [
+          {
+            "type": "code_range",
+            "field": "heading",
+            "value": "8401-8479"
+          },
+          {
+            "type": "code_specific",
+            "field": "heading",
+            "value": "8481"
+          },
+          {
+            "type": "code_specific",
+            "field": "heading",
+            "value": "8482"
+          },
+          {
+            "type": "conditional",
+            "field": "heading",
+            "value": "8483",
+            "condition": "integral parts of engines or motors"
+          }
+        ]
       }
     },
     {
       "clauseType": "scope",
       "params": {
-        "heading": "870822",
-        "covers": "front windscreens, rear windows and other windows, framed",
+        "heading": "9603",
+        "covers": "brushes of a kind used as parts of vehicles",
         "conditions": [
-          { "type": "contains", "field": "description", "value": "windscreen" }
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "brushes"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "parts of vehicles"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "tractors",
+        "meaning": "vehicles constructed essentially for hauling or pushing another vehicle, appliance or load, whether or not they contain subsidiary provision for the transport, in connection with the main use of the tractor, of tools, seeds, fertilisers or other goods",
+        "appliesTo": [
+          "Chapter 87"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8708.22",
+        "covers": "front windscreens (windshields), rear windows and other windows, framed",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "windscreen"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "window"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "framed"
+          }
+        ],
+        "applicableToVehicles": [
+          "8701",
+          "8702",
+          "8703",
+          "8704",
+          "8705"
         ]
       }
     }
@@ -54,14 +337,22 @@
       "clauseType": "parts_rule",
       "params": {
         "rule": "principal_use",
-        "affectedCodes": ["86", "87", "88"]
+        "affectedCodes": [
+          "86",
+          "87",
+          "88"
+        ],
+        "detail": "Parts or accessories must be suitable for use solely or principally with articles of these Chapters; if applicable to multiple headings, classify by principal use"
       }
     },
     {
       "clauseType": "parts_rule",
       "params": {
         "rule": "stay_in_own_heading",
-        "affectedCodes": ["8701"]
+        "affectedCodes": [
+          "8701"
+        ],
+        "description": "Machines and working tools designed for fitting to tractors remain classified in their respective headings even when presented with the tractor"
       }
     }
   ]
