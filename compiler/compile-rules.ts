@@ -6,7 +6,7 @@
 //     --notes data/notes/chapter-87.md \
 //     --section-notes data/notes/section-17.md
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { parseNotes } from "./notes-parser.js";
 import { classifyClauses } from "./clause-classifier.js";
@@ -61,7 +61,10 @@ async function main(): Promise<void> {
   console.log(`Parsed ${clauses.length} clauses`);
 
   // Step 2: Classify via LLM
-  const fewShotPath = resolve(`compiler/few-shot/chapter-${args.chapter}.json`);
+  const chapterFewShot = resolve(`compiler/few-shot/chapter-${args.chapter}.json`);
+  const genericFewShot = resolve("compiler/few-shot/generic.json");
+  const fewShotPath = existsSync(chapterFewShot) ? chapterFewShot : genericFewShot;
+  console.log(`Using few-shot: ${fewShotPath}`);
   console.log("Classifying clauses using LLM...");
   const classified = await classifyClauses(clauses, fewShotPath);
   console.log(`Classified ${classified.length} clauses`);
