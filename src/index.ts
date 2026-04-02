@@ -18,3 +18,15 @@ export type {
   HeadingRule,
   ChapterRules,
 } from "./types.js";
+export type {
+  ExclusionParams,
+  DefinitionParams,
+  RoutingParams,
+  PartsRuleParams,
+  ScopeParams,
+  PreScoringRule,
+  ScoringRule,
+  PartsRule,
+  ChapterRuleSet,
+  ScoringAdjustment,
+} from "./rule-types.js";
