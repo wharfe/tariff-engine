@@ -56,7 +56,7 @@ export function clearRules(): void {
 }
 
 // --- Helper: check if input description matches all conditions ---
-function matchesConditions(
+export function matchesConditions(
   conditions: { type: string; field: string; value: string | number }[],
   input: ClassifyInput,
 ): boolean {

@@ -14,8 +14,8 @@ import {
 } from "./lexicon.js";
 import { FUNCTION_SECTION_ROUTES, PRODUCT_CHAPTER_ROUTES } from "./routes.js";
 import { SCORING, bestDescScore, scoreSubheading } from "./scoring.js";
-import { loadRules as loadChapterRules, applyPreScoringRules, applyScoringAdjustments } from "./rule-applier.js";
-import type { ChapterRuleSet } from "./rule-types.js";
+import { loadRules as loadChapterRules, applyPreScoringRules, applyScoringAdjustments, matchesConditions } from "./rule-applier.js";
+import type { ChapterRuleSet, RoutingParams } from "./rule-types.js";
 
 let cachedTree: HsNode[] | null = null;
 
@@ -256,6 +256,38 @@ export function classify(input: ClassifyInput): ClassifyResult {
       headingScores = scoreNodes(withSynonyms, chapter.children);
     } else {
       headingScores = scoreNodes(tokens, chapter.children);
+    }
+
+    // Apply heading-level routing from chapter rules
+    const chRules = chapterRulesMap.get(chapter.code);
+    if (chRules) {
+      for (const rule of chRules.preScoringRules) {
+        if (rule.clauseType === "routing") {
+          const params = rule.params as RoutingParams;
+          if (matchesConditions(params.conditions, input)) {
+            const target = params.target;
+            if (target.includes("-")) {
+              const [start, end] = target.split("-");
+              // Penalize headings outside the target range
+              headingScores = headingScores.map((hs) => {
+                const code = hs.node.code;
+                if (code >= start && code <= end) return hs;
+                // Heavy penalization for headings outside routing range
+                return { node: hs.node, score: hs.score * 0.1 };
+              });
+            } else {
+              // Single target: boost matching heading
+              headingScores = headingScores.map((hs) => {
+                if (hs.node.code.startsWith(target)) {
+                  return { node: hs.node, score: Math.max(hs.score, 0.8) };
+                }
+                return hs;
+              });
+            }
+            headingScores.sort((a, b) => b.score - a.score);
+          }
+        }
+      }
     }
 
     for (const { node: heading, score: hScore } of headingScores) {

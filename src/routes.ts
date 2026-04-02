@@ -22,6 +22,9 @@ export const FUNCTION_SECTION_ROUTES: Record<string, string> = {
   knife: "XV", cutlery: "XV",
   // Tableware → Section XIII
   mug: "XIII", cup: "XIII",
+  // Vehicles → Section XVII
+  car: "XVII", vehicle: "XVII", truck: "XVII", bus: "XVII",
+  tractor: "XVII", motorcycle: "XVII", stroller: "XVII", sedan: "XVII",
 };
 
 // Direct chapter routing: when specific product-type words are present,
@@ -46,6 +49,14 @@ export const PRODUCT_CHAPTER_ROUTES: Record<string, string[]> = {
   scooter: ["87"],
   bicycle: ["87"],
   cycle: ["87"],
+  tractor: ["87"],
+  bus: ["87"],
+  truck: ["87"],
+  motorcycle: ["87"],
+  stroller: ["87"],
+  car: ["87"],
+  sedan: ["87"],
+  vehicle: ["87"],
   toothbrush: ["85"],
   oven: ["85"],
   microwave: ["85"],
