@@ -18,6 +18,14 @@ export type {
   HeadingRule,
   ChapterRules,
 } from "./types.js";
+export {
+  loadRules,
+  setRules,
+  clearRules,
+  applyPreScoringRules,
+  applyScoringAdjustments,
+  applyPartsRules,
+} from "./rule-applier.js";
 export type {
   ExclusionParams,
   DefinitionParams,
