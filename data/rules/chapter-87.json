@@ -1,0 +1,68 @@
+{
+  "chapter": "87",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": ["87"],
+        "reason": "Chapter 87 Note 1: railway/tramway rolling-stock designed solely for rails is excluded from Chapter 87"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8702-8704",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "chassis" },
+          { "type": "contains", "field": "description", "value": "cab" }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8712",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "children" },
+          { "type": "contains", "field": "description", "value": "bicycle" }
+        ]
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "tractor",
+        "meaning": "vehicles constructed essentially for hauling or pushing another vehicle, appliance or load",
+        "appliesTo": ["8701"]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "870822",
+        "covers": "front windscreens, rear windows and other windows, framed",
+        "conditions": [
+          { "type": "contains", "field": "description", "value": "windscreen" }
+        ]
+      }
+    }
+  ],
+  "partsRules": [
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "principal_use",
+        "affectedCodes": ["86", "87", "88"]
+      }
+    },
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "stay_in_own_heading",
+        "affectedCodes": ["8701"]
+      }
+    }
+  ]
+}
