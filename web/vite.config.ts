@@ -7,6 +7,8 @@ export default defineConfig({
   resolve: {
     alias: {
       "tariff-engine": resolve(__dirname, "../src/index.ts"),
+      "node:fs": resolve(__dirname, "src/stubs/fs.ts"),
+      "node:path": resolve(__dirname, "src/stubs/path.ts"),
     },
   },
   json: {
