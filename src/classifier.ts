@@ -50,11 +50,22 @@ export function scoreSection(inputTokens: string[]): ScoredSection[] {
 
   const hasFunctionWord = inputTokens.some((t) => FUNCTION_WORDS.has(t));
 
-  // Determine function-based section routing (collect ALL routed sections)
+  // Determine function-based section routing (collect ALL routed sections).
+  // Context modifiers (car, bicycle, etc.) are deprioritized when product words are present.
+  const SECTION_CONTEXT_MODIFIERS = new Set([
+    "electric", "electronic", "industrial", "household", "commercial",
+    "baby", "children",
+  ]);
   const functionRouteSections = new Set<string>();
+  const hasProductSectionRoute = inputTokens.some(
+    (t) => !SECTION_CONTEXT_MODIFIERS.has(t) && FUNCTION_SECTION_ROUTES[t],
+  );
   for (const t of inputTokens) {
     const route = FUNCTION_SECTION_ROUTES[t];
-    if (route) functionRouteSections.add(route);
+    if (!route) continue;
+    // Skip context modifier routes when product routes exist
+    if (hasProductSectionRoute && SECTION_CONTEXT_MODIFIERS.has(t)) continue;
+    functionRouteSections.add(route);
   }
   // Legacy: pick one for backward-compatible penalty logic
   const functionRouteSection = functionRouteSections.size > 0
@@ -184,15 +195,34 @@ export function classify(input: ClassifyInput): ClassifyResult {
   // Step 2: Get candidate chapters from matched sections
   const sectionChapterCodes = new Set(sections.flatMap((s) => s.chapters));
 
-  // Add product-routed chapters to candidate set
+  // Add product-routed chapters to candidate set.
+  // Context modifiers (car, bicycle, electric, etc.) describe usage context,
+  // not the product itself. When a specific product word is also present,
+  // suppress the context modifier's chapter route.
+  // Context modifiers: words that describe usage context rather than the product.
+  // Vehicle words (car, sedan) are NOT included — they are often the product itself.
+  // Only include words that are almost always modifiers, not primary products.
+  const CONTEXT_MODIFIERS = new Set([
+    "electric", "electronic", "industrial", "household", "commercial",
+    "baby", "children",
+  ]);
   const routedChapterCodes = new Set<string>();
+  const tokenRoutes = new Map<string, string[]>(); // token → chapters
   for (const t of tokens) {
     const routes = PRODUCT_CHAPTER_ROUTES[t];
-    if (routes) {
-      for (const ch of routes) {
-        sectionChapterCodes.add(ch);
-        routedChapterCodes.add(ch);
-      }
+    if (routes) tokenRoutes.set(t, routes);
+  }
+
+  // Check if we have both context modifiers and product words routing to different chapters
+  const hasContextRoute = tokens.some((t) => CONTEXT_MODIFIERS.has(t) && tokenRoutes.has(t));
+  const hasProductRoute = tokens.some((t) => !CONTEXT_MODIFIERS.has(t) && !MATERIAL_TOKENS.has(t) && tokenRoutes.has(t));
+
+  for (const [t, routes] of tokenRoutes) {
+    // Suppress context modifier routes when a product word routes elsewhere
+    if (hasProductRoute && CONTEXT_MODIFIERS.has(t)) continue;
+    for (const ch of routes) {
+      sectionChapterCodes.add(ch);
+      routedChapterCodes.add(ch);
     }
   }
 
@@ -258,8 +288,9 @@ export function classify(input: ClassifyInput): ClassifyResult {
     const hasWoven = tokens.includes("woven");
     const hasKnitted = tokens.some((t) => t === "knitted" || t === "knit" || t === "crocheted");
     chapterScores = chapterScores.map((cs) => {
+      // Heavily suppress raw textile chapters when garment words are present
       if (RAW_TEXTILE_CHAPTERS.has(cs.node.code)) {
-        return { node: cs.node, score: cs.score * 0.15 };
+        return { node: cs.node, score: cs.score * 0.05 };
       }
       // Boost Ch.62 when "woven" is present, penalize Ch.61
       if (hasWoven && cs.node.code === "62") {
