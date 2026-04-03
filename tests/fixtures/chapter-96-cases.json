@@ -1,0 +1,8 @@
+[
+  { "description": "toothbrush, nylon bristles", "expected4": "9603", "expected6": "960321", "notes": "toothbrush" },
+  { "description": "ballpoint pen, retractable", "expected4": "9608", "expected6": "960810", "notes": "ballpoint pen" },
+  { "description": "cigarette lighter, butane, disposable", "expected4": "9613", "expected6": "961310", "notes": "pocket lighter" },
+  { "description": "hair comb, plastic", "expected4": "9615", "expected6": "961511", "notes": "comb of hard rubber/plastics" },
+  { "description": "paint roller with handle", "expected4": "9603", "expected6": "960340", "notes": "paint roller" },
+  { "description": "vacuum flask, stainless steel, 500ml", "expected4": "9617", "expected6": "961700", "notes": "vacuum flask" }
+]

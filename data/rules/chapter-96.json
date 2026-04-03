@@ -1,0 +1,259 @@
+{
+  "chapter": "96",
+  "preScoringRules": [
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "33",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "pencils"
+          },
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "cosmetic or toilet"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "66"
+        ],
+        "reason": "Articles of Chapter 66, including parts of umbrellas or walking-sticks, are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15",
+          "39"
+        ],
+        "reason": "Parts of general use as defined in Note 2 to Section XV, of base metal (Section XV), or similar goods of plastics (Chapter 39) are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "9601",
+          "9602"
+        ],
+        "conditions": [
+          {
+            "type": "presentation",
+            "value": "separately"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "handles or parts of carving or moulding materials"
+          }
+        ],
+        "reason": "When handles and other parts of carving or moulding materials from Chapter 82 articles are presented separately, they are routed to headings 96.01 or 96.02"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9003",
+          "9017",
+          "9018"
+        ],
+        "reason": "Articles of Chapter 90, including spectacle frames (9003), mathematical drawing pens (9017), and specialized brushes for medical/dental/surgical/veterinary purposes (9018), are excluded from the relevant section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "Articles of Chapter 91 (for example, clock or watch cases) are excluded from the current classification"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "92"
+        ],
+        "reason": "Musical instruments or parts or accessories thereof are excluded and classified in Chapter 92"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "93"
+        ],
+        "reason": "articles of Chapter 93 (arms and parts thereof) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Articles of Chapter 94 (furniture, luminaires and lighting fittings) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Articles of Chapter 95 (toys, games, sports requisites) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "works of art, collectors' pieces or antiques of Chapter 97 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "9607",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "press-fasteners"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "interlocking parts"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "chain scoops or flanges on tape"
+          }
+        ],
+        "excludedFromHeading": "9606"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7117",
+        "covers": "imitation jewellery",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "imitation jewellery"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "hard animal materials",
+        "meaning": "ivory, bone, tortoise-shell, horn, antlers, coral, mother-of-pearl and articles of these materials",
+        "appliesTo": [
+          "05"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "jet and minerals substituting for jet",
+        "meaning": "jet and minerals that serve as substitutes for jet",
+        "appliesTo": [
+          "7103"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3913",
+        "covers": "amber and agglomerated amber, meerschaum and agglomerated meerschaum",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "amber"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "agglomerated amber"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "meerschaum"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "agglomerated meerschaum"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "14",
+        "covers": "hard vegetable materials and articles made from these materials",
+        "examples": [
+          "corozo"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "hard vegetable materials"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "slide fasteners",
+        "meaning": "articles consisting of two rows of teeth of base metal, plastics or other material, each row fixed on a tape, and a slide, by the operation of which the two rows of teeth can be interlocked or separated",
+        "appliesTo": [
+          "9606"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "smoking pipes and pipe bowls",
+        "meaning": "pipes and pipe bowls made of materials other than precious metal or metal clad with precious metal",
+        "appliesTo": [
+          "9614"
+        ],
+        "excludes": [
+          "precious metal",
+          "metal clad with precious metal"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

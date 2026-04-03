@@ -1,0 +1,10 @@
+[
+  { "description": "wooden office desk", "expected4": "9403", "expected6": "940330", "notes": "wooden office furniture" },
+  { "description": "LED desk lamp, adjustable arm", "expected4": "9405", "expected6": "940540", "notes": "electric lamp" },
+  { "description": "memory foam mattress, queen size", "expected4": "9404", "expected6": "940429", "notes": "mattress" },
+  { "description": "upholstered sofa, 3-seater, fabric", "expected4": "9401", "expected6": "940161", "notes": "upholstered seat" },
+  { "description": "metal bookshelf, 5 tiers", "expected4": "9403", "expected6": "940320", "notes": "metal furniture" },
+  { "description": "prefabricated wooden garden shed", "expected4": "9406", "expected6": "940610", "notes": "prefabricated building" },
+  { "description": "baby crib, wooden, convertible", "expected4": "9403", "expected6": "940340", "notes": "wooden kitchen/bedroom furniture" },
+  { "description": "outdoor plastic chair, stackable", "expected4": "9401", "expected6": "940180", "notes": "seat of other material" }
+]

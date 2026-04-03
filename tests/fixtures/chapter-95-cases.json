@@ -1,0 +1,10 @@
+[
+  { "description": "plastic building blocks toy set for children", "expected4": "9503", "expected6": "950300", "notes": "construction toy set" },
+  { "description": "video game console with controllers", "expected4": "9504", "expected6": "950450", "notes": "video game console" },
+  { "description": "inflatable swimming pool for kids", "expected4": "9506", "expected6": "950699", "notes": "swimming equipment" },
+  { "description": "carbon fiber tennis racket", "expected4": "9506", "expected6": "950651", "notes": "tennis racket" },
+  { "description": "stuffed teddy bear plush toy", "expected4": "9503", "expected6": "950300", "notes": "stuffed toy" },
+  { "description": "electric toy train set with tracks", "expected4": "9503", "expected6": "950300", "notes": "electric train toy" },
+  { "description": "yoga mat, TPE material, 6mm", "expected4": "9506", "expected6": "950691", "notes": "physical exercise equipment" },
+  { "description": "jigsaw puzzle, 1000 pieces", "expected4": "9503", "expected6": "950300", "notes": "puzzle" }
+]

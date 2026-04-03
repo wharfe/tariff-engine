@@ -1,0 +1,244 @@
+{
+  "chapter": "95",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3406"
+        ],
+        "reason": "candles of heading 34.06 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3604"
+        ],
+        "reason": "fireworks or other pyrotechnic articles of heading 36.04 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "39",
+          "4206",
+          "XI"
+        ],
+        "reason": "Yarns, monofilament, cords or gut or the like for fishing, cut to length but not made up as fishing lines, from Chapter 39, heading 42.06 or Section XI are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4202",
+          "4303",
+          "4304"
+        ],
+        "reason": "sports bags or other containers of headings 42.02, 43.03 or 43.04 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "61",
+          "62"
+        ],
+        "reason": "sports clothing or fancy dress of textiles from Chapter 61 or 62 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "63"
+        ],
+        "reason": "textile flags, bunting, or sails for boats, sailboards or land craft classified in Chapter 63 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64",
+          "65"
+        ],
+        "reason": "sports footwear (other than skating boots with ice or roller skates attached) of Chapter 64, or sports headgear of Chapter 65 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6602",
+          "6603"
+        ],
+        "reason": "walking-sticks, whips, riding-crops and parts thereof classified in headings 66.02 and 66.03 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7018"
+        ],
+        "reason": "unmounted glass eyes for dolls or other toys of heading 70.18 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "XV",
+          "39"
+        ],
+        "reason": "Parts of general use as defined in Note 2 to Section XV, of base metal (Section XV), or similar goods of plastics (Chapter 39) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8306"
+        ],
+        "reason": "bells, gongs or the like of heading 83.06 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8413",
+          "8421",
+          "8501",
+          "8504",
+          "8523",
+          "8526",
+          "8543"
+        ],
+        "reason": "Specific items are excluded from the current heading/chapter: pumps for liquids, filtering/purifying machinery, electric motors, transformers, storage media, remote control apparatus"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9506"
+        ],
+        "reason": "sports vehicles of Section XVII are excluded, except bobsleighs, toboggans and the like which fall under heading 9506"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9503"
+        ],
+        "reason": "Articles identifiable as intended exclusively for animals (e.g., pet toys) are excluded from heading 95.03 and classified in their own appropriate headings"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "950430"
+        ],
+        "reason": "Video game consoles or machines operated by coins, banknotes, bank cards, tokens or by any other means of payment are excluded from this subheading and classified in 9504.30"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8712",
+        "covers": "children's bicycles",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "children's bicycles"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "71",
+        "covers": "articles in which natural or cultured pearls, precious or semi-precious stones (natural, synthetic or reconstructed), precious metal or metal clad with precious metal constitute only minor constituents",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "composition",
+            "value": "pearls, precious/semi-precious stones, precious metal"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9503",
+        "covers": "articles combined with one or more items that cannot be considered as sets, where combinations are put up together for retail sale and have the essential character of toys",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "combined with items"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "retail sale"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "essential character of toys"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9504",
+        "covers": "video game consoles with external display output",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "video game consoles"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "external screen"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "television receiver"
+          }
+        ]
+      }
+    }
+  ],
+  "partsRules": [
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "principal_use",
+        "affectedCodes": [
+          "current_chapter"
+        ],
+        "condition": "suitable for use solely or principally with articles of this Chapter"
+      }
+    }
+  ]
+}
