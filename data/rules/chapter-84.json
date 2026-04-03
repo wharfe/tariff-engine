@@ -1,0 +1,1101 @@
+{
+  "chapter": "84",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3909",
+          "4010",
+          "4016"
+        ],
+        "reason": "transmission or conveyor belts of plastics (Chapter 39), vulcanised rubber (headings 40.10, 40.16), and other technical rubber articles are excluded from this heading"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4205",
+          "4303"
+        ],
+        "reason": "articles of leather, composition leather, or furskin of a kind used in machinery, mechanical appliances or for other technical uses are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "5910",
+          "5911"
+        ],
+        "reason": "transmission or conveyor belts of textile material (heading 59.10) and other articles of textile material for technical uses (heading 59.11) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7102",
+          "7103",
+          "7104",
+          "7116"
+        ],
+        "exceptions": [
+          "8522"
+        ],
+        "reason": "Precious or semi-precious stones and articles wholly of such stones are excluded, except unmounted worked sapphires and diamonds for styli which are classified in heading 8522"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15",
+          "39"
+        ],
+        "reason": "Parts of general use as defined in Note 2 to Section XV, of base metal (Section XV), or similar goods of plastics (Chapter 39) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15"
+        ],
+        "reason": "Endless belts of metal wire or strip are excluded and fall under Section XV"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82",
+          "83"
+        ],
+        "reason": "Articles of Chapter 82 or 83 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XVII"
+        ],
+        "reason": "Articles of Section XVII are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90"
+        ],
+        "reason": "articles of Chapter 90 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "clocks, watches or other articles of Chapter 91 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "8207",
+          "9603",
+          "40",
+          "42",
+          "43",
+          "45",
+          "59",
+          "6804",
+          "6909"
+        ],
+        "conditions": [
+          {
+            "type": "is_type",
+            "field": "item",
+            "value": "interchangeable tools"
+          },
+          {
+            "type": "classify_by",
+            "field": "constituent_material",
+            "value": "working part"
+          }
+        ],
+        "exceptions": [
+          {
+            "code": "8207",
+            "description": "interchangeable tools of heading 82.07"
+          },
+          {
+            "code": "9603",
+            "description": "brushes of a kind used as parts of machines"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Chapter 95 articles are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "96.12",
+          "96.20"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "typewriter or similar ribbons"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "inked or otherwise prepared for giving impressions"
+          }
+        ],
+        "alternativeRule": "classified according to constituent material unless inked/prepared, then 96.12"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "8409",
+          "8431",
+          "8448",
+          "8466",
+          "8473",
+          "8503",
+          "8522",
+          "8529",
+          "8538",
+          "8487",
+          "8548"
+        ],
+        "conditions": [
+          {
+            "type": "description",
+            "value": "all other parts"
+          }
+        ],
+        "fallback": "84.87 or 85.48"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "based_on_principal_function",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "composite machines"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "two or more machines"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "principal function"
+          }
+        ],
+        "rule": "classify according to the machine/component that performs the principal function"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "84",
+          "85"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "machine consisting of individual components"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "intended to contribute together to a clearly defined function"
+          }
+        ],
+        "rule": "classify to heading appropriate to the overall function"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "85.49"
+        ],
+        "reason": "Section XVI Note 3(C): municipal waste as defined in Note 4 to Chapter 38 is excluded from this Section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "68"
+        ],
+        "reason": "millstones, grindstones or other articles of Chapter 68 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "69"
+        ],
+        "reason": "machinery or appliances of ceramic material and ceramic parts of machinery or appliances are excluded and classified in Chapter 69"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7321",
+          "7322",
+          "74",
+          "75",
+          "76",
+          "78",
+          "79",
+          "80",
+          "81"
+        ],
+        "reason": "Articles of headings 73.21, 73.22 or similar articles of other base metals from Chapters 74-76 or 78-81 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8508"
+        ],
+        "reason": "vacuum cleaners of heading 85.08 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8509",
+          "8525"
+        ],
+        "reason": "electro-mechanical domestic appliances of heading 85.09 and digital cameras of heading 85.25 are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8451",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "heat-treatment"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "textile yarns"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8422"
+        ],
+        "reason": "Machinery, plant or laboratory equipment where change of temperature is subsidiary (not the principal function) is excluded from heading 84.22"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8452",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sewing machines"
+          },
+          {
+            "type": "contains",
+            "field": "purpose",
+            "value": "closing bags or similar containers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8472"
+        ],
+        "reason": "Heading 84.24 does not cover office machinery of heading 84.72"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8443",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ink-jet printing machines"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8456",
+        "conditions": [
+          {
+            "type": "matches_description",
+            "field": "heading",
+            "value": "8456"
+          },
+          {
+            "type": "matches_description",
+            "field": "heading",
+            "value": "8457 or 8458 or 8459 or 8460 or 8461 or 8464 or 8465"
+          }
+        ],
+        "rule": "classify in 8456 when machine-tool answers to descriptions in both 8456 and any of 8457, 8458, 8459, 8460, 8461, 8464, or 8465"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8471"
+        ],
+        "reason": "Chapter 84 Note 5(D): certain items are excluded from heading 84.71 when presented separately, even if they meet the conditions in Note 6(C)"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "respective function headings or residual headings",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "incorporates automatic data processing machine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "performs specific function other than data processing"
+          }
+        ],
+        "note": "Chapter 84 Note E: machines incorporating or working with ADP machine classified by their function, not as data processing equipment"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "7326",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "steel balls"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8479",
+        "conditions": [
+          {
+            "type": "principal_purpose_not_described",
+            "field": "description",
+            "value": "machine with no principal purpose described in any heading"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rope or cable making machines"
+          }
+        ],
+        "qualifications": "Subject to Note 2 to this Chapter and Note 3 to Section XVI"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8485",
+        "conditions": [
+          {
+            "type": "matches",
+            "field": "description",
+            "value": "heading 84.85"
+          }
+        ],
+        "exclusivity": true,
+        "notes": [
+          "Section XVI Note 1",
+          "Chapter 84 Note 1"
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9017"
+        ],
+        "reason": "The manufacture or repair of masks and reticles is excluded from the scope of heading 9017"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8486",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "lifting, handling, loading or unloading"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "boules, wafers, semiconductor devices, electronic integrated circuits, flat panel displays"
+          }
+        ],
+        "exclusiveClassification": true,
+        "notes": "Subject to Section XVI Note 1 and Chapter 84 Note 1"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "bobbins, spools, cops, cones, cores, reels or similar supports",
+        "meaning": "supports of any material, including those made from materials in Chapter 39 (plastics), Chapter 40 (rubber), Chapter 44 (wood), Chapter 48 (paper), or Section XV (base metals)",
+        "appliesTo": [
+          "Chapter 39",
+          "Chapter 40",
+          "Chapter 44",
+          "Chapter 48",
+          "Section XV"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "39-48-XV",
+        "covers": "perforated cards for Jacquard or similar machines",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "perforated cards"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "Jacquard"
+          }
+        ],
+        "appliesTo": [
+          "39",
+          "48",
+          "XV"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7304",
+        "covers": "drill pipe",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "drill pipe"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "machine",
+        "meaning": "any machine, machinery, plant, equipment, apparatus or appliance cited in the headings of Chapter 84 or 85",
+        "appliesTo": [
+          "84",
+          "85"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unusable articles",
+        "meaning": "articles that have been rendered unusable for their original purposes by breakage, cutting-up or other processes or are economically unsuitable for repair, refurbishment or renovation to render them fit for their original purposes",
+        "appliesTo": [
+          "waste and scrap classification"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7017,7019,7020",
+        "covers": "laboratory glassware, machinery, appliances or other articles for technical uses or parts thereof, of glass",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "laboratory glassware"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "machinery of glass"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "technical uses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "section": "XVII",
+        "covers": "radiators for articles of Section XVII",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "radiators"
+          },
+          {
+            "type": "for_use_with",
+            "field": "articles",
+            "value": "Section XVII"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9603",
+        "covers": "hand-operated mechanical floor sweepers, not motorised",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "hand-operated"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mechanical"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "floor sweepers"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "motorised"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8436",
+        "covers": "germination plant, incubators or brooders",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "germination plant"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "incubators"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "brooders"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8437",
+        "covers": "grain dampening machines",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "grain dampening"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8438",
+        "covers": "diffusing apparatus for sugar juice extraction",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "diffusing apparatus"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sugar juice extraction"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8456",
+        "covers": "water-jet cutting machines",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "water-jet cutting"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "machining centres",
+        "meaning": "machines with automatic tool change from a magazine or the like in conformity with a machining programme",
+        "appliesTo": [
+          "8458",
+          "8459"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unit construction machines",
+        "meaning": "machines that use automatically, simultaneously or sequentially, different unit heads working on a fixed position workpiece",
+        "appliesTo": [
+          "84.60"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "multi-station transfer machines",
+        "meaning": "machines characterized by the automatic transfer of the workpiece to different unit heads",
+        "appliesTo": [
+          "8461"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "slitting line and cut-to-length line",
+        "meaning": "A 'slitting line' for flat products is a processing line composed of an uncoiler, a coil flattener, a slitter and a recoiler. A 'cut-to-length line' for flat products is a processing line composed of an uncoiler, a coil flattener, and a shear.",
+        "appliesTo": [
+          "8462"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "storing the processing program or programs and at least the data immediately necessary for the execution of the program",
+        "meaning": "a requirement or characteristic that involves retention of processing programs and essential execution data",
+        "appliesTo": [
+          "8471"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "freely programmed",
+        "meaning": "programmed in accordance with the requirements of the user",
+        "appliesTo": [
+          "8471"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "84.71",
+        "covers": "machines performing arithmetical computations specified by the user",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "arithmetical computations"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "user-specified"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "automatic data processing machines and systems",
+        "meaning": "machines capable of executing a processing program which requires them to modify their execution by logical decision during the processing run; may be in the form of systems consisting of a variable number of separate units; a unit is part of such a system if it meets specified conditions",
+        "appliesTo": [
+          "8471"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8471",
+        "covers": "equipment of a kind solely or principally used in an automatic data processing system",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "automatic data processing system"
+          },
+          {
+            "type": "requirement",
+            "field": "principality",
+            "value": "solely or principally"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "connectable to central processing unit",
+        "meaning": "capable of being connected to the central processing unit either directly or through one or more other units",
+        "appliesTo": [
+          "8471"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8443",
+        "covers": "printers, copying machines, facsimile machines, whether or not combined",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "printer"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "copying machine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "facsimile machine"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "apparatus for the transmission or reception of voice, images or other data",
+        "meaning": "includes apparatus for communication in a wired or wireless network (such as a local or wide area network)",
+        "appliesTo": [
+          "85"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8518",
+        "covers": "loudspeakers and microphones",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "loudspeakers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "microphones"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "85",
+        "covers": "television cameras, digital cameras and video camera recorders",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "television cameras"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "digital cameras"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "video camera recorders"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8482",
+        "covers": "polished steel balls",
+        "conditions": [
+          {
+            "type": "specification",
+            "field": "diameter_tolerance",
+            "value": "maximum and minimum diameters do not differ from nominal diameter by more than 1% or more than 0.05 mm, whichever is less"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "multi-purpose machine",
+        "meaning": "a machine used for more than one purpose is treated as if its principal purpose were its sole purpose for classification purposes",
+        "appliesTo": [
+          "general"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "pocket-size",
+        "meaning": "machines with dimensions not exceeding 170 mm x 100 mm x 45 mm",
+        "appliesTo": [
+          "8470"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "additive manufacturing",
+        "meaning": "the formation of physical objects, based on a digital model, by the successive addition and layering, and consolidation and solidification, of material (for example, metal, plastics or ceramics)",
+        "appliesTo": [
+          "8485"
+        ],
+        "alternativeTerms": [
+          "3D printing"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8542",
+        "covers": "assembling semiconductor devices or electronic integrated circuits",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "assembling"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "semiconductor devices"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "electronic integrated circuits"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "machining centres",
+        "meaning": "machine-tools for working wood, cork, bone, hard rubber, hard plastics or similar hard materials, which can carry out different types of machining operations by automatic tool change from a magazine or the like in conformity with a machining programme",
+        "appliesTo": [
+          "846520"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "systems",
+        "meaning": "automatic data processing machines whose units satisfy the conditions laid down in Note 6 (C) to Chapter 84 and which comprise at least a central processing unit, one input unit (for example, a keyboard or a scanner), and one output unit (for example, a visual display unit or a printer)",
+        "appliesTo": [
+          "847149"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "valves for oleohydraulic or pneumatic transmissions",
+        "meaning": "valves which are used specifically in the transmission of 'fluid power' in a hydraulic or pneumatic system, where the energy source is supplied in the form of pressurised fluids (liquid or gas). These valves may be of any type (for example, pressure-reducing type, check type)",
+        "appliesTo": [
+          "848120"
+        ],
+        "precedenceNote": "Subheading 8481.20 takes precedence over all other subheadings of heading 84.81"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "848240",
+        "covers": "bearings with cylindrical rollers of uniform diameter not exceeding 5 mm and length at least three times the diameter",
+        "conditions": [
+          {
+            "type": "equals",
+            "field": "roller_type",
+            "value": "cylindrical"
+          },
+          {
+            "type": "max",
+            "field": "diameter",
+            "value": "5 mm"
+          },
+          {
+            "type": "min",
+            "field": "length_to_diameter_ratio",
+            "value": "3"
+          }
+        ]
+      }
+    }
+  ],
+  "partsRules": [
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "stay_in_own_heading",
+        "affectedCodes": [
+          "84",
+          "85"
+        ],
+        "excludedHeadings": [
+          "8409",
+          "8431",
+          "8448",
+          "8466",
+          "8473",
+          "8487",
+          "8503",
+          "8522",
+          "8529",
+          "8538",
+          "8548"
+        ],
+        "description": "parts which are goods included in Chapter 84 or 85 (except specified headings) remain classified in their respective headings"
+      }
+    },
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "principal_use",
+        "affectedCodes": [
+          "84",
+          "85"
+        ],
+        "targetHeadings": [
+          "8409",
+          "8431",
+          "8448",
+          "8466",
+          "8473",
+          "8503",
+          "8522",
+          "8529",
+          "8538"
+        ],
+        "specialCases": [
+          {
+            "condition": "parts equally suitable for use principally with goods of headings 85.17 and 85.25 to 85.28",
+            "classification": "8517"
+          },
+          {
+            "condition": "parts suitable for use solely or principally with goods of heading 85.24",
+            "classification": "8529"
+          }
+        ],
+        "description": "Other parts are classified with machines of the same kind or in specified headings based on principal use; special rules apply for certain combinations"
+      }
+    }
+  ]
+}

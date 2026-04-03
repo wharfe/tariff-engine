@@ -1,0 +1,976 @@
+{
+  "chapter": "85",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3910",
+          "4010",
+          "4016"
+        ],
+        "reason": "transmission or conveyor belts of plastics (Chapter 39), vulcanised rubber (40.10), or other technical rubber articles (40.16) are excluded from this heading"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "5910",
+          "5911"
+        ],
+        "reason": "Transmission or conveyor belts of textile material (heading 59.10) and other articles of textile material for technical uses (heading 59.11) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7102",
+          "7103",
+          "7104",
+          "7116"
+        ],
+        "exceptions": [
+          "8522"
+        ],
+        "reason": "Precious or semi-precious stones and articles wholly of such stones are excluded, except unmounted worked sapphires and diamonds for styli which are classified in heading 85.22"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15",
+          "39"
+        ],
+        "reason": "Parts of general use as defined in Note 2 to Section XV, of base metal (Section XV), or similar goods of plastics (Chapter 39) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "15"
+        ],
+        "reason": "endless belts of metal wire or strip are excluded and classified in Section XV"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82",
+          "83"
+        ],
+        "reason": "articles of Chapters 82 or 83 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XVII"
+        ],
+        "reason": "articles of Section XVII are excluded from the current classification scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90"
+        ],
+        "reason": "articles of Chapter 90 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "clocks, watches or other articles of Chapter 91 are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "8207",
+          "9603",
+          "40",
+          "42",
+          "43",
+          "45",
+          "59",
+          "6804",
+          "6909"
+        ],
+        "conditions": [
+          {
+            "type": "equals",
+            "field": "description",
+            "value": "interchangeable tools"
+          },
+          {
+            "type": "classification_rule",
+            "field": "constituent_material",
+            "value": "working part determines classification"
+          }
+        ],
+        "routing_logic": "interchangeable tools of heading 82.07 or brushes (96.03) are classified by their constituent material in appropriate chapters/headings"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Articles of Chapter 95 are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "96.12",
+          "96.20"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "typewriter or similar ribbons"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "inked or otherwise prepared for giving impressions"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "monopods, bipods, tripods"
+          }
+        ],
+        "routing": [
+          {
+            "condition": "ribbons inked or otherwise prepared",
+            "target": "9612"
+          },
+          {
+            "condition": "ribbons not inked or prepared",
+            "target": "constituent material classification"
+          },
+          {
+            "condition": "monopods, bipods, tripods",
+            "target": "9620"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "8409",
+          "8431",
+          "8448",
+          "8466",
+          "8473",
+          "8503",
+          "8522",
+          "8529",
+          "8538",
+          "8487",
+          "8548"
+        ],
+        "conditions": [
+          {
+            "type": "fallback",
+            "field": "classification",
+            "value": "all other parts not covered by previous rules"
+          }
+        ],
+        "priority": "primary headings first, then fallback to 8487 or 8548"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "principal_function_component",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "composite machines"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "two or more machines fitted together"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "complementary or alternative functions"
+          }
+        ],
+        "rule": "Classify based on the component or machine performing the principal function"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "84-85",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "machine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "individual components"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "clearly defined function"
+          }
+        ],
+        "rule": "classify_by_principal_function"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "85.49",
+          "38"
+        ],
+        "reason": "Section XV Note: municipal waste as defined in Note 4 to Chapter 38 is excluded from this Section; mixed consignments of electrical and electronic waste are classified in heading 85.49"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7011"
+        ],
+        "reason": "articles of glass of heading 70.11 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8486"
+        ],
+        "reason": "machines and apparatus of heading 84.86 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9018"
+        ],
+        "reason": "Vacuum apparatus of a kind used in medical, surgical, dental or veterinary sciences classified in heading 90.18 is excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Electrically heated furniture of Chapter 94 is excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8511",
+          "8512",
+          "8540",
+          "8541",
+          "8542"
+        ],
+        "fromHeadings": [
+          "8501",
+          "8502",
+          "8503",
+          "8504"
+        ],
+        "reason": "Headings 85.01 to 85.04 do not apply to goods described in headings 85.11, 85.12, 85.40, 85.41 or 85.42"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8504",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "metal tank"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mercury arc rectifiers"
+          }
+        ],
+        "reason": "metal tank mercury arc rectifiers are routed to heading 85.04 despite other potential classifications"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8414",
+          "8421",
+          "8422",
+          "8450",
+          "8420",
+          "8451",
+          "8452",
+          "8467",
+          "8516"
+        ],
+        "reason": "Specific appliances and machines are excluded from the heading: fans, ventilating/recycling hoods with fans, centrifugal clothes-dryers, dish washing machines, household washing machines, roller/ironing machines, sewing machines, electric scissors, and electro-thermic appliances"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8524",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "flat panel display modules"
+          }
+        ],
+        "note": "Heading 85.24 takes precedence over other headings for classification of flat panel display modules"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "8542",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "thin-film circuits"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "thick-film circuits"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "passive and active elements"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "same technological process"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8543"
+        ],
+        "reason": "Heading 85.37 Note: cordless infrared devices for remote control of television receivers or other electrical equipment are excluded and classified in heading 85.43"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4205, 4303",
+        "covers": "articles of leather, composition leather, or furskin used in machinery, mechanical appliances, or for other technical uses",
+        "conditions": [
+          {
+            "type": "material",
+            "field": "material",
+            "value": "leather, composition leather, or furskin"
+          },
+          {
+            "type": "use",
+            "field": "use",
+            "value": "machinery, mechanical appliances, or technical uses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "not specified",
+        "covers": "bobbins, spools, cops, cones, cores, reels or similar supports of any material",
+        "conditions": [
+          {
+            "type": "includes",
+            "field": "materials",
+            "value": "Chapter 39, 40, 44, 48 or Section XV"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "Section XV",
+        "covers": "perforated cards for Jacquard or similar machines",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "perforated cards"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "Jacquard or similar machines"
+          }
+        ],
+        "note": "Examples given in Chapters 39, 48, and Section XV"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7304",
+        "covers": "drill pipe",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "drill pipe"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "machine",
+        "meaning": "any machine, machinery, plant, equipment, apparatus or appliance cited in the headings of Chapter 84 or 85",
+        "appliesTo": [
+          "84",
+          "85"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unusable articles",
+        "meaning": "articles that have been rendered unusable for their original purposes by breakage, cutting-up or other processes or are economically unsuitable for repair, refurbishment or renovation to render them fit for their original purposes",
+        "appliesTo": []
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6115",
+        "covers": "electrically warmed blankets, bed pads, foot-muffs, electrically warmed clothing, footwear, ear pads and other electrically warmed articles worn on or about the person",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "electrically warmed"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "electric accumulators",
+        "meaning": "includes those presented with ancillary components which contribute to the accumulator's function of storing and supplying energy or protect it from damage, such as electrical connectors, temperature control devices (for example, thermistors) and circuit protection devices. They may also include a portion of the protective housing of the goods in which they are to be used.",
+        "appliesTo": [
+          "8507"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8509",
+        "covers": "floor polishers, food grinders and mixers, and fruit or vegetable juice extractors",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "floor polishers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "food grinders"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mixers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "juice extractors"
+          }
+        ],
+        "weight": "any weight"
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "smartphones",
+        "meaning": "telephones for cellular networks, equipped with a mobile operating system designed to perform the functions of an automatic data processing machine such as downloading and running multiple applications simultaneously, including third-party applications, and whether or not integrating other features such as digital cameras and navigational aid systems",
+        "appliesTo": [
+          "8517"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "solid-state non-volatile storage devices",
+        "meaning": "storage devices with a connecting socket, comprising in the same housing one or more flash memories in the form of integrated circuits mounted on a printed circuit board, which may include a controller in the form of an integrated circuit and discrete passive components such as capacitors and resistors",
+        "examples": [
+          "flash memory cards",
+          "flash electronic storage cards"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "smart cards",
+        "meaning": "cards which have embedded in them one or more electronic integrated circuits (a microprocessor, random access memory (RAM) or read-only memory (ROM)) in the form of chips. These cards may contain contacts, a magnetic stripe or an embedded antenna but do not contain any other active or passive circuit elements.",
+        "appliesTo": [
+          "8523"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "flat panel display modules",
+        "meaning": "devices or apparatus for the display of information, equipped at a minimum with a display screen, designed to be incorporated into articles of other headings prior to use. Display screens can be flat, curved, flexible, foldable or stretchable. May incorporate additional elements for receiving and allocating video signals to pixels. Does not include modules with components for converting video signals (scaler IC, decoder IC, application processor) or those that have assumed the character of goods of other headings.",
+        "appliesTo": [
+          "8524"
+        ],
+        "scope": "heading 85.24"
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "printed circuits",
+        "meaning": "circuits obtained by forming on an insulating base, by any printing process (for example, embossing, plating-up, etching) or by the 'film circuit' technique, conductor elements, contacts or other printed components (for example, inductances, resistors, capacitors) alone or interconnected according to a pre-established pattern, other than elements which can produce, rectify, modulate or amplify an electrical signal (for example, semiconductor elements)",
+        "appliesTo": [
+          "8534"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "printed circuits",
+        "meaning": "circuits obtained during the printing process only; excludes circuits combined with elements other than those obtained during printing; excludes individual discrete resistors, capacitors or inductances; may include non-printed connecting elements",
+        "appliesTo": [
+          "8534"
+        ],
+        "exclusions": [
+          "individual discrete resistors",
+          "individual discrete capacitors",
+          "individual discrete inductances",
+          "circuits combined with non-printing process elements"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "connectors for optical fibres, optical fibre bundles or cables",
+        "meaning": "connectors that simply mechanically align optical fibres end to end in a digital line system, performing no other function such as amplification, regeneration or modification of a signal",
+        "appliesTo": [
+          "8536"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "light-emitting diode (LED) modules",
+        "meaning": "electrical light sources based on light-emitting diodes (LED) arranged in electrical circuits and containing further elements like electrical, mechanical, thermal or optical elements, also containing discrete active elements, discrete passive elements, or articles of heading 85.36 or 85.42 for power supply or power control, without a cap designed for easy installation or replacement in a luminaire",
+        "appliesTo": [
+          "8539"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "light-emitting diode (LED) lamps",
+        "meaning": "electrical light sources containing one or more LED modules containing further elements like electrical, mechanical, thermal or optical elements, with a cap designed to allow easy installation or replacement in a luminaire and ensure mechanical and electrical contact",
+        "appliesTo": [
+          "8539"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "semiconductor devices",
+        "meaning": "semiconductor devices the operation of which depends on variations in resistivity on the application of an electric field or semiconductor-based transducers; may include assembly of plural elements with active and passive device ancillary functions",
+        "relatedDefinitions": [
+          {
+            "term": "semiconductor-based transducers",
+            "meaning": "semiconductor-based sensors, actuators, resonators and oscillators which are discrete semiconductor-based devices performing an intrinsic function, able to convert physical/chemical phenomena into electrical signals or vice versa, with all elements indivisibly combined"
+          },
+          {
+            "term": "semiconductor-based",
+            "meaning": "built or manufactured on a semiconductor substrate or made of semiconductor materials, manufactured by semiconductor technology, where the semiconductor substrate/material plays a critical and unreplaceable role, with operation based on semiconductor properties"
+          },
+          {
+            "term": "semiconductor-based sensor",
+            "meaning": "type of semiconductor device with microelectronic or mechanical structures detecting physical/chemical quantities and converting them into electric signals"
+          },
+          {
+            "term": "semiconductor-based actuator",
+            "meaning": "type of semiconductor device with microelectronic or mechanical structures converting electric signals into physical movement"
+          },
+          {
+            "term": "semiconductor-based resonator",
+            "meaning": "type of semiconductor device with microelectronic or mechanical structures generating mechanical or electrical oscillation of predefined frequency in response to external input"
+          },
+          {
+            "term": "semiconductor-based oscillator",
+            "meaning": "type of semiconductor device with microelectronic or mechanical structures generating mechanical or electrical oscillation of predefined frequency"
+          }
+        ],
+        "appliesTo": [
+          "38"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "light-emitting diodes (LED)",
+        "meaning": "semiconductor devices based on semiconductor materials which convert electrical energy into visible, infra-red or ultra-violet rays, whether or not electrically connected among each other and whether or not combined with protective diodes. LEDs of heading 85.41 do not incorporate elements for power supply or power control",
+        "appliesTo": [
+          "8541"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "electronic integrated circuits",
+        "meaning": "to be defined by the clause that follows",
+        "appliesTo": [
+          "8542"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "monolithic integrated circuits",
+        "meaning": "circuits in which the circuit elements (diodes, transistors, resistors, capacitors, inductances, etc.) are created in the mass (essentially) and on the surface of a semiconductor or compound semiconductor material (for example, doped silicon, gallium arsenide, silicon germanium, indium phosphide) and are inseparably associated",
+        "appliesTo": [
+          "8542"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "hybrid integrated circuits",
+        "meaning": "circuits in which passive elements (resistors, capacitors, inductances, etc.) obtained by thin- or thick-film technology, and active elements (diodes, transistors, monolithic integrated circuits, etc.) obtained by semiconductor technology, are combined indivisibly by interconnections or interconnecting cables on a single insulating substrate (glass, ceramic, etc.); may also include discrete components",
+        "appliesTo": [
+          "8542"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "multichip integrated circuits",
+        "meaning": "two or more interconnected monolithic integrated circuits combined indivisibly, whether or not on one or more insulating substrates, with or without leadframes, but with no other active or passive circuit elements",
+        "appliesTo": [
+          "8542"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "multi-component integrated circuits (MCOs)",
+        "meaning": "a combination of one or more monolithic, hybrid, or multi-chip integrated circuits with at least one of the following components: silicon-based sensors, actuators, oscillators, resonators or combinations thereof, or components performing the functions of articles classifiable under heading 85.32, 85.33, 85.41, or inductors classifiable under heading 85.04, formed to all intents and purposes indivisibly into a single body like an integrated circuit, as a component of a kind used for assembly onto a printed circuit board (PCB) or other carrier",
+        "appliesTo": [
+          "8542"
+        ],
+        "subDefinitions": [
+          {
+            "term": "components",
+            "meaning": "may be discrete, manufactured independently then assembled onto the rest of the MCO, or integrated into other components"
+          },
+          {
+            "term": "silicon based",
+            "meaning": "built on a silicon substrate, or made of silicon materials, or manufactured onto integrated circuit die"
+          },
+          {
+            "term": "silicon-based sensors",
+            "meaning": "microelectronic or mechanical structures that are created in the mass or on the surface of a semiconductor and that have the function of detecting physical or chemical phenomena and transducing these into electric signals"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "silicon based actuators",
+        "meaning": "microelectronic and mechanical structures created in the mass or on the surface of a semiconductor that have the function of converting electrical signals into physical movement",
+        "appliesTo": [
+          "8542",
+          "9030"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "silicon based resonators",
+        "meaning": "components that consist of microelectronic or mechanical structures created in the mass or on the surface of a semiconductor and have the function of generating a mechanical or electrical oscillation of a predefined frequency that depends on the physical geometry of these structures in response to an external input",
+        "appliesTo": [
+          "8541"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "silicon based oscillators",
+        "meaning": "active components that consist of microelectronic or mechanical structures created in the mass or on the surface of a semiconductor that have the function of generating a mechanical or electrical oscillation of a predefined frequency depending on the physical geometry of these structures",
+        "appliesTo": [
+          "8541",
+          "8542",
+          "8523"
+        ],
+        "precedenceRule": "headings 85.41 and 85.42 take precedence over any other heading except 85.23"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "8471",
+        "covers": "automatic data processing machines with writing speed exceeding 0.5 mm per microsecond",
+        "conditions": [
+          {
+            "type": "threshold",
+            "field": "writing_speed",
+            "operator": "exceeding",
+            "value": "0.5 mm per microsecond"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "time resolution 50 nanoseconds or less",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "technical_specification",
+            "value": "time resolution 50 nanoseconds or less"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9030",
+        "covers": "frame rate exceeding 225,000 frames per second",
+        "conditions": [
+          {
+            "type": "exceeds",
+            "field": "frame_rate",
+            "value": "225000",
+            "unit": "frames per second"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "radiation-hardened or radiation-tolerant television cameras, digital cameras and video camera recorders",
+        "meaning": "cameras designed or shielded to enable operation in a high-radiation environment, capable of withstanding a total radiation dose of at least 50 x 10^3 Gy(silicon) (5 x 10^6 RAD (silicon)) without operational degradation",
+        "appliesTo": [
+          "852582"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "852583",
+        "covers": "night vision television cameras, digital cameras and video camera recorders which use a photocathode to convert available light to electrons, which can be amplified and converted to yield a visible image",
+        "excludes": "thermal imaging cameras (generally subheading 8525.89)",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "photocathode"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "night vision"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "852712",
+        "covers": "cassette-players with built-in amplifier, without built-in loudspeaker, capable of operating without external electric power",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cassette-player"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "built-in amplifier"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "built-in loudspeaker"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "operates without external power"
+          },
+          {
+            "type": "dimension_limit",
+            "field": "dimensions",
+            "value": "170mm x 100mm x 45mm"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "spent primary cells, spent primary batteries and spent electric accumulators",
+        "meaning": "those which are neither usable as such because of breakage, cutting-up, wear or other reasons, nor capable of being recharged",
+        "appliesTo": [
+          "854911",
+          "854912",
+          "854913",
+          "854914",
+          "854915",
+          "854916",
+          "854917",
+          "854918",
+          "854919"
+        ]
+      }
+    }
+  ],
+  "partsRules": [
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "stay_in_own_heading",
+        "affectedCodes": [
+          "84",
+          "85"
+        ],
+        "excludedHeadings": [
+          "8409",
+          "8431",
+          "8448",
+          "8466",
+          "8473",
+          "8487",
+          "8503",
+          "8522",
+          "8529",
+          "8538",
+          "8548"
+        ],
+        "description": "Parts from Chapter 84 or 85 (except specified headings) are classified in their respective headings"
+      }
+    },
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "principal_use",
+        "affectedCodes": [
+          "84.79",
+          "85.43",
+          "84.09",
+          "84.31",
+          "84.48",
+          "84.66",
+          "84.73",
+          "85.03",
+          "85.22",
+          "85.29",
+          "85.38",
+          "85.17",
+          "85.25",
+          "85.26",
+          "85.27",
+          "85.28",
+          "85.24"
+        ],
+        "conditions": [
+          {
+            "type": "principal_use",
+            "description": "parts suitable for use solely or principally with a particular kind of machine are classified with that machine"
+          },
+          {
+            "type": "principal_use",
+            "description": "parts equally suitable for use principally with goods of headings 85.17 and 85.25-85.28 are classified in 85.17"
+          },
+          {
+            "type": "principal_use",
+            "description": "parts suitable for use solely or principally with goods of heading 85.24 are classified in 85.29"
+          }
+        ]
+      }
+    }
+  ]
+}
