@@ -106,7 +106,9 @@ export const PRODUCT_CHAPTER_ROUTES: Record<string, string[]> = {
   polycarbonate: ["39"], pellets: ["39"],
   // Ch.40 Rubber
   tire: ["40"], tyre: ["40"], rubber: ["40"], latex: ["40"], gloves: ["40"],
-  // Ch.61/62 Apparel
+  // Ch.61/62 Apparel — knitted/woven discriminator
+  knitted: ["61"], knit: ["61"], crocheted: ["61"],
+  woven: ["62"],
   dress: ["61", "62"], trouser: ["61", "62"], trousers: ["61", "62"],
   jacket: ["61", "62"], coat: ["61", "62"], jeans: ["62"],
   cardigan: ["61"], socks: ["61"], shorts: ["61", "62"],

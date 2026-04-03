@@ -50,14 +50,16 @@ export function scoreSection(inputTokens: string[]): ScoredSection[] {
 
   const hasFunctionWord = inputTokens.some((t) => FUNCTION_WORDS.has(t));
 
-  // Determine function-based section routing
-  let functionRouteSection: string | null = null;
+  // Determine function-based section routing (collect ALL routed sections)
+  const functionRouteSections = new Set<string>();
   for (const t of inputTokens) {
-    if (FUNCTION_SECTION_ROUTES[t]) {
-      functionRouteSection = FUNCTION_SECTION_ROUTES[t];
-      break;
-    }
+    const route = FUNCTION_SECTION_ROUTES[t];
+    if (route) functionRouteSections.add(route);
   }
+  // Legacy: pick one for backward-compatible penalty logic
+  const functionRouteSection = functionRouteSections.size > 0
+    ? functionRouteSections.values().next().value as string
+    : null;
 
   const scored: ScoredSection[] = SECTION_MAP.map((entry) => {
     const keywordSet = new Set(entry.keywords);
@@ -75,13 +77,14 @@ export function scoreSection(inputTokens: string[]): ScoredSection[] {
       score *= SCORING.MATERIAL_SECTION_PENALTY;
     }
 
-    // Boost the function-routed section
-    if (functionRouteSection && entry.section === functionRouteSection) {
+    // Boost ALL function-routed sections
+    if (functionRouteSections.has(entry.section)) {
       score = Math.max(score, SCORING.FUNCTION_ROUTE_MIN_SCORE);
     }
 
-    // Penalize material-based sections when function routing is active
-    if (functionRouteSection && entry.section !== functionRouteSection) {
+    // Penalize material-based sections when function routing is active,
+    // but NOT if that section is itself a routed target
+    if (functionRouteSections.size > 0 && !functionRouteSections.has(entry.section)) {
       const materialPenaltySections = new Set(["VII", "VIII", "IX", "XI", "XIII", "XIV", "XV"]);
       if (materialPenaltySections.has(entry.section)) {
         score *= SCORING.FUNCTION_ROUTE_MATERIAL_PENALTY;
@@ -227,12 +230,50 @@ export function classify(input: ClassifyInput): ClassifyResult {
       }
     }
 
+    // When multiple chapters are routed, preserve natural score ordering:
+    // boost all routed chapters to min score, but add natural score as tiebreaker
     chapterScores = chapterScores.map((cs) => {
       if (routedChapterCodes.has(cs.node.code)) {
-        return { node: cs.node, score: Math.max(cs.score, SCORING.ROUTED_CHAPTER_MIN_SCORE) };
+        return { node: cs.node, score: Math.max(cs.score, SCORING.ROUTED_CHAPTER_MIN_SCORE) + cs.score * 0.1 };
       }
       if (penalizedSections.has(cs.node.code)) {
         return { node: cs.node, score: cs.score * SCORING.PENALIZED_CHAPTER_FACTOR };
+      }
+      return cs;
+    });
+    chapterScores.sort((a, b) => b.score - a.score);
+  }
+
+  // Garment-word heuristic: when garment keywords are present in Section XI,
+  // penalize raw textile chapters (50-60) in favor of garment chapters (61-63)
+  const GARMENT_WORDS = new Set([
+    "shirt", "dress", "trouser", "trousers", "jacket", "coat", "jeans",
+    "cardigan", "socks", "shorts", "blouse", "skirt", "necktie", "tie",
+    "tracksuit", "romper", "raincoat", "towel", "garment", "clothing",
+    "t-shirt", "knitted", "knit", "woven", "crocheted",
+  ]);
+  const RAW_TEXTILE_CHAPTERS = new Set(["50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"]);
+  const hasGarmentWord = tokens.some((t) => GARMENT_WORDS.has(t));
+  if (hasGarmentWord) {
+    const hasWoven = tokens.includes("woven");
+    const hasKnitted = tokens.some((t) => t === "knitted" || t === "knit" || t === "crocheted");
+    chapterScores = chapterScores.map((cs) => {
+      if (RAW_TEXTILE_CHAPTERS.has(cs.node.code)) {
+        return { node: cs.node, score: cs.score * 0.15 };
+      }
+      // Boost Ch.62 when "woven" is present, penalize Ch.61
+      if (hasWoven && cs.node.code === "62") {
+        return { node: cs.node, score: Math.max(cs.score, 0.7) };
+      }
+      if (hasWoven && !hasKnitted && cs.node.code === "61") {
+        return { node: cs.node, score: cs.score * 0.5 };
+      }
+      // Boost Ch.61 when "knitted"/"knit" is present, penalize Ch.62
+      if (hasKnitted && cs.node.code === "61") {
+        return { node: cs.node, score: Math.max(cs.score, 0.7) };
+      }
+      if (hasKnitted && !hasWoven && cs.node.code === "62") {
+        return { node: cs.node, score: cs.score * 0.5 };
       }
       return cs;
     });
