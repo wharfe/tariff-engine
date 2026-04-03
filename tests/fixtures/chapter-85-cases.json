@@ -1,0 +1,12 @@
+[
+  { "description": "lithium-ion battery, 3.7V 5000mAh", "expected4": "8507", "expected6": "850760", "notes": "lithium-ion accumulator" },
+  { "description": "LED light bulb, E26, 10W", "expected4": "8539", "expected6": "853950", "notes": "LED lamp" },
+  { "description": "electric motor, AC, 1kW", "expected4": "8501", "expected6": "850140", "notes": "AC motor" },
+  { "description": "USB cable, type-C to type-C, 1m", "expected4": "8544", "expected6": "854442", "notes": "electric conductor with connector" },
+  { "description": "transformer, 220V to 110V, 500W", "expected4": "8504", "expected6": "850431", "notes": "electric transformer" },
+  { "description": "wireless bluetooth earphone", "expected4": "8518", "expected6": "851830", "notes": "headphone/earphone" },
+  { "description": "security camera, IP, 4MP", "expected4": "8525", "expected6": "852580", "notes": "television camera" },
+  { "description": "solar panel, monocrystalline, 400W", "expected4": "8541", "expected6": "854143", "notes": "photovoltaic cell" },
+  { "description": "circuit breaker, 30A", "expected4": "8536", "expected6": "853620", "notes": "automatic circuit breaker" },
+  { "description": "smartphone charger, 20W USB-C", "expected4": "8504", "expected6": "850440", "notes": "static converter (charger)" }
+]

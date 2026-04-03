@@ -1,0 +1,12 @@
+[
+  { "description": "laptop computer, 15 inch display", "expected4": "8471", "expected6": "847130", "notes": "automatic data processing machine" },
+  { "description": "air conditioner, split type, 2.5kW", "expected4": "8415", "expected6": "841510", "notes": "air conditioning machine" },
+  { "description": "microwave oven, 800W", "expected4": "8516", "expected6": "851650", "notes": "note: 8516 is in Ch.85, this tests cross-chapter" },
+  { "description": "washing machine, fully automatic, 7kg", "expected4": "8450", "expected6": "845011", "notes": "household laundry machine" },
+  { "description": "industrial robot arm for assembly", "expected4": "8479", "expected6": "847950", "notes": "machines with individual function" },
+  { "description": "ball bearing, 30mm inner diameter", "expected4": "8482", "expected6": "848210", "notes": "ball bearing" },
+  { "description": "hydraulic pump for excavator", "expected4": "8413", "expected6": "841350", "notes": "liquid pump" },
+  { "description": "centrifuge for laboratory use", "expected4": "8421", "expected6": "842119", "notes": "centrifuge/filtering machine" },
+  { "description": "sewing machine for household use", "expected4": "8452", "expected6": "845210", "notes": "household sewing machine" },
+  { "description": "diesel engine, 150kW, for industrial use", "expected4": "8408", "expected6": "840890", "notes": "compression-ignition engine" }
+]
