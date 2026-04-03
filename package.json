@@ -17,7 +17,8 @@
   "files": [
     "dist",
     "data/hs-tree.json",
-    "data/rules/"
+    "data/rules/",
+    "data/heading-synonyms.json"
   ],
   "scripts": {
     "build": "tsup",
