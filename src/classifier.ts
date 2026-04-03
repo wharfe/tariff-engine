@@ -1,7 +1,7 @@
 // src/classifier.ts
 // Orchestration layer: loads HS tree and classifies product descriptions.
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { resolve } from "node:path";
 import type { HsNode, ClassifyInput, ClassifyResult, Candidate } from "./types.js";
 import { SECTION_MAP } from "./section-map.js";
@@ -21,6 +21,34 @@ let cachedTree: HsNode[] | null = null;
 
 const DEFAULT_PATH = resolve(process.cwd(), "data/hs-tree.json");
 
+// Heading-level synonym table: heading code → Set of everyday product words
+let headingSynonyms: Map<string, Set<string>> | null = null;
+
+function loadHeadingSynonyms(): void {
+  if (headingSynonyms) return;
+  try {
+    const filePath = resolve(process.cwd(), "data/heading-synonyms.json");
+    if (!existsSync(filePath)) {
+      headingSynonyms = new Map();
+      return;
+    }
+    const raw = JSON.parse(readFileSync(filePath, "utf-8")) as Record<string, string[]>;
+    headingSynonyms = new Map();
+    for (const [code, words] of Object.entries(raw)) {
+      headingSynonyms.set(code, new Set(words));
+    }
+  } catch {
+    headingSynonyms = new Map();
+  }
+}
+
+export function setHeadingSynonyms(synonyms: Record<string, string[]>): void {
+  headingSynonyms = new Map();
+  for (const [code, words] of Object.entries(synonyms)) {
+    headingSynonyms.set(code, new Set(words));
+  }
+}
+
 export function loadTree(
   path?: string,
   options?: { force?: boolean },
@@ -29,6 +57,7 @@ export function loadTree(
   const filePath = path ?? DEFAULT_PATH;
   const raw = readFileSync(filePath, "utf-8");
   cachedTree = JSON.parse(raw) as HsNode[];
+  loadHeadingSynonyms();
   return cachedTree;
 }
 
@@ -132,8 +161,32 @@ export function scoreNodes(inputTokens: string[], nodes: HsNode[]): ScoredNode[]
   const strongExpanded = expandTokensStrong(inputTokens);
   const allExpanded = expandTokensAll(inputTokens);
 
+  const inputTokenSet = new Set(inputTokens);
+
   const scored: ScoredNode[] = nodes.map((node) => {
     let score = bestDescScore(inputTokens, strongExpanded, allExpanded, node.description);
+
+    // Heading synonym boost: if input tokens match LLM-generated everyday words
+    // for this heading, boost the score even if the HS description doesn't match directly
+    if (headingSynonyms && headingSynonyms.size > 0) {
+      const synonyms = headingSynonyms.get(node.code);
+      if (synonyms) {
+        let synonymHits = 0;
+        for (const t of inputTokens) {
+          if (synonyms.has(t)) synonymHits++;
+        }
+        if (synonymHits > 0) {
+          const synonymScore = synonymHits / inputTokens.length;
+          // Blend: synonym match can bring a zero-score heading into contention,
+          // or boost an already-matching heading
+          if (score === 0) {
+            score = synonymScore * 0.8;
+          } else {
+            score = Math.max(score, score * 0.5 + synonymScore * 0.5);
+          }
+        }
+      }
+    }
 
     // Deep match: check children descriptions for additional matches
     if (node.children.length > 0) {
