@@ -1,0 +1,8 @@
+[
+  { "description": "gold necklace, 18K, chain", "expected4": "7113", "expected6": "711319", "notes": "jewelry of precious metal" },
+  { "description": "diamond engagement ring, platinum", "expected4": "7113", "expected6": "711311", "notes": "jewelry of precious metal" },
+  { "description": "silver bracelet, sterling 925", "expected4": "7113", "expected6": "711311", "notes": "jewelry of precious metal" },
+  { "description": "cultured pearl necklace, freshwater", "expected4": "7116", "expected6": "711610", "notes": "article of cultured pearl" },
+  { "description": "cubic zirconia earrings, fashion", "expected4": "7117", "expected6": "711719", "notes": "imitation jewelry" },
+  { "description": "gold bar, 99.99% pure, 1oz", "expected4": "7108", "expected6": "710812", "notes": "gold in unwrought form" }
+]

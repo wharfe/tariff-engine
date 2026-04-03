@@ -1,0 +1,8 @@
+[
+  { "description": "perfume, women's, 50ml spray bottle", "expected4": "3303", "expected6": "330300", "notes": "perfume" },
+  { "description": "shampoo, anti-dandruff, 400ml", "expected4": "3305", "expected6": "330510", "notes": "hair shampoo" },
+  { "description": "lipstick, matte finish, red", "expected4": "3304", "expected6": "330410", "notes": "lip make-up" },
+  { "description": "sunscreen lotion, SPF 50, 200ml", "expected4": "3304", "expected6": "330499", "notes": "skin care preparation" },
+  { "description": "essential oil, lavender, pure, 10ml", "expected4": "3301", "expected6": "330129", "notes": "essential oil" },
+  { "description": "toothpaste, fluoride, mint flavor", "expected4": "3306", "expected6": "330610", "notes": "dentifrice" }
+]

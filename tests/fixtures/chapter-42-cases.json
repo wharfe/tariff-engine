@@ -1,0 +1,8 @@
+[
+  { "description": "leather handbag, women's, zipper", "expected4": "4202", "expected6": "420221", "notes": "handbag of leather" },
+  { "description": "travel suitcase, hard shell, 24 inch", "expected4": "4202", "expected6": "420212", "notes": "trunk/suitcase" },
+  { "description": "leather wallet, men's, bifold", "expected4": "4202", "expected6": "420231", "notes": "wallet of leather" },
+  { "description": "leather belt, men's, brown", "expected4": "4203", "expected6": "420330", "notes": "belt of leather" },
+  { "description": "laptop bag, nylon fabric, padded", "expected4": "4202", "expected6": "420222", "notes": "handbag of textile" },
+  { "description": "dog collar, leather", "expected4": "4201", "expected6": "420100", "notes": "saddlery/harness" }
+]

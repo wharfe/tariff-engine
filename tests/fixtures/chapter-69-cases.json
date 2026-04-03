@@ -1,0 +1,8 @@
+[
+  { "description": "porcelain dinner plate, white, 10 inch", "expected4": "6911", "expected6": "691110", "notes": "tableware of porcelain" },
+  { "description": "ceramic coffee mug, glazed, 350ml", "expected4": "6912", "expected6": "691200", "notes": "tableware of other ceramic" },
+  { "description": "ceramic floor tile, 30x30cm, glazed", "expected4": "6908", "expected6": "690890", "notes": "glazed ceramic tile" },
+  { "description": "porcelain vase, decorative, hand-painted", "expected4": "6913", "expected6": "691390", "notes": "ornamental ceramic" },
+  { "description": "terracotta flower pot, 20cm diameter", "expected4": "6914", "expected6": "691490", "notes": "other ceramic article" },
+  { "description": "ceramic sink, bathroom, white", "expected4": "6910", "expected6": "691010", "notes": "sanitary fixture of porcelain" }
+]

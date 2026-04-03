@@ -69,6 +69,16 @@ export const STRONG_SYNONYMS: Record<string, string[]> = {
   lighter: ["lighters"],
   comb: ["combs"],
   flask: ["flasks", "thermos"],
+  handbag: ["bag", "bags", "purse"],
+  sneaker: ["shoe", "shoes", "footwear"],
+  sneakers: ["shoes", "footwear"],
+  perfume: ["fragrance", "eau"],
+  shampoo: ["hair"],
+  lipstick: ["cosmetic", "make-up"],
+  vitamin: ["supplement", "vitamins"],
+  bandage: ["dressing", "plaster"],
+  charcoal: ["briquette", "briquettes"],
+  cardboard: ["carton", "paperboard"],
 };
 
 // Weak synonyms: broader associations (salmon→fish)
@@ -130,20 +140,32 @@ export const FUNCTION_WORDS = new Set([
   "puzzle", "racket", "tennis", "yoga", "swimming",
   // Miscellaneous (Ch.96)
   "toothbrush", "lighter", "comb", "flask", "pen", "pencil", "roller",
+  // Wood (Section IX Ch.44)
+  "lumber", "charcoal", "chopsticks",
+  // Paper (Section X Ch.48)
+  "paper", "cardboard", "napkin",
+  // Textile articles (Section XI Ch.63)
+  "tent",
   // Footwear (Section XII)
-  "shoe", "shoes", "boot", "boots", "sandal", "slipper", "sneaker", "footwear",
+  "shoe", "shoes", "boot", "boots", "sandal", "slipper", "sneaker", "sneakers", "footwear",
   // Clothing/garments (Section XI Ch.61-62)
   "shirt", "t-shirt", "dress", "trouser", "jacket", "coat", "garment", "clothing",
   "jeans", "cardigan", "socks", "tracksuit", "shorts", "blouse", "skirt",
   "tie", "necktie", "romper", "raincoat", "towel",
+  // Pharma (Section VI Ch.30)
+  "aspirin", "insulin", "vitamin", "bandage",
+  // Cosmetics (Section VI Ch.33)
+  "perfume", "shampoo", "lipstick", "sunscreen", "toothpaste",
   // Bags/luggage (Section VIII Ch.42)
-  "backpack", "suitcase", "briefcase", "wallet", "purse", "handbag",
+  "backpack", "suitcase", "briefcase", "wallet", "purse", "handbag", "belt",
   // Jewelry (Section XIV Ch.71)
   "necklace", "ring", "bracelet", "earring", "jewelry", "jewellery",
   // Cutlery/tools (Section XV Ch.82)
   "knife", "fork", "spoon", "cutlery",
-  // Kitchen/tableware (Section XIII Ch.69)
-  "mug", "cup", "plate", "bowl",
+  // Kitchen/tableware/ceramics (Section XIII Ch.69)
+  "mug", "cup", "plate", "bowl", "ceramic", "porcelain", "tile",
+  // Jewelry (Section XIV Ch.71)
+  "diamond", "pearl",
   // Instruments (Section XVIII Ch.90-91)
   "thermometer", "tracker", "watch",
   // Rubber (Section VII Ch.40)
@@ -151,6 +173,8 @@ export const FUNCTION_WORDS = new Set([
   // Machinery (Section XVI Ch.84)
   "computer", "laptop", "engine", "pump", "centrifuge",
   "conditioner", "washing", "robot",
+  // Iron/Steel (Section XV Ch.73)
+  "nail", "nails", "chain", "pot", "wire",
   // Electrical (Section XVI Ch.85)
   "battery", "motor", "cable", "charger", "earphone", "headphone",
   "camera", "solar", "bulb", "transformer", "breaker", "circuit",

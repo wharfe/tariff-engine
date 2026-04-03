@@ -1,0 +1,8 @@
+[
+  { "description": "cotton bed sheet, queen size, fitted", "expected4": "6302", "expected6": "630231", "notes": "bed linen of cotton" },
+  { "description": "canvas tote bag, cotton", "expected4": "6305", "expected6": "630533", "notes": "sack/bag of cotton" },
+  { "description": "polyester tent, 4-person, camping", "expected4": "6306", "expected6": "630622", "notes": "tent of synthetic fibre" },
+  { "description": "used clothing bale, sorted", "expected4": "6309", "expected6": "630900", "notes": "worn clothing" },
+  { "description": "cotton kitchen towel, checked pattern", "expected4": "6302", "expected6": "630260", "notes": "kitchen/toilet linen of cotton" },
+  { "description": "floor cleaning cloth, microfibre", "expected4": "6307", "expected6": "630790", "notes": "other made up textile article" }
+]

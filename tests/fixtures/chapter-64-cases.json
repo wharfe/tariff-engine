@@ -1,0 +1,8 @@
+[
+  { "description": "men's leather dress shoes, lace-up", "expected4": "6403", "expected6": "640359", "notes": "footwear with leather upper" },
+  { "description": "running shoes, mesh upper, rubber sole", "expected4": "6404", "expected6": "640411", "notes": "sports footwear, textile upper" },
+  { "description": "rubber rain boots, knee-high", "expected4": "6401", "expected6": "640110", "notes": "waterproof footwear, rubber" },
+  { "description": "women's high heel sandals, leather", "expected4": "6403", "expected6": "640359", "notes": "footwear with leather upper" },
+  { "description": "children's canvas sneakers", "expected4": "6404", "expected6": "640419", "notes": "footwear with textile upper" },
+  { "description": "flip flops, rubber, beach", "expected4": "6402", "expected6": "640220", "notes": "footwear with rubber/plastic upper" }
+]

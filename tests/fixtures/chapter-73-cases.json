@@ -1,0 +1,8 @@
+[
+  { "description": "stainless steel kitchen knife", "expected4": "8211", "expected6": "821191", "notes": "note: knives are Ch.82, testing cross-chapter" },
+  { "description": "iron nails, 3 inch, galvanized", "expected4": "7317", "expected6": "731700", "notes": "nails of iron/steel" },
+  { "description": "steel chain, welded, 8mm", "expected4": "7315", "expected6": "731582", "notes": "chain of iron/steel" },
+  { "description": "stainless steel cooking pot with lid", "expected4": "7323", "expected6": "732393", "notes": "table/kitchen article of stainless steel" },
+  { "description": "iron wire, galvanized, 2mm diameter", "expected4": "7217", "expected6": "721720", "notes": "wire of iron/non-alloy steel" },
+  { "description": "steel pipe, seamless, 50mm diameter", "expected4": "7304", "expected6": "730431", "notes": "tubes/pipes of iron/steel, seamless" }
+]

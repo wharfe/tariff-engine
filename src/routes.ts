@@ -10,22 +10,35 @@ export const FUNCTION_SECTION_ROUTES: Record<string, string> = {
   bookshelf: "XX", crib: "XX", shelf: "XX",
   // Footwear → Section XII
   shoe: "XII", shoes: "XII", boot: "XII", boots: "XII",
-  sandal: "XII", slipper: "XII", sneaker: "XII", footwear: "XII",
+  sandal: "XII", slipper: "XII", sneaker: "XII", sneakers: "XII",
+  footwear: "XII", flipflop: "XII",
   // Clothing → Section XI (but chapters 61-62 for garments, not raw textile chapters)
   shirt: "XI", "t-shirt": "XI", dress: "XI", trouser: "XI",
   jacket: "XI", coat: "XI", garment: "XI", clothing: "XI",
   jeans: "XI", cardigan: "XI", socks: "XI", tracksuit: "XI",
   shorts: "XI", blouse: "XI", skirt: "XI", necktie: "XI", tie: "XI",
   romper: "XI", raincoat: "XI", towel: "XI",
-  // Bags → Section VIII
+  // Bags/Leather → Section VIII
   backpack: "VIII", suitcase: "VIII", briefcase: "VIII",
-  wallet: "VIII", purse: "VIII",
+  wallet: "VIII", purse: "VIII", handbag: "VIII", belt: "VIII",
   // Jewelry → Section XIV
   necklace: "XIV", bracelet: "XIV", earring: "XIV",
+  diamond: "XIV", pearl: "XIV", gold: "XIV",
   // Cutlery/knives → Section XV (Ch.82)
   knife: "XV", cutlery: "XV",
-  // Tableware → Section XIII
+  // Tableware/Ceramics → Section XIII
   mug: "XIII", cup: "XIII",
+  ceramic: "XIII", porcelain: "XIII", tile: "XIII",
+  // Pharma → Section VI
+  aspirin: "VI", insulin: "VI", vitamin: "VI", bandage: "VI",
+  // Cosmetics → Section VI
+  perfume: "VI", shampoo: "VI", lipstick: "VI", sunscreen: "VI", toothpaste: "VI",
+  // Wood → Section IX
+  lumber: "IX", charcoal: "IX",
+  // Paper → Section X
+  paper: "X", cardboard: "X", napkin: "X",
+  // Iron/Steel → Section XV
+  nail: "XV", nails: "XV", chain: "XV", pot: "XV",
   // Vehicles → Section XVII
   car: "XVII", vehicle: "XVII", truck: "XVII", bus: "XVII",
   tractor: "XVII", motorcycle: "XVII", stroller: "XVII", sedan: "XVII",
@@ -82,12 +95,29 @@ export const PRODUCT_CHAPTER_ROUTES: Record<string, string[]> = {
   beverage: ["22"],
   sanitizer: ["38"],
   disinfectant: ["38"],
-  aspirin: ["30"],
+  aspirin: ["30"], insulin: ["30"], vitamin: ["30"], bandage: ["30"],
   medicine: ["30"],
   tablet: ["30"],
   tablets: ["30"],
   coffee: ["09"],
-  plywood: ["44"],
+  // Ch.33 Cosmetics
+  perfume: ["33"], shampoo: ["33"], lipstick: ["33"], sunscreen: ["33"], toothpaste: ["33"],
+  // Ch.42 Leather/Bags
+  handbag: ["42"], belt: ["42"], collar: ["42"],
+  // Ch.44 Wood
+  plywood: ["44"], lumber: ["44"], chopsticks: ["44"], flooring: ["44"], charcoal: ["44"],
+  // Ch.48 Paper
+  paper: ["48"], cardboard: ["48"], napkin: ["48"], toilet: ["48"],
+  // Ch.63 Textile articles
+  tent: ["63"], bedsheet: ["63"],
+  // Ch.64 Footwear
+  sandal: ["64"], sneaker: ["64"], sneakers: ["64"], flipflop: ["64"],
+  // Ch.69 Ceramics
+  ceramic: ["69"], porcelain: ["69"], tile: ["69"],
+  // Ch.71 Jewelry
+  diamond: ["71"], pearl: ["71"], gold: ["71"],
+  // Ch.73 Iron/Steel
+  nail: ["73"], nails: ["73"], chain: ["73"], wire: ["73"], pot: ["73"],
   backpack: ["42"],
   wallet: ["42"],
   suitcase: ["42"],

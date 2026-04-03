@@ -1,0 +1,8 @@
+[
+  { "description": "toilet paper roll, 2-ply", "expected4": "4818", "expected6": "481810", "notes": "toilet paper" },
+  { "description": "corrugated cardboard box, shipping", "expected4": "4819", "expected6": "481910", "notes": "carton of corrugated paper" },
+  { "description": "A4 copy paper, 80gsm, white", "expected4": "4802", "expected6": "480256", "notes": "uncoated paper for writing" },
+  { "description": "paper napkins, printed, party", "expected4": "4818", "expected6": "481830", "notes": "paper napkin" },
+  { "description": "kraft paper, brown, wrapping", "expected4": "4804", "expected6": "480419", "notes": "uncoated kraft paper" },
+  { "description": "sticky notes, yellow, 3x3 inch pad", "expected4": "4820", "expected6": "482010", "notes": "stationery of paper" }
+]

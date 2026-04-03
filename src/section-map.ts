@@ -41,7 +41,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "VI",
     title: "Products of the chemical or allied industries",
-    keywords: ["chemical", "pharmaceutical", "drug", "medicine", "medicament", "aspirin", "tablet", "capsule", "sanitizer", "disinfectant", "fertilizer", "dye", "pigment", "paint", "varnish", "soap", "detergent", "cosmetic", "perfume", "essential-oil", "photographic", "explosive", "insecticide", "herbicide", "fungicide"],
+    keywords: ["chemical", "pharmaceutical", "drug", "medicine", "medicament", "aspirin", "insulin", "vitamin", "bandage", "tablet", "capsule", "sanitizer", "disinfectant", "fertilizer", "dye", "pigment", "paint", "varnish", "soap", "detergent", "cosmetic", "perfume", "shampoo", "lipstick", "sunscreen", "toothpaste", "essential-oil", "photographic", "explosive", "insecticide", "herbicide", "fungicide"],
     chapters: ["28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38"],
   },
   {
@@ -53,19 +53,19 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "VIII",
     title: "Raw hides and skins, leather, furskins and articles thereof",
-    keywords: ["leather", "hide", "skin", "fur", "furskin", "saddlery", "handbag", "bag", "luggage", "travel", "gut"],
+    keywords: ["leather", "hide", "skin", "fur", "furskin", "saddlery", "handbag", "bag", "luggage", "travel", "gut", "belt", "harness", "saddle"],
     chapters: ["41", "42", "43"],
   },
   {
     section: "IX",
     title: "Wood and articles of wood; cork; manufactures of straw",
-    keywords: ["wood", "wooden", "timber", "lumber", "plywood", "veneer", "cork", "straw", "bamboo", "rattan", "basket", "charcoal"],
+    keywords: ["wood", "wooden", "timber", "lumber", "plywood", "veneer", "cork", "straw", "bamboo", "rattan", "basket", "charcoal", "chopsticks", "flooring"],
     chapters: ["44", "45", "46"],
   },
   {
     section: "X",
     title: "Pulp of wood; paper and paperboard",
-    keywords: ["paper", "pulp", "paperboard", "cardboard", "newspaper", "book", "printed", "printing", "wallpaper"],
+    keywords: ["paper", "pulp", "paperboard", "cardboard", "newspaper", "book", "printed", "printing", "wallpaper", "napkin", "toilet", "stationery"],
     chapters: ["47", "48", "49"],
   },
   {
@@ -77,13 +77,13 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XII",
     title: "Footwear, headgear, umbrellas, walking-sticks, whips",
-    keywords: ["footwear", "shoe", "boot", "sandal", "slipper", "hat", "headgear", "umbrella", "parasol", "walking-stick", "whip"],
+    keywords: ["footwear", "shoe", "boot", "sandal", "slipper", "sneaker", "sneakers", "flipflop", "hat", "headgear", "umbrella", "parasol", "walking-stick", "whip"],
     chapters: ["64", "65", "66", "67"],
   },
   {
     section: "XIII",
     title: "Articles of stone, plaster, cement, asbestos, mica; ceramic products; glass",
-    keywords: ["stone", "plaster", "cement", "asbestos", "mica", "ceramic", "porcelain", "glass", "glassware", "mirror", "brick", "tile"],
+    keywords: ["stone", "plaster", "cement", "asbestos", "mica", "ceramic", "porcelain", "glass", "glassware", "mirror", "brick", "tile", "terracotta", "stoneware"],
     chapters: ["68", "69", "70"],
   },
   {
@@ -95,7 +95,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XV",
     title: "Base metals and articles of base metals",
-    keywords: ["metal", "iron", "steel", "copper", "aluminium", "aluminum", "nickel", "zinc", "tin", "lead", "wire", "nail", "screw", "bolt", "nut", "pipe", "tube", "chain", "spring", "needle", "stove", "radiator", "bar", "rod", "plate", "sheet", "coil"],
+    keywords: ["metal", "iron", "steel", "copper", "aluminium", "aluminum", "nickel", "zinc", "tin", "lead", "wire", "nail", "nails", "screw", "bolt", "nut", "pipe", "tube", "chain", "spring", "needle", "stove", "radiator", "bar", "rod", "plate", "sheet", "coil"],
     chapters: ["72", "73", "74", "75", "76", "78", "79", "80", "81", "82", "83"],
   },
   {

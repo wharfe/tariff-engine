@@ -1,0 +1,8 @@
+[
+  { "description": "aspirin tablets, 500mg, blister pack", "expected4": "3004", "expected6": "300420", "notes": "medicament in dosage" },
+  { "description": "adhesive bandage, sterile, first aid", "expected4": "3005", "expected6": "300510", "notes": "wadding/bandage" },
+  { "description": "insulin injection, human recombinant", "expected4": "3004", "expected6": "300439", "notes": "medicament containing hormones" },
+  { "description": "vitamin C supplement, 1000mg tablets", "expected4": "3004", "expected6": "300450", "notes": "vitamin preparation" },
+  { "description": "hand sanitizer gel, 70% alcohol", "expected4": "3004", "expected6": "300490", "notes": "disinfectant in retail" },
+  { "description": "pregnancy test kit, home use", "expected4": "3002", "expected6": "300215", "notes": "diagnostic reagent" }
+]

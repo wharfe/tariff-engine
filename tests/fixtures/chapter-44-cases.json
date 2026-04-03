@@ -1,0 +1,8 @@
+[
+  { "description": "plywood sheet, birch, 18mm", "expected4": "4412", "expected6": "441234", "notes": "plywood" },
+  { "description": "wooden chopsticks, disposable, bamboo", "expected4": "4419", "expected6": "441900", "notes": "tableware of wood" },
+  { "description": "oak flooring, engineered, 15mm", "expected4": "4418", "expected6": "441875", "notes": "builders' joinery of wood" },
+  { "description": "pine lumber, kiln dried, 2x4", "expected4": "4407", "expected6": "440711", "notes": "wood sawn lengthwise" },
+  { "description": "wooden picture frame", "expected4": "4414", "expected6": "441400", "notes": "wooden frames" },
+  { "description": "charcoal briquettes for barbecue", "expected4": "4402", "expected6": "440290", "notes": "wood charcoal" }
+]
