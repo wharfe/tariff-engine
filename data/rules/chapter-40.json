@@ -1,0 +1,492 @@
+{
+  "chapter": "40",
+  "preScoringRules": [
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "49",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "printed"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "motifs, characters or pictorial representations"
+          },
+          {
+            "type": "attribute",
+            "field": "printing_nature",
+            "value": "not merely subsidiary to primary use"
+          }
+        ],
+        "excludedCodes": [
+          "3918",
+          "3919"
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XI"
+        ],
+        "reason": "Goods of Section XI (textiles and textile articles) are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64"
+        ],
+        "reason": "Footwear or parts thereof of Chapter 64 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "65"
+        ],
+        "reason": "Headgear or parts thereof (including bathing caps) of Chapter 65 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90",
+          "92",
+          "94",
+          "96"
+        ],
+        "reason": "Articles of Chapters 90, 92, 94 or 96 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4011",
+          "4012",
+          "4013"
+        ],
+        "reason": "Chapter 95 Note: sports gloves, mittens and mitts and articles of headings 40.11 to 40.13 are excluded from Chapter 95"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [],
+        "reason": "pigments or other colouring matter added solely for identification purposes are excluded from classification in this heading"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "4008",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "thread"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "vulcanised rubber"
+          },
+          {
+            "type": "comparison",
+            "field": "cross-sectional_dimension",
+            "operator": "exceeds",
+            "value": "5 mm"
+          }
+        ],
+        "notes": "Thread of vulcanised rubber with any cross-sectional dimension exceeding 5 mm is routed to heading 40.08 as strip, rods or profile shapes"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "articles clearly identifiable as being intended to be used together without first being repacked",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "not repacked"
+          },
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "clearly identifiable as intended to be used together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "items presented together",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "identifiable complementary items",
+        "meaning": "items that are complementary one to another, identifiable by their nature or by the relative proportions in which they are present",
+        "appliesTo": []
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "rubber",
+        "meaning": "natural rubber, balata, gutta-percha, guayule, chicle and similar natural gums, synthetic rubber, factice derived from oils, and reclaimed substances, whether or not vulcanised or hard",
+        "appliesTo": [
+          "40"
+        ],
+        "scope": "throughout the Nomenclature"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4015",
+        "covers": "mechanical or electrical appliances or parts thereof of Section XVI, made of hard rubber",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "hard rubber"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mechanical or electrical appliances"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4001",
+        "covers": "liquids and pastes including latex (whether or not pre-vulcanised) and other dispersions and solutions",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "liquids"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "pastes"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "latex"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dispersions"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "solutions"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "applicable to mineral/chemical chapters",
+        "covers": "blocks of irregular shape, lumps, bales, powders, granules, crumbs and similar bulk forms",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "blocks"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "lumps"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bales"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "powders"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "granules"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "crumbs"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "elastomers (synthetic rubber)",
+        "meaning": "unsaturated synthetic substances which can be irreversibly transformed by vulcanisation with sulphur into non-thermoplastic substances meeting specific elongation and recovery requirements at 18-29°C",
+        "appliesTo": [
+          "40"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Thioplasts",
+        "meaning": "Thioplasts (TM) - a trademarked material or product",
+        "appliesTo": [
+          "39"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4001",
+        "covers": "Natural rubber modified by grafting or mixing with plastics, depolymerised natural rubber, mixtures of unsaturated synthetic substances with saturated synthetic high polymers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "natural rubber modified by grafting or mixing with plastics"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "depolymerised natural rubber"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mixtures of unsaturated synthetic substances with saturated synthetic high polymers"
+          },
+          {
+            "type": "requirement",
+            "field": "vulcanisation, elongation and recovery",
+            "value": "must comply with requirements in (a)"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4001-4016",
+        "covers": "vulcanising agents, accelerators, retarders or activators",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "vulcanising agents"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "accelerators"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "retarders"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "activators"
+          },
+          {
+            "type": "excludes",
+            "field": "use",
+            "value": "preparation of pre-vulcanised rubber latex"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "raw natural rubber and raw synthetic rubber",
+        "meaning": "rubber containing permitted substances (plasticisers, extenders, fillers, reinforcing agents, organic solvents) while retaining essential character as raw material",
+        "appliesTo": [
+          "4001",
+          "4002"
+        ],
+        "conditions": [
+          {
+            "type": "permitted_substances",
+            "field": "additives",
+            "value": "only those listed in section (B) are allowed"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3824",
+        "covers": "emulsifiers or anti-tack agents",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "emulsifiers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "anti-tack agents"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "34",
+        "covers": "small amounts of breakdown products of emulsifiers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "breakdown products"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "emulsifiers"
+          },
+          {
+            "type": "qualifier",
+            "field": "quantity",
+            "value": "small amounts"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4001",
+        "covers": "very small amounts of heat-sensitive agents, cationic surface-active agents, antioxidants, coagulants, crumbling agents, freeze-resisting agents, peptisers, preservatives, stabilisers, viscosity-control agents, or similar special-purpose additives",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "heat-sensitive agents"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cationic surface-active agents"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "antioxidants"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "additives"
+          },
+          {
+            "type": "qualifier",
+            "field": "quantity",
+            "value": "very small amounts"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "waste, parings and scrap",
+        "meaning": "rubber waste, parings and scrap from the manufacture or working of rubber and rubber goods definitely not usable as such because of cutting-up, wear or other reasons",
+        "appliesTo": [
+          "4004"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4010",
+        "covers": "conveyor or transmission belts or belting of textile fabric impregnated, coated, covered or laminated with rubber or made from textile yarn or cord impregnated, coated, covered or sheathed with rubber",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "conveyor belts"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "transmission belts"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "textile fabric"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rubber"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "plates, sheets, strip, rods, profile shapes",
+        "meaning": "plates, sheets and strip apply only to plates, sheets and strip and blocks of regular geometric shape, uncut or simply cut to rectangular (including square) shape, whether or not having character of articles and whether or not printed or surface-worked, but not otherwise cut to shape or further worked. Rods and profile shapes apply only to such products whether or not cut to length or surface-worked but not otherwise worked.",
+        "appliesTo": [
+          "4001",
+          "4002",
+          "4003",
+          "4005",
+          "4008"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

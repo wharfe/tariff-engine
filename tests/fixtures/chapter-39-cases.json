@@ -1,0 +1,10 @@
+[
+  { "description": "plastic shopping bag, polyethylene", "expected4": "3923", "expected6": "392329", "notes": "articles for conveyance/packing" },
+  { "description": "PVC floor covering, roll", "expected4": "3918", "expected6": "391810", "notes": "floor covering of plastics" },
+  { "description": "plastic water bottle, 500ml, PET", "expected4": "3923", "expected6": "392330", "notes": "bottles of plastics" },
+  { "description": "acrylic sheet, transparent, 3mm thick", "expected4": "3920", "expected6": "392051", "notes": "plates/sheets of polymethyl methacrylate" },
+  { "description": "silicone phone case", "expected4": "3926", "expected6": "392690", "notes": "other articles of plastics" },
+  { "description": "polyethylene pellets, HDPE, for injection molding", "expected4": "3901", "expected6": "390120", "notes": "polyethylene in primary forms" },
+  { "description": "plastic food container with lid, microwave safe", "expected4": "3924", "expected6": "392490", "notes": "tableware/kitchenware of plastics" },
+  { "description": "PVC pipe, 50mm diameter, for drainage", "expected4": "3917", "expected6": "391723", "notes": "tubes/pipes of plastics" }
+]

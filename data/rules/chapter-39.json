@@ -1,0 +1,921 @@
+{
+  "chapter": "39",
+  "preScoringRules": [
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "49",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "printed"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "motifs, characters or pictorial representations"
+          },
+          {
+            "type": "primary_characteristic",
+            "field": "function",
+            "value": "printing is not merely subsidiary"
+          }
+        ],
+        "excludedCodes": [
+          "3918",
+          "3919"
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2710",
+          "3403"
+        ],
+        "reason": "Lubricating preparations of headings 27.10 or 34.03 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2712",
+          "3404"
+        ],
+        "reason": "Waxes of headings 27.12 or 34.04 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "29"
+        ],
+        "reason": "Separate chemically defined organic compounds of Chapter 29 are excluded from this section/heading"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "3208",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "solutions of products from headings 39.01 to 39.13"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "volatile organic solvents"
+          },
+          {
+            "type": "exceeds",
+            "field": "solvent_weight_percentage",
+            "value": 50
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3402"
+        ],
+        "reason": "Organic surface-active agents or preparations of heading 34.02 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3806"
+        ],
+        "reason": "Run gums or ester gums of heading 38.06 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "3819",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "prepared hydraulic fluids"
+          },
+          {
+            "type": "contains",
+            "field": "composition",
+            "value": "polyglycols, silicones or other polymers of Chapter 39"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3822"
+        ],
+        "reason": "Diagnostic or laboratory reagents on a backing of plastics are excluded and classified under heading 38.22"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4201",
+          "4202"
+        ],
+        "reason": "Saddlery, harness, trunks, suitcases, handbags and other containers are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "46"
+        ],
+        "reason": "Plaits, wickerwork or other articles of Chapter 46 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4814"
+        ],
+        "reason": "Wall coverings of heading 48.14 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XI"
+        ],
+        "reason": "Textiles and textile articles from Section XI are excluded from the current section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "12"
+        ],
+        "reason": "Section XII Note: articles of Section XII including footwear, headgear, umbrellas, sun umbrellas, walking-sticks, whips, riding-crops or parts thereof are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7117"
+        ],
+        "reason": "Imitation jewellery of heading 71.17 is excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XVI"
+        ],
+        "reason": "Articles of Section XVI (machines and mechanical or electrical appliances) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90"
+        ],
+        "reason": "Articles of Chapter 90 (optical elements, spectacle frames, drawing instruments) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "Articles of Chapter 91 (clock and watch cases) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "92"
+        ],
+        "reason": "Articles of Chapter 92, including musical instruments or parts thereof, are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Articles of Chapter 95 (toys, games, sports requisites) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3911"
+        ],
+        "reason": "Resins of coumarone-indene type classified in heading 39.11 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3910"
+        ],
+        "reason": "Silicones of heading 39.10 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "heading of unmodified polymer",
+        "conditions": [
+          {
+            "type": "equals",
+            "field": "modification_type",
+            "value": "appendages to main polymer chain changed by chemical reaction"
+          }
+        ],
+        "exceptions": [
+          {
+            "type": "excludes",
+            "value": "graft copolymers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3915"
+        ],
+        "reason": "Heading 39.15 Note 1: waste, parings and scrap of a single thermoplastic material transformed into primary forms (headings 39.01 to 39.14) are excluded from heading 39.15"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "39",
+        "conditions": [
+          {
+            "type": "classification_rule",
+            "field": "polymer_type",
+            "value": "predominant monomer unit by weight"
+          },
+          {
+            "type": "classification_rule",
+            "field": "polymer_type",
+            "value": "chemically modified polymers classified as unmodified"
+          },
+          {
+            "type": "classification_rule",
+            "field": "polymer_type",
+            "value": "polymer blends classified by monomer units and proportions"
+          }
+        ],
+        "applicableWhen": "no 'Other' subheading exists in the series"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "articles clearly identifiable as being intended to be used together without first being repacked",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "put up"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "intended to be used together"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "without repacking"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "items presented together",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "complementary",
+        "meaning": "identifiable, whether by their nature or by the relative proportions in which they are present, as being complementary one to another",
+        "appliesTo": [
+          "Chapter context dependent"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "plastics",
+        "meaning": "materials of headings 39.01 to 39.14 which are or have been capable, either at the moment of polymerisation or at some subsequent stage, of being formed under external influence (usually heat and pressure, if necessary with a solvent or plasticiser) by moulding, casting, extruding, rolling or other process into shapes which are retained on the removal of the external influence. Includes vulcanised fibre. Does not apply to materials regarded as textile materials of Section XI.",
+        "appliesTo": [
+          "3901",
+          "3902",
+          "3903",
+          "3904",
+          "3905",
+          "3906",
+          "3907",
+          "3908",
+          "3909",
+          "3910",
+          "3911",
+          "3912",
+          "3913",
+          "3914"
+        ],
+        "exclusions": [
+          "Section XI"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3001",
+        "covers": "Heparin or its salts",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "heparin"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3811",
+        "covers": "prepared additives for mineral oils (including gasoline) or for other liquids used for the same purposes as mineral oils",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "prepared additives"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mineral oils"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "synthetic rubber",
+        "meaning": "synthetic rubber as defined for the purposes of Chapter 40",
+        "appliesTo": [
+          "40"
+        ],
+        "scope": "used to clarify what constitutes synthetic rubber and its articles in this classification context"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9406",
+        "covers": "parts of aircraft or vehicles of Section XVII",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "parts"
+          },
+          {
+            "type": "contains",
+            "field": "source",
+            "value": "Section XVII"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "94",
+        "covers": "furniture, luminaires and lighting fittings, illuminated signs, prefabricated buildings",
+        "examples": [
+          "furniture",
+          "luminaires",
+          "lighting fittings",
+          "illuminated signs",
+          "prefabricated buildings"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "96",
+        "covers": "brushes, buttons, slide fasteners, combs, mouthpieces or stems for smoking pipes, cigarette-holders or the like, parts of vacuum flasks or the like, pens, propelling pencils, and monopods, bipods, tripods and similar articles",
+        "conditions": [
+          {
+            "type": "exemplary_list",
+            "field": "description",
+            "values": [
+              "brushes",
+              "buttons",
+              "slide fasteners",
+              "combs",
+              "mouthpieces",
+              "stems for smoking pipes",
+              "cigarette-holders",
+              "parts of vacuum flasks",
+              "pens",
+              "propelling pencils",
+              "monopods",
+              "bipods",
+              "tripods"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3901-3902",
+        "covers": "Liquid synthetic polyolefins with specific distillation characteristics",
+        "conditions": [
+          {
+            "type": "property_threshold",
+            "field": "distillation_volume_percent",
+            "operator": "less_than",
+            "value": 60,
+            "unit": "percent by volume"
+          },
+          {
+            "type": "property_threshold",
+            "field": "distillation_temperature",
+            "value": 300,
+            "unit": "°C",
+            "conditions": "at 1,013 millibars using reduced-pressure distillation method"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3901-3916",
+        "covers": "other synthetic polymers with an average of at least 5 monomer units",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "synthetic polymers"
+          },
+          {
+            "type": "minimum",
+            "field": "monomer_units",
+            "value": 5
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3909",
+        "covers": "Resols and other prepolymers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "resols"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "prepolymers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "copolymers",
+        "meaning": "all polymers in which no single monomer unit contributes 95% or more by weight to the total polymer content; includes co-polycondensates, co-polyaddition products, block copolymers and graft copolymers; to be classified in the heading covering polymers of the comonomer unit which predominates by weight, or if no single unit predominates, in the heading which occurs last in numerical order",
+        "appliesTo": [
+          "39"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Liquids and pastes",
+        "meaning": "includes dispersions (emulsions and suspensions) and solutions",
+        "appliesTo": [
+          "3401"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "28",
+        "covers": "blocks of irregular shape, lumps, powders (including moulding powders), granules, flakes and similar bulk forms",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "blocks of irregular shape"
+          },
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "lumps"
+          },
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "powders"
+          },
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "granules"
+          },
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "flakes"
+          },
+          {
+            "type": "contains",
+            "field": "physical_form",
+            "value": "bulk forms"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "tubes, pipes and hoses",
+        "meaning": "hollow products, whether semi-manufactures or finished products, of a kind generally used for conveying, conducting or distributing gases or liquids; includes sausage casings and lay-flat tubing; excludes products with non-standard cross-sections (other than round, oval, rectangular with length ≤ 1.5 times width, or regular polygon shapes)",
+        "appliesTo": [
+          "3917"
+        ],
+        "inclusions": [
+          "ribbed garden hose",
+          "perforated tubes",
+          "sausage casings",
+          "lay-flat tubing"
+        ],
+        "exclusions": [
+          "products with internal cross-sections other than round, oval, rectangular, or regular polygon (except lay-flat tubing)"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wall or ceiling coverings of plastics",
+        "meaning": "products in rolls, of a width not less than 45 cm, suitable for wall or ceiling decoration, consisting of plastics fixed permanently on a backing of any material other than paper, the layer of plastics (on the face side) being grained, embossed, coloured, design-printed or otherwise decorated",
+        "appliesTo": [
+          "3918"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "format",
+            "value": "rolls"
+          },
+          {
+            "type": "minimum",
+            "field": "width",
+            "value": "45 cm"
+          },
+          {
+            "type": "contains",
+            "field": "backing_material",
+            "value": "not paper"
+          },
+          {
+            "type": "contains",
+            "field": "surface_treatment",
+            "value": "grained, embossed, coloured, design-printed or otherwise decorated"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "plates, sheets, film, foil and strip",
+        "meaning": "plates, sheets, film, foil and strip (other than those of Chapter 54) and blocks of regular geometric shape, whether or not printed or otherwise surface-worked, uncut or cut into rectangles (including squares) but not further worked",
+        "appliesTo": [
+          "3920",
+          "3921"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7311",
+        "covers": "Reservoirs, tanks (including septic tanks), vats and similar containers",
+        "conditions": [
+          {
+            "type": "exceeds",
+            "field": "capacity",
+            "value": "300 l"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "68",
+        "covers": "structural elements used in floors, walls, partitions, ceilings or roofs",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "application",
+            "value": "structural"
+          },
+          {
+            "type": "includes",
+            "field": "use",
+            "value": [
+              "floors",
+              "walls",
+              "partitions",
+              "ceilings",
+              "roofs"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7326",
+        "covers": "gutters and fittings therefor",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "gutters"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "fittings"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7007",
+        "covers": "doors, windows and their frames and thresholds for doors",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "doors"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "windows"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "frames"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "thresholds"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7308",
+        "covers": "balconies, balustrades, fencing, gates and similar barriers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "balconies"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "balustrades"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "fencing"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "gates"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "barriers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9406",
+        "covers": "shutters, blinds (including Venetian blinds) and similar articles and parts and fittings thereof",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "shutters"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "blinds"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "Venetian blinds"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "7326",
+        "covers": "large-scale shelving for assembly and permanent installation",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "large-scale shelving"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "assembly"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "permanent installation"
+          }
+        ],
+        "examples": [
+          "shops",
+          "workshops",
+          "warehouses"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "73",
+        "covers": "ornamental architectural features including flutings, cupolas, dovecotes",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ornamental"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "architectural features"
+          }
+        ],
+        "examples": [
+          "flutings",
+          "cupolas",
+          "dovecotes"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Fittings and mountings",
+        "meaning": "articles intended for permanent installation in or on doors, windows, staircases, walls or other parts of buildings, including knobs, handles, hooks, brackets, towel rails, switch-plates and other protective plates",
+        "appliesTo": [
+          "73",
+          "83",
+          "94"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "polymer classification rules",
+        "meaning": "Rules for classifying polymers and copolymers based on monomer/comonomer composition percentages and predominance",
+        "appliesTo": [
+          "3901",
+          "3903",
+          "3904"
+        ],
+        "specificRules": [
+          {
+            "rule": "prefix 'poly' designation",
+            "requirement": "constituent monomer units must contribute 95% or more by weight of total polymer content"
+          },
+          {
+            "rule": "named copolymers",
+            "affectedSubheadings": [
+              "390130",
+              "390140",
+              "390320",
+              "390330",
+              "390430"
+            ],
+            "requirement": "comonomer units must contribute 95% or more by weight of total polymer content"
+          },
+          {
+            "rule": "chemically modified polymers",
+            "classification": "subheading 'Other'",
+            "condition": "not more specifically covered by another subheading"
+          },
+          {
+            "rule": "polymers not meeting above",
+            "classification": "subheading covering polymers with predominating monomer unit by weight"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "plasticisers",
+        "meaning": "includes secondary plasticisers",
+        "appliesTo": [
+          "392043"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

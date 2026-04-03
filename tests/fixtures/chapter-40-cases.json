@@ -1,0 +1,10 @@
+[
+  { "description": "natural rubber latex, concentrated", "expected4": "4001", "expected6": "400110", "notes": "natural rubber latex" },
+  { "description": "car tire, radial, 205/55R16", "expected4": "4011", "expected6": "401110", "notes": "new pneumatic tyre for cars" },
+  { "description": "rubber gloves, disposable, nitrile", "expected4": "4015", "expected6": "401519", "notes": "rubber gloves" },
+  { "description": "rubber O-ring seal, 25mm", "expected4": "4016", "expected6": "401693", "notes": "gaskets/seals of vulcanised rubber" },
+  { "description": "conveyor belt, reinforced rubber", "expected4": "4010", "expected6": "401110", "notes": "conveyor belt of vulcanised rubber" },
+  { "description": "rubber floor mat for car", "expected4": "4016", "expected6": "401699", "notes": "other articles of vulcanised rubber" },
+  { "description": "bicycle inner tube, 26 inch", "expected4": "4013", "expected6": "401320", "notes": "inner tube for bicycles" },
+  { "description": "silicone rubber sheet, industrial grade", "expected4": "4002", "expected6": "400270", "notes": "synthetic rubber in primary forms" }
+]
