@@ -434,7 +434,12 @@
     "box",
     "canister",
     "dispenser",
-    "pump"
+    "pump",
+    "bag",
+    "bags",
+    "shopping",
+    "carrier",
+    "sack"
   ],
   "3924": [
     "dishes",
@@ -472,7 +477,13 @@
     "hangers",
     "brackets",
     "tubing",
-    "connector"
+    "connector",
+    "case",
+    "phone",
+    "silicone",
+    "cover",
+    "protector",
+    "accessory"
   ],
   "4001": [
     "rubber",
@@ -483,7 +494,12 @@
     "balata",
     "gutta-percha",
     "gum",
-    "elastomer"
+    "elastomer",
+    "crude",
+    "smoked",
+    "sheet",
+    "crepe",
+    "plantation"
   ],
   "4002": [
     "synthetic",
@@ -645,7 +661,14 @@
     "bib",
     "protective",
     "industrial",
-    "rainwear"
+    "rainwear",
+    "gloves",
+    "nitrile",
+    "disposable",
+    "surgical",
+    "examination",
+    "medical",
+    "rubber"
   ],
   "4016": [
     "mat",
@@ -657,7 +680,10 @@
     "stopper",
     "ferrule",
     "washer",
-    "damper"
+    "damper",
+    "o-ring",
+    "ring",
+    "floor"
   ],
   "4017": [
     "ebonite",
@@ -681,7 +707,11 @@
     "whip",
     "collar",
     "trace",
-    "tack"
+    "tack",
+    "dog",
+    "pet",
+    "leash",
+    "muzzle"
   ],
   "4202": [
     "bag",
@@ -693,7 +723,12 @@
     "pouch",
     "portfolio",
     "briefcase",
-    "tote"
+    "tote",
+    "wallet",
+    "billfold",
+    "bifold",
+    "purse",
+    "clutch"
   ],
   "4203": [
     "jacket",
@@ -982,7 +1017,13 @@
     "envelope",
     "stationery",
     "document",
-    "sheet"
+    "sheet",
+    "printer",
+    "a4",
+    "photocopy",
+    "office",
+    "letter",
+    "copier"
   ],
   "4803": [
     "tissue",
@@ -1138,7 +1179,14 @@
     "serviette",
     "handkerchief",
     "wipeable",
-    "bathroom"
+    "bathroom",
+    "toilet",
+    "wipe",
+    "wipes",
+    "paper",
+    "napkins",
+    "facial",
+    "disposable"
   ],
   "4819": [
     "box",
@@ -1274,7 +1322,11 @@
     "sleepwear",
     "nightwear",
     "undershirt",
-    "vest"
+    "vest",
+    "boxer",
+    "shorts",
+    "underpants",
+    "trunks"
   ],
   "6108": [
     "underwear",
@@ -1356,7 +1408,12 @@
     "hosiery",
     "compression",
     "legwear",
-    "footwear"
+    "footwear",
+    "sock",
+    "stocking",
+    "ankle",
+    "crew",
+    "knee"
   ],
   "6116": [
     "gloves",
@@ -1789,7 +1846,14 @@
     "slip-ons",
     "casual",
     "lightweight",
-    "athletic"
+    "athletic",
+    "running",
+    "sneaker",
+    "sports",
+    "jogging",
+    "trainer",
+    "gym",
+    "mesh"
   ],
   "6405": [
     "sandals",
@@ -1897,6 +1961,17 @@
     "finishing",
     "cubes",
     "decorative"
+  ],
+  "6908": [
+    "tile",
+    "tiles",
+    "floor",
+    "wall",
+    "bathroom",
+    "kitchen",
+    "mosaic",
+    "tiling",
+    "glazed"
   ],
   "6910": [
     "sink",
@@ -2112,7 +2187,11 @@
     "chain",
     "locket",
     "jewelry",
-    "accessory"
+    "accessory",
+    "engagement",
+    "wedding",
+    "diamond",
+    "gemstone"
   ],
   "7114": [
     "jewelry",
@@ -2506,6 +2585,16 @@
     "staircase",
     "railing"
   ],
+  "8211": [
+    "knife",
+    "knives",
+    "kitchen",
+    "chef",
+    "blade",
+    "carving",
+    "steak",
+    "paring"
+  ],
   "8401": [
     "nuclear",
     "reactor",
@@ -2715,7 +2804,9 @@
     "cleaner",
     "extractor",
     "spinner",
-    "dehydrator"
+    "dehydrator",
+    "laboratory",
+    "lab"
   ],
   "8422": [
     "dishwasher",
@@ -3342,7 +3433,13 @@
     "device",
     "tool",
     "industrial",
-    "mechanical"
+    "mechanical",
+    "robot",
+    "robotic",
+    "arm",
+    "assembly",
+    "automation",
+    "manipulator"
   ],
   "8480": [
     "mold",
@@ -3861,7 +3958,12 @@
     "led",
     "crystal",
     "photocell",
-    "sensor"
+    "sensor",
+    "panel",
+    "cell",
+    "module",
+    "pv",
+    "wafer"
   ],
   "8542": [
     "chip",
@@ -4095,7 +4197,13 @@
     "tyre",
     "chain",
     "pedal",
-    "seat"
+    "seat",
+    "derailleur",
+    "bicycle",
+    "bike",
+    "cycling",
+    "gear",
+    "sprocket"
   ],
   "8715": [
     "stroller",
@@ -4157,7 +4265,14 @@
     "nightstand",
     "drawer",
     "cupboard",
-    "sideboard"
+    "sideboard",
+    "crib",
+    "cradle",
+    "nursery",
+    "baby",
+    "bunk",
+    "cot",
+    "toddler"
   ],
   "9404": [
     "mattress",
