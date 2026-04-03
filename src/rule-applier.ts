@@ -139,6 +139,7 @@ export function applyScoringAdjustments(
   for (const rule of rules) {
     if (rule.clauseType === "definition") {
       const params = rule.params as DefinitionParams;
+      if (!params.term) continue; // Skip if term is undefined
       const termLower = params.term.toLowerCase();
       // Match singular/plural: strip trailing 's' for comparison
       const termBase = termLower.replace(/s$/, "");

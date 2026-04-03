@@ -1,0 +1,682 @@
+{
+  "chapter": "62",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "0502",
+          "0511"
+        ],
+        "reason": "Animal brush making bristles or hair (heading 05.02) and horsehair or horsehair waste (heading 05.11) are excluded from the current heading"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "0501",
+          "6703",
+          "6704"
+        ],
+        "reason": "Human hair or articles of human hair classified in headings 05.01, 67.03 or 67.04 are excluded, except filtering or straining cloth of heading 59.11"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "14"
+        ],
+        "reason": "Cotton linters or other vegetable materials of Chapter 14 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2524",
+          "6812",
+          "6813"
+        ],
+        "reason": "Asbestos of heading 25.24 and articles of asbestos or other products of headings 68.12 or 68.13 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3005",
+          "3006",
+          "3306"
+        ],
+        "reason": "Articles of headings 30.05, 30.06, and dental floss of heading 33.06 are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3701",
+          "3702",
+          "3703",
+          "3704"
+        ],
+        "reason": "Sensitised textiles of headings 37.01 to 37.04 are excluded from this Section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "39",
+          "46"
+        ],
+        "reason": "Monofilament with cross-sectional dimension exceeding 1 mm, strip exceeding 5 mm width, and plaits/fabrics/basketware made from such materials are excluded and classified in Chapter 39 or Chapter 46 instead"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "39"
+        ],
+        "reason": "Woven, knitted or crocheted fabrics, felt or nonwovens impregnated, coated, covered or laminated with plastics, or articles thereof of Chapter 39 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "40"
+        ],
+        "reason": "Woven, knitted or crocheted fabrics, felt or nonwovens impregnated, coated, covered or laminated with rubber, or articles thereof from Chapter 40 are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "41",
+          "43",
+          "4303",
+          "4304"
+        ],
+        "reason": "Hides or skins with hair/wool (Chapter 41 or 43) and articles of furskin or artificial fur (headings 43.03 or 43.04) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4201",
+          "4202"
+        ],
+        "reason": "Articles of textile materials of headings 42.01 or 42.02 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "48"
+        ],
+        "reason": "Products or articles of Chapter 48 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64"
+        ],
+        "reason": "Footwear, parts of footwear, gaiters, leggings and similar articles of Chapter 64 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "65"
+        ],
+        "reason": "Hair-nets or other headgear or parts thereof of Chapter 65 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "67"
+        ],
+        "reason": "Chapter 67 goods are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6805",
+          "6815"
+        ],
+        "reason": "Abrasive-coated textile material and carbon fibres or articles of carbon fibres are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "70"
+        ],
+        "reason": "Glass fibres or articles of glass fibres (other than embroidery with glass thread on visible ground of fabric) are excluded and fall under Chapter 70"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Chapter 94 articles (furniture, bedding, luminaires and lighting fittings) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "96"
+        ],
+        "reason": "Chapter 96 articles (brushes, travel sets for sewing, slide fasteners, typewriter ribbons, sanitary towels, tampons, napkins, napkin liners) are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "Articles of Chapter 97 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6309"
+        ],
+        "reason": "Worn clothing or other worn articles of heading 63.09 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6205",
+          "6206"
+        ],
+        "reason": "Chapter 62 Note: garments with pockets below waist, ribbed waistband or other tightening means at bottom are excluded from headings 62.05 and 62.06; sleeveless garments are excluded from heading 62.05"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "6209",
+        "conditions": [
+          {
+            "type": "classifiable_in",
+            "field": "heading",
+            "value": "6209"
+          },
+          {
+            "type": "classifiable_in",
+            "field": "heading",
+            "value": "other_headings_chapter_62"
+          }
+        ],
+        "rule": "prima_facie classification priority to 6209"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "6210",
+        "conditions": [
+          {
+            "type": "classifiable_in",
+            "field": "heading",
+            "value": "6210"
+          },
+          {
+            "type": "classifiable_in",
+            "field": "heading",
+            "value": "other_headings_chapter_62"
+          }
+        ],
+        "excludedHeadings": [
+          "6209"
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "6213",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "scarf"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "square or approximately square"
+          },
+          {
+            "type": "max_dimension",
+            "field": "side_length",
+            "value": "60"
+          }
+        ],
+        "alternativeRouting": {
+          "target": "6214",
+          "conditions": [
+            {
+              "type": "exceeds_dimension",
+              "field": "side_length",
+              "value": "60"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "women's or girls' garments",
+        "conditions": [
+          {
+            "type": "cannot_be_identified",
+            "field": "gender",
+            "value": "men's/boys'"
+          }
+        ]
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "95",
+        "covers": "toys, games, sports requisites and nets",
+        "conditions": [
+          {
+            "type": "example",
+            "field": "description",
+            "values": [
+              "toys",
+              "games",
+              "sports requisites",
+              "nets"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "cut otherwise than into squares or rectangles",
+        "conditions": [
+          {
+            "type": "shape_exclusion",
+            "field": "cutting_form",
+            "value": "squares or rectangles"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "finished state, ready for use",
+        "meaning": "articles produced in finished state, ready for use or merely needing separation by cutting dividing threads, without sewing or other working",
+        "examples": [
+          "dusters",
+          "towels",
+          "table cloths",
+          "scarf squares",
+          "blankets"
+        ],
+        "appliesTo": [
+          "6309"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "5907",
+        "covers": "Cut fabrics with at least one heat-sealed edge with visibly tapered or compressed border and other edges treated as described in Note",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cut to size"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "heat-sealed edge"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "tapered or compressed border"
+          }
+        ],
+        "exclusions": [
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "fabrics with cut edges prevented from unravelling by hot cutting or simple means"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6308",
+        "covers": "hemmed or with rolled edges, or with a knotted fringe at any of the edges",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "hemmed"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rolled edges"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "knotted fringe"
+          }
+        ],
+        "exclusions": "fabrics with cut edges prevented from unravelling by whipping or other simple means"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "58",
+        "covers": "fabrics cut to size and having undergone drawn thread work",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cut to size"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "drawn thread work"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "5903",
+        "covers": "textile products assembled by sewing, gumming or otherwise",
+        "excludes": [
+          "piece goods consisting of two or more lengths of identical material joined end to end",
+          "piece goods composed of two or more textiles assembled in layers, whether or not padded"
+        ],
+        "conditions": [
+          {
+            "type": "assembly_method",
+            "value": "sewing, gumming or otherwise"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "identical material joined end to end"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "textiles assembled in layers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6004-6006",
+        "covers": "knitted or crocheted fabrics to shape",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "knitted"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "crocheted"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "to shape"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "textile garments",
+        "meaning": "garments of headings 61.01 to 61.14 and headings 62.01 to 62.11",
+        "appliesTo": [
+          "6101",
+          "6102",
+          "6103",
+          "6104",
+          "6105",
+          "6106",
+          "6107",
+          "6108",
+          "6109",
+          "6110",
+          "6111",
+          "6112",
+          "6113",
+          "6114",
+          "6201",
+          "6202",
+          "6203",
+          "6204",
+          "6205",
+          "6206",
+          "6207",
+          "6208",
+          "6209",
+          "6210",
+          "6211"
+        ],
+        "additionalRule": "textile garments of different headings are classified in their own headings even if put up in sets for retail sale"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "11",
+        "covers": "textiles, garments and other textile articles incorporating chemical, mechanical or electronic components for additional functionality",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "chemical, mechanical or electronic components"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "retain essential character"
+          }
+        ],
+        "note": "Subject to Note 1 to Section XI"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "chapter": "62",
+        "covers": "made up articles of any textile fabric other than wadding",
+        "excludes": "knitted or crocheted articles, except those of heading 62.12",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "made up articles"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "knitted or crocheted articles"
+          },
+          {
+            "type": "excludes",
+            "field": "material",
+            "value": "wadding"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9021",
+        "covers": "orthopaedic appliances, surgical belts, trusses or the like",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "orthopaedic appliances"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "surgical belts"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "trusses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "suit",
+        "meaning": "a set of garments composed of two or three pieces made up in identical fabric, comprising a suit coat/jacket with four or more panels and a garment for the lower body (trousers, breeches, shorts, skirt, or divided skirt). All components must be of the same fabric construction, colour, composition, style and corresponding/compatible size, though piping may be in different fabric. Includes morning dress, evening dress (tailcoat), and dinner jacket suits.",
+        "appliesTo": [
+          "6203",
+          "6204"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "ensemble",
+        "meaning": "a set of garments (other than suits and articles of heading 62.07 or 62.08) composed of several pieces made up in identical fabric, put up for retail sale, comprising one garment designed to cover the upper part of the body (with exception of waistcoats which may also form a second upper garment) and one or two different garments designed to cover the lower part of the body (trousers, bib and brace overalls, breeches, shorts other than swimwear, skirt or divided skirt). All components must be of the same fabric construction, style, colour and composition, and of corresponding or compatible size. Does not apply to track suits or ski suits of heading 62.11",
+        "appliesTo": [
+          "6202",
+          "6204"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "shirts, shirt-blouses, blouses",
+        "meaning": "Shirts and shirt-blouses are garments designed to cover the upper part of the body, having long or short sleeves and a full or partial opening starting at the neckline. Blouses are loose-fitting garments also designed to cover the upper part of the body but may be sleeveless and with or without an opening at the neckline. All three may have a collar.",
+        "appliesTo": [
+          "6205",
+          "6206",
+          "6207"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "babies' garments and clothing accessories",
+        "meaning": "articles for young children of a body height not exceeding 86 cm",
+        "appliesTo": [
+          "6209",
+          "6211"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "ski overall",
+        "meaning": "a one-piece garment designed to cover the upper and lower parts of the body; may have sleeves, collar, pockets or footstraps",
+        "appliesTo": [
+          "6201",
+          "6202"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "ski ensemble",
+        "meaning": "a set of garments composed of two or three pieces, put up for retail sale comprising: one garment such as an anorak, wind-cheater, wind-jacket or similar article closed by a slide fastener (zipper), possibly with a waistcoat, and one pair of trousers, breeches or bib and brace overall; or an overall with a padded sleeveless jacket. All components must be made in fabric of the same texture, style and composition and be of corresponding or compatible size",
+        "appliesTo": [
+          "6101",
+          "6102",
+          "6103"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "garment gender classification",
+        "meaning": "Garments designed for left over right front closure are classified as men's or boys' garments; those designed for right over left front closure are classified as women's or girls' garments, unless the cut of the garment clearly indicates otherwise",
+        "appliesTo": [
+          "61",
+          "62"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "chapter": "applicable_chapter",
+        "covers": "articles made of metal thread",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "metal thread"
+          }
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

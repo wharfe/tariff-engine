@@ -1,0 +1,10 @@
+[
+  { "description": "men's cotton woven dress shirt", "expected4": "6205", "expected6": "620520", "notes": "men's shirt, woven, cotton" },
+  { "description": "women's woven wool skirt", "expected4": "6204", "expected6": "620451", "notes": "women's skirt, woven, wool" },
+  { "description": "men's denim jeans, woven cotton", "expected4": "6203", "expected6": "620342", "notes": "men's trousers, woven, cotton" },
+  { "description": "silk necktie, woven", "expected4": "6215", "expected6": "621510", "notes": "tie, woven, silk" },
+  { "description": "women's woven polyester jacket", "expected4": "6204", "expected6": "620433", "notes": "women's jacket, woven, synthetic" },
+  { "description": "cotton bath towel", "expected4": "6302", "expected6": "630260", "notes": "note: 6302 is textile furnishing" },
+  { "description": "baby's woven cotton dress", "expected4": "6209", "expected6": "620920", "notes": "babies' garments, woven, cotton" },
+  { "description": "men's woven raincoat, synthetic fabric", "expected4": "6201", "expected6": "620113", "notes": "men's overcoat, woven, synthetic" }
+]

@@ -1,0 +1,10 @@
+[
+  { "description": "cotton t-shirt, men's, knitted", "expected4": "6109", "expected6": "610910", "notes": "T-shirts of cotton, knitted" },
+  { "description": "women's knitted cardigan, wool", "expected4": "6110", "expected6": "611011", "notes": "jerseys/cardigans, knitted, wool" },
+  { "description": "baby's knitted cotton romper", "expected4": "6111", "expected6": "611120", "notes": "babies' garments, knitted, cotton" },
+  { "description": "men's knitted boxer shorts, cotton", "expected4": "6107", "expected6": "610711", "notes": "men's underpants, knitted, cotton" },
+  { "description": "knitted polyester tracksuit", "expected4": "6112", "expected6": "611231", "notes": "track suit, knitted, synthetic" },
+  { "description": "women's knitted silk blouse", "expected4": "6106", "expected6": "610610", "notes": "women's blouse, knitted, cotton/silk" },
+  { "description": "knitted cotton socks, men's", "expected4": "6115", "expected6": "611595", "notes": "hosiery, knitted, cotton" },
+  { "description": "knitted acrylic beanie hat", "expected4": "6117", "expected6": "611710", "notes": "knitted accessories" }
+]
