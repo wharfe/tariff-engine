@@ -1,0 +1,491 @@
+{
+  "chapter": "44",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "68"
+        ],
+        "reason": "Articles of stone or other mineral substances classified in Chapter 68 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4202"
+        ],
+        "reason": "articles of heading 4202 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "46"
+        ],
+        "reason": "goods of Chapter 46 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64"
+        ],
+        "reason": "footwear or parts thereof of Chapter 64 are excluded from this Section/Chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "66"
+        ],
+        "reason": "Goods of Chapter 66, including umbrellas, walking-sticks and parts thereof, are excluded from the current section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6808"
+        ],
+        "reason": "goods of heading 68.08 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7117"
+        ],
+        "reason": "imitation jewellery of heading 71.17 is excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XVI",
+          "Section XVII"
+        ],
+        "reason": "Goods from Section XVI or Section XVII (machine parts, cases, covers, cabinets for machines and apparatus, wheelwrights' wares) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "XVIII"
+        ],
+        "reason": "Section XVIII goods (including clock cases, musical instruments and parts thereof) are excluded from the current section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9305"
+        ],
+        "reason": "parts of firearms classified in heading 93.05 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Articles of Chapter 94 (furniture, luminaires and lighting fittings, prefabricated buildings) are excluded from the current section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "96"
+        ],
+        "reason": "Articles of Chapter 96 (smoking pipes, buttons, pencils) and hand-operated carved or moulded articles are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "articles of Chapter 97 (works of art) are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "4409",
+        "conditions": [
+          {
+            "type": "originatesFrom",
+            "field": "heading",
+            "value": "4410, 4411, 4412"
+          },
+          {
+            "type": "processing",
+            "field": "operations",
+            "value": "curved, corrugated, perforated, cut, formed to non-square/rectangular shapes"
+          },
+          {
+            "type": "exclusion",
+            "field": "character",
+            "value": "must not acquire character of articles of other headings"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4417"
+        ],
+        "reason": "Heading 44.17 does not apply to tools where the blade, working edge, working surface or other working part is formed by materials specified in Note 1 to Chapter 82"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4503",
+        "covers": "cork in the form of stoppers, discs, balls and similar shapes, including blanks for stoppers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "stoppers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "discs"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "balls"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "blanks"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9601",
+        "covers": "worked ivory, bone, tortoise-shell, horn, antlers, coral, mother-of-pearl and other animal carving material, or articles of these materials",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "worked ivory"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bone"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "tortoise-shell"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "horn"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "antlers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "coral"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mother-of-pearl"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "animal carving material"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wood",
+        "meaning": "includes bamboos and other materials of a woody nature",
+        "appliesTo": [
+          "Section IX"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "plaiting materials or basketware",
+        "meaning": "includes strips, osier, reeds, rushes, rattans, bamboos, raffia, straw, cereal bark and similar natural plaiting materials",
+        "appliesTo": [
+          "14"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "1211",
+        "covers": "wood, in chips, in shavings, crushed, ground or powdered",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "chips"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "shavings"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "crushed"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ground"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "powdered"
+          }
+        ],
+        "primaryUses": [
+          "perfumery",
+          "pharmacy",
+          "insecticidal",
+          "fungicidal"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "1401",
+        "covers": "bamboos or other materials of a woody nature of a kind used primarily for plaiting, in the rough, whether or not split, sawn lengthwise or cut to length",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bamboos"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "woody nature"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "plaiting"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rough"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "1404",
+        "covers": "wood in chips, in shavings, ground or powdered",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "chips"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "shavings"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ground"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "powdered"
+          },
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "dyeing"
+          },
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "tanning"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3802",
+        "covers": "activated charcoal",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "activated charcoal"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "95",
+        "covers": "toys, games, sports requisites",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "toys"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "games"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sports requisites"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "densified wood",
+        "meaning": "wood subjected to chemical or physical treatment (exceeding bond requirements for layered wood) that acquires increased density or hardness with improved mechanical strength or resistance to chemical or electrical agencies",
+        "appliesTo": [
+          "44"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "headings": [
+          "4414",
+          "4415",
+          "4416",
+          "4417",
+          "4418",
+          "4419",
+          "4420",
+          "4421"
+        ],
+        "covers": "articles of particle board, fibreboard, laminated wood, or densified wood",
+        "conditions": [
+          {
+            "type": "material_equivalence",
+            "field": "description",
+            "value": "particle board, fibreboard, laminated wood, densified wood treated as wood"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wood",
+        "meaning": "includes bamboos and other materials of a woody nature",
+        "appliesTo": [
+          "44"
+        ],
+        "conditions": [
+          {
+            "type": "subject_to",
+            "value": "Note 1 above"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wood pellets",
+        "meaning": "by-products such as cutter shavings, sawdust or chips, of the mechanical wood processing industry, furniture-making industry or other wood transformation activities, which have been agglomerated either directly by compression or by the addition of a binder in a proportion not exceeding 3% by weight. Such pellets are cylindrical, with a diameter not exceeding 25 mm and a length not exceeding 100 mm.",
+        "appliesTo": [
+          "440131"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wood briquettes",
+        "meaning": "by-products such as cutter shavings, sawdust or chips, of the mechanical wood processing industry, furniture-making industry or other wood transformation activities, which have been agglomerated either directly by compression or by the addition of a binder in a proportion not exceeding 3 % by weight. Such briquettes are in the form of cubiform, polyhedral or cylindrical units with the minimum cross-sectional dimension greater than 25 mm",
+        "appliesTo": [
+          "440132"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "S-P-F (spruce-pine-fir)",
+        "meaning": "a trade designation applied to a mixed consignment of spruce, pine and fir where the proportions of each species vary and are unknown",
+        "appliesTo": [
+          "440713"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Hem-fir (hemlock-fir)",
+        "meaning": "a trade designation applied to a mixed consignment of Western hemlock and fir where the proportions of each species vary and are unknown",
+        "appliesTo": [
+          "440714"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

@@ -1,0 +1,422 @@
+{
+  "chapter": "71",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7113",
+          "7114",
+          "7115",
+          "7116"
+        ],
+        "reason": "Chapter 71 Note: Headings 71.13, 71.14, 71.15 exclude articles with precious metal/metal clad with precious metal as minor constituents only (minor fittings or ornamentation); Heading 71.16 excludes articles containing precious metal/metal clad with precious metal other than as minor constituents; Headings 71.13, 71.14, 71.15 exclude articles of base metal or precious metal merely plated with precious metal"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7113",
+          "7114",
+          "7115",
+          "7116"
+        ],
+        "reason": "Chapter 71 Note: articles with precious metal or metal clad with precious metal as minor constituents only (minor fittings or ornamentation) are excluded from headings 71.13, 71.14, 71.15; articles containing precious metal or metal clad with precious metal are excluded from heading 71.16"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2843"
+        ],
+        "reason": "Amalgams of precious metal, or colloidal precious metal are excluded and classified in heading 28.43"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "30"
+        ],
+        "reason": "sterile surgical suture materials, dental fillings and other goods of Chapter 30 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "32"
+        ],
+        "reason": "Goods of Chapter 32 (for example, lustres) are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4202",
+          "4203"
+        ],
+        "reason": "Reference to articles of headings 42.02 or 42.03 as specified in Note 3 (B) to Chapter 42 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4303",
+          "4304"
+        ],
+        "reason": "Articles of headings 43.03 and 43.04 are excluded from the current section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XI"
+        ],
+        "reason": "Goods of Section XI (textiles and textile articles) are excluded from the current section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64",
+          "65"
+        ],
+        "reason": "footwear, headgear or other articles of Chapter 64 or 65 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "66"
+        ],
+        "reason": "Umbrellas, walking-sticks and other articles of Chapter 66 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6804",
+          "6805",
+          "82",
+          "16"
+        ],
+        "reason": "Chapter 71 Note: abrasive goods of headings 68.04, 68.05 or Chapter 82 containing precious/semi-precious stone dust/powder; articles of Chapter 82 with working parts of precious/semi-precious stones; machinery, mechanical appliances or electrical goods of Section XVI are excluded, except wholly precious/semi-precious stone articles and parts (which remain in Chapter 71), except unmounted worked sapphires and diamonds for styli (heading 85.22)"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "90",
+          "91",
+          "92"
+        ],
+        "reason": "Articles of Chapters 90, 91, or 92 (scientific instruments, clocks and watches, musical instruments) are excluded from the current Section/Chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "93"
+        ],
+        "reason": "Chapter 93: arms or parts thereof are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Reference to Note 2 of Chapter 95: articles covered by that note are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "96"
+        ],
+        "reason": "Articles classified in Chapter 96 by virtue of Note 4 to Chapter 96 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9703",
+          "9705",
+          "9706"
+        ],
+        "reason": "Section XXI Note: original sculptures or statuary, collectors' pieces, and antiques of age exceeding one hundred years are excluded, except natural or cultured pearls or precious or semi-precious stones"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "7112",
+        "conditions": [
+          {
+            "type": "matches",
+            "field": "description",
+            "value": "heading 71.12"
+          }
+        ],
+        "note": "Subject to Note 1(a) to Section VI"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "7110",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "alloy"
+          },
+          {
+            "type": "classification_rule",
+            "field": "metal_content",
+            "value": "classify with predominant metal by weight"
+          }
+        ]
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "71",
+        "covers": "articles consisting wholly or partly of precious metal or of metal clad with precious metal; articles of precious metal or of metal clad with precious metal set with natural or cultured pearls, precious or semi-precious stones",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "composition",
+            "value": "precious metal"
+          },
+          {
+            "type": "contains",
+            "field": "composition",
+            "value": "metal clad with precious metal"
+          },
+          {
+            "type": "optional",
+            "field": "set_with",
+            "value": "natural or cultured pearls, precious or semi-precious stones"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": null,
+        "covers": "articles of natural or cultured pearls or of precious or semi-precious stones (natural, synthetic or reconstructed)",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "natural pearls"
+          },
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "cultured pearls"
+          },
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "precious stones"
+          },
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "semi-precious stones"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "71",
+        "covers": "articles of precious metal or of metal clad with precious metal",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "precious metal"
+          },
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "metal clad with precious metal"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3815",
+        "covers": "supported catalysts",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "supported catalysts"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "precious metal, platinum, precious or semi-precious stones",
+        "meaning": "(A) precious metal means silver, gold and platinum; (B) platinum means platinum, iridium, osmium, palladium, rhodium and ruthenium; (C) precious or semi-precious stones excludes substances specified in Chapter 96 Note 2(b)",
+        "appliesTo": [
+          "71"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloy of platinum",
+        "meaning": "an alloy containing 2% or more, by weight, of platinum",
+        "appliesTo": [
+          "71"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloy of gold",
+        "meaning": "an alloy containing 2% or more by weight of gold but no platinum, or less than 2% by weight of platinum",
+        "appliesTo": [
+          "7108"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloys of silver",
+        "meaning": "alloys containing 2% or more, by weight, of silver",
+        "appliesTo": [
+          "7106"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "precious metal",
+        "meaning": "includes alloys treated as alloys of precious metal in accordance with Note 5; excludes articles defined in Note 7, and base metal or glass plated with precious metal",
+        "appliesTo": [
+          "71"
+        ],
+        "exclusions": [
+          "articles defined in Note 7",
+          "base metal plated with precious metal",
+          "glass plated with precious metal"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "metal clad with precious metal",
+        "meaning": "material made with a base of metal upon one or more surfaces of which there is affixed by soldering, brazing, welding, hot-rolling or similar mechanical means a covering of precious metal; also covers base metal inlaid with precious metal",
+        "appliesTo": [
+          "entire_nomenclature"
+        ],
+        "scope": "general definition applying throughout the Nomenclature"
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "small objects of personal adornment",
+        "meaning": "rings, bracelets, necklaces, brooches, ear-rings, watch-chains, fobs, pendants, tie-pins, cuff-links, dress-studs, religious or other medals and insignia",
+        "appliesTo": [
+          "71"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "articles of personal use of a kind normally carried in the pocket, in the handbag or on the person",
+        "meaning": "articles designed to be carried in pocket, handbag or on person, including cigar/cigarette cases, snuff boxes, cachou/pill boxes, powder compacts, chain purses, prayer beads",
+        "appliesTo": [
+          "71"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "articles of goldsmiths' or silversmiths' wares",
+        "meaning": "includes ornaments, tableware, toilet-ware, smokers' requisites and other articles of household, office or religious use",
+        "appliesTo": [
+          "7114"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "imitation jewellery",
+        "meaning": "articles of jewellery within the meaning of paragraph (a) of Note 9, excluding buttons, dress-combs, hair-slides, hairpins, and not incorporating natural or cultured pearls, precious or semi-precious stones, or precious metal (except as plating or minor constituents)",
+        "appliesTo": [
+          "7117"
+        ],
+        "exclusions": [
+          "9606",
+          "9615"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "powder and in powder form",
+        "meaning": "products of which 90 % or more by weight passes through a sieve having a mesh aperture of 0.5 mm",
+        "appliesTo": [
+          "710610",
+          "710811",
+          "711011",
+          "711021",
+          "711031",
+          "711041"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "platinum",
+        "meaning": "does not include iridium, osmium, palladium, rhodium or ruthenium",
+        "appliesTo": [
+          "711011"
+        ],
+        "exception": "overrides Chapter Note 4 (B)"
+      }
+    }
+  ],
+  "partsRules": []
+}

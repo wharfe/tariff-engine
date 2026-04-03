@@ -1,0 +1,696 @@
+{
+  "chapter": "48",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4911"
+        ],
+        "reason": "photographic transparencies of heading 4911 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4818"
+        ],
+        "reason": "toilet paper and similar articles of heading 4818 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3212"
+        ],
+        "reason": "stamping foils of heading 3212 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "30"
+        ],
+        "reason": "articles of Chapter 30 are excluded from the current section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3212"
+        ],
+        "reason": "stamping foils of heading 3212 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "33"
+        ],
+        "reason": "perfumed papers or papers impregnated or coated with cosmetics are excluded and classified in Chapter 33"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "3401",
+          "3405"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paper or cellulose wadding"
+          },
+          {
+            "type": "either",
+            "conditions": [
+              {
+                "type": "contains",
+                "field": "description",
+                "value": "impregnated with soap or detergent"
+              },
+              {
+                "type": "contains",
+                "field": "description",
+                "value": "coated or covered with polishes, creams or similar preparations"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3701",
+          "3702",
+          "3703",
+          "3704"
+        ],
+        "reason": "Sensitised paper or paperboard of headings 3701 to 3704 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3822"
+        ],
+        "reason": "paper impregnated with diagnostic or laboratory reagents classified in heading 3822 is excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "39"
+        ],
+        "reason": "paper-reinforced stratified sheeting of plastics, or one layer of paper/paperboard coated on both sides with plastics where paper/paperboard serves merely as reinforcement, and articles thereof are excluded and classified in Chapter 39"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "46"
+        ],
+        "reason": "Articles of Chapter 46 (manufactures of plaiting materials) are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "11"
+        ],
+        "reason": "Section XI Note: paper yarn or textile articles of paper yarn are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64",
+          "65"
+        ],
+        "reason": "Articles of Chapters 64 and 65 are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "6805, 6814",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "abrasive paper or paperboard"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paper- or paperboard-backed mica"
+          }
+        ],
+        "exception": "paper or paperboard coated with mica powder classified in Chapter 68"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "14",
+          "15"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "metal foil"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "backed with paper or paperboard"
+          }
+        ],
+        "reason": "metal foil backed with paper or paperboard is routed to Section XIV or XV"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9209"
+        ],
+        "reason": "articles of heading 9209 are excluded from the current section or chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "96"
+        ],
+        "reason": "Articles of Chapter 96 (buttons, sanitary towels, tampons, napkins, napkin liners) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "4801-4811",
+        "conditions": [
+          {
+            "type": "multiple_headings",
+            "field": "description",
+            "value": "paper, paperboard, cellulose wadding, webs of cellulose fibres"
+          }
+        ],
+        "rule": "classify_in_last_heading_numerical_order"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4820"
+        ],
+        "reason": "Heading 4820 Note: loose sheets or cards, cut to size, whether or not printed, embossed or perforated are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "49",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paper, paperboard, cellulose wadding and articles thereof"
+          },
+          {
+            "type": "contains",
+            "field": "characteristic",
+            "value": "printed with motifs, characters or pictorial representations"
+          },
+          {
+            "type": "not_merely_incidental",
+            "field": "printing",
+            "value": "primary use"
+          }
+        ],
+        "excludedCodes": [
+          "4814",
+          "4821"
+        ]
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4814",
+        "covers": "papers, cements and other products including lacquered papers, metallised papers",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "papers"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cements"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3701-3704",
+        "covers": "sensitised paper or paperboard",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sensitised paper"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paperboard"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "paper",
+        "meaning": "includes references to paperboard irrespective of thickness or weight per m2",
+        "appliesTo": [
+          "48"
+        ],
+        "exceptions": "except where the context otherwise requires"
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4202",
+        "covers": "travel goods and similar articles",
+        "conditions": [
+          {
+            "type": "example",
+            "field": "description",
+            "value": "travel goods"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "95",
+        "covers": "toys, games, sports requisites",
+        "examples": [
+          "toys",
+          "games",
+          "sports requisites"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4801-4805",
+        "covers": "paper and paperboard subjected to calendering, super-calendering, glazing or similar finishing, false water-marking, or surface sizing, and also coloured or marbled paper, paperboard, cellulose wadding and webs of cellulose fibres",
+        "conditions": [
+          {
+            "type": "includes",
+            "field": "treatment",
+            "value": "calendering, super-calendering, glazing, finishing, false water-marking, surface sizing"
+          },
+          {
+            "type": "includes",
+            "field": "treatment",
+            "value": "coloured or marbled throughout the mass"
+          }
+        ],
+        "exclusions": "paper, paperboard, cellulose wadding or webs of cellulose fibres otherwise processed (except where 4803 applies)"
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "newsprint",
+        "meaning": "uncoated paper of a kind used for the printing of newspapers, of which not less than 50 % by weight of the total fibre content consists of wood fibres obtained by a mechanical or chemi-mechanical process, unsized or very lightly sized, having a surface roughness Parker Print Surf (1 MPa) on each side exceeding 2.5 micrometres (microns), weighing not less than 40 g/m2 and not more than 65 g/m2",
+        "appliesTo": [
+          "48"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "brightness/whiteness requirements for paper or paperboard",
+        "meaning": "For paper or paperboard weighing not more than 150 g/m2: brightness of 60% or more (Elrepho apparatus with 457 nm Tappi filter) OR CIE whiteness of 56% or more (CIE-C filter) OR 52% or more (CIE-D65 filter)",
+        "appliesTo": [
+          "4810",
+          "4811"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "paper or paperboard weighing more than 150 g/m2",
+        "meaning": "paper or paperboard meeting specific brightness and ash content criteria: brightness of 60% or more (Elrepho 457nm filter) OR CIE whiteness of 56% or more (CIE-C filter) or 52% or more (CIE-D65 filter); AND ash content of 8% or less (TAPPI T 413 method)",
+        "appliesTo": [
+          "4802",
+          "4803",
+          "4804",
+          "4805"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "kraft paper and paperboard",
+        "meaning": "paper and paperboard of which not less than 80 % by weight of the total fibre content consists of fibres obtained by the chemical sulphate or soda processes",
+        "appliesTo": [
+          "48"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "strips or rolls of a width exceeding 36 cm",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "strips"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rolls"
+          },
+          {
+            "type": "greater_than",
+            "field": "width",
+            "value": "36 cm"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "rectangular sheets including square sheets with specific dimensions",
+        "conditions": [
+          {
+            "type": "dimension",
+            "field": "length",
+            "value": "exceeding 36 cm"
+          },
+          {
+            "type": "dimension",
+            "field": "width",
+            "value": "exceeding 15 cm"
+          },
+          {
+            "type": "state",
+            "field": "condition",
+            "value": "unfolded"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4814",
+        "covers": "paper in rolls suitable for wall or ceiling decoration with specific characteristics",
+        "conditions": [
+          {
+            "type": "range",
+            "field": "width",
+            "min": 45,
+            "max": 160,
+            "unit": "cm"
+          },
+          {
+            "type": "contains",
+            "field": "format",
+            "value": "rolls"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "grained, embossed, surface-coloured, design-printed or surface-decorated"
+          },
+          {
+            "type": "contains",
+            "field": "application",
+            "value": "wall or ceiling decoration"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4814",
+        "covers": "borders and friezes of paper, treated as above, whether or not in rolls",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "borders"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "friezes"
+          },
+          {
+            "type": "contains",
+            "field": "usage",
+            "value": "wall or ceiling decoration"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4814",
+        "covers": "wall coverings of paper made up of several panels, in rolls or sheets, printed so as to make up a scene, design or motif when applied to a wall",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "wall coverings"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paper"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "several panels"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "printed"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4823",
+        "covers": "perforated paper or paperboard cards for Jacquard or similar machines and paper lace",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "perforated paper"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "Jacquard"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "paper lace"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "kraftliner",
+        "meaning": "machine-finished or machine-glazed paper and paperboard, of which not less than 80% by weight of the total fibre content consists of wood fibres obtained by the chemical sulphate or soda processes, in rolls, weighing more than 115 g/m2 and having a minimum Mullen bursting strength as indicated in the specification table",
+        "appliesTo": [
+          "480411"
+        ],
+        "technicalSpecifications": {
+          "fibreContent": "≥80% by weight wood fibres from chemical sulphate or soda processes",
+          "weight": ">115 g/m2",
+          "form": "rolls",
+          "bursting_strength": "minimum Mullen specification per table"
+        }
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4802",
+        "covers": "paper with specified Mullen burst index and stretch factor properties",
+        "conditions": [
+          {
+            "type": "minimum",
+            "field": "Mullen burst index",
+            "value": "3.7 kPa.m2/g"
+          },
+          {
+            "type": "minimum",
+            "field": "stretch factor cross direction",
+            "value": "4.5%"
+          },
+          {
+            "type": "minimum",
+            "field": "stretch factor machine direction",
+            "value": "2%"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": null,
+        "covers": "materials with specified minimum tear and tensile strength values",
+        "conditions": [
+          {
+            "type": "technical_specification",
+            "field": "tear_strength",
+            "value": "as indicated in table"
+          },
+          {
+            "type": "technical_specification",
+            "field": "tensile_strength",
+            "value": "as indicated in table"
+          },
+          {
+            "type": "calculation_method",
+            "field": "interpolation",
+            "value": "linear interpolation for weights not in table"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "semi-chemical fluting paper",
+        "meaning": "paper, in rolls, of which not less than 65 % by weight of the total fibre content consists of unbleached hardwood fibres obtained by a combination of mechanical and chemical pulping processes, and having a CMT 30 (Corrugated Medium Test with 30 minutes of conditioning) crush resistance exceeding 1.8 newtons/g/m2 at 50 % relative humidity, at 23 degrees C",
+        "appliesTo": [
+          "480511"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "480512",
+        "covers": "paper in rolls made mainly of straw pulp obtained by mechanical and chemical pulping processes",
+        "conditions": [
+          {
+            "type": "equals",
+            "field": "weight",
+            "value": "130 g/m2 or more"
+          },
+          {
+            "type": "equals",
+            "field": "CMT30_crush_resistance",
+            "value": "exceeding 1.4 newtons/g/m2 at 50% relative humidity, 23°C"
+          },
+          {
+            "type": "contains",
+            "field": "pulp_type",
+            "value": "straw pulp"
+          },
+          {
+            "type": "contains",
+            "field": "pulping_process",
+            "value": "combination of mechanical and chemical"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "480524-480525",
+        "covers": "paper and paperboard made wholly or mainly of pulp of recovered (waste and scrap) paper or paperboard, including testliner with surface layer of chemically processed pulp",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "composition",
+            "value": "recovered pulp"
+          },
+          {
+            "type": "threshold",
+            "field": "Mullen bursting strength",
+            "operator": ">=",
+            "value": "2 kPa.m2/g",
+            "target": "480524"
+          },
+          {
+            "type": "threshold",
+            "field": "Mullen bursting strength",
+            "operator": "<",
+            "value": "2 kPa.m2/g",
+            "target": "480525"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "light-weight coated paper",
+        "meaning": "paper coated on both sides, of a total weight not exceeding 72 g/m2, with a coating weight not exceeding 15 g/m2 per side, on a base of which not less than 50% by weight of the total fibre content consists of wood fibres obtained by a mechanical process",
+        "appliesTo": [
+          "481022"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

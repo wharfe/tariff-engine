@@ -1,0 +1,757 @@
+{
+  "chapter": "30",
+  "preScoringRules": [
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "2844",
+          "2845",
+          "2843",
+          "2846",
+          "2852"
+        ],
+        "conditions": [
+          {
+            "type": "priority",
+            "field": "description",
+            "value": "headings 28.44 or 28.45 take priority over all other headings"
+          },
+          {
+            "type": "priority",
+            "field": "description",
+            "value": "headings 28.43, 28.46, 28.52 take priority over other headings in Section"
+          }
+        ],
+        "exclusion": "radioactive ores are excluded from heading 28.44 or 28.45"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "3004",
+          "3005",
+          "3006",
+          "3212",
+          "3303",
+          "3304",
+          "3305",
+          "3306",
+          "3307",
+          "3506",
+          "3707",
+          "3808"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "measured doses"
+          },
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "retail sale"
+          }
+        ],
+        "note": "Subject to Note 1 above, goods meeting these conditions must be classified in the specified headings exclusively"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "Section VI headings (specific over general)",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "described by name or function"
+          },
+          {
+            "type": "alternative",
+            "field": "heading",
+            "value": "38.27"
+          }
+        ],
+        "rule": "preference for specific heading over catch-all heading 38.27"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section IV"
+        ],
+        "reason": "Foods or beverages including dietetic, diabetic, fortified foods, food supplements, tonic beverages and mineral waters are excluded from this section, except nutritional preparations for intravenous administration which fall under Section IV"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "3301",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "aqueous distillates"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "aqueous solutions of essential oils"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "suitable for medicinal uses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3303",
+          "3304",
+          "3305",
+          "3306",
+          "3307"
+        ],
+        "reason": "Preparations of headings 33.03 to 33.07 are excluded, regardless of therapeutic or prophylactic properties"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3401"
+        ],
+        "reason": "soap or other products of heading 34.01 containing added medicaments are excluded from the current heading/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3407"
+        ],
+        "reason": "preparations with a basis of plaster for use in dentistry are excluded and classified in heading 34.07"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "3502",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "blood albumin"
+          },
+          {
+            "type": "excludes",
+            "field": "purpose",
+            "value": "therapeutic or prophylactic uses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "28",
+          "29"
+        ],
+        "reason": "Goods of Chapter 28 or 29 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2803"
+        ],
+        "reason": "Colloidal sulphur is excluded from the scope of this heading; other colloidal solutions and suspensions are included"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "articles clearly identifiable as being intended to be used together without first being repacked",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "not repacked"
+          },
+          {
+            "type": "contains",
+            "field": "intention",
+            "value": "use together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "covers": "items presented together",
+        "conditions": [
+          {
+            "type": "presentation",
+            "field": "grouping",
+            "value": "together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "complementary",
+        "meaning": "identifiable, whether by their nature or by the relative proportions in which they are present, as being complementary one to another",
+        "appliesTo": [
+          ""
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "2404",
+        "covers": "nicotine-containing products intended to assist tobacco cessation",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "nicotine-containing"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "tobacco cessation"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "2520",
+        "covers": "specially calcined or finely ground plasters for use in dentistry",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "specially calcined"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "finely ground"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "plasters"
+          },
+          {
+            "type": "contains",
+            "field": "application",
+            "value": "dentistry"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "immunological products",
+        "meaning": "peptides and proteins (other than goods of heading 29.37) which are directly involved in the regulation of immunological processes, including monoclonal antibodies (MAB), antibody fragments, antibody conjugates and antibody fragment conjugates, interleukins, interferons (IFN), chemokines and certain tumour necrosis factors (TNF), growth factors (GF), hematopoietins and colony stimulating factors (CSF)",
+        "appliesTo": [
+          "3002"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unmixed products",
+        "meaning": "products that are not mixed or combined with other substances",
+        "appliesTo": []
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "38",
+        "covers": "unmixed products dissolved in water",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "unmixed"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dissolved in water"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "1302",
+        "covers": "simple vegetable extracts, merely standardised or dissolved in any solvent",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "simple vegetable extracts"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "standardised or dissolved"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "mixed products",
+        "conditions": [
+          {
+            "type": "classification",
+            "field": "product_type",
+            "value": "mixed products"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "vegetable extracts",
+        "meaning": "extracts obtained by the treatment of mixtures of vegetable materials",
+        "appliesTo": [
+          "1302"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "salts and concentrates",
+        "meaning": "salts and concentrates obtained by evaporating natural mineral waters",
+        "appliesTo": [
+          "2530"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3001",
+        "covers": "sterile surgical catgut, similar sterile suture materials (including sterile absorbable surgical or dental yarns) and sterile tissue adhesives for surgical wound closure",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "surgical"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "catgut or suture materials or tissue adhesives"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3006",
+        "covers": "sterile laminaria and sterile laminaria tents",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "laminaria"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "30",
+        "covers": "sterile absorbable surgical or dental haemostatics; sterile surgical or dental adhesion barriers, whether or not absorbable",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "surgical or dental"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "haemostatics or adhesion barriers"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3002",
+        "covers": "opacifying preparations for X-ray examinations and diagnostic reagents designed to be administered to the patient",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "opacifying preparations for X-ray examinations"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "diagnostic reagents"
+          },
+          {
+            "type": "contains",
+            "field": "attribute",
+            "value": "designed to be administered to the patient"
+          },
+          {
+            "type": "either",
+            "field": "composition",
+            "value": "unmixed products in measured doses OR mixed products of two or more ingredients"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3002",
+        "covers": "blood-grouping reagents",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "blood-grouping reagents"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3006",
+        "covers": "dental cements and other dental fillings; bone reconstruction cements",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dental cements"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dental fillings"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bone reconstruction cements"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9406",
+        "covers": "first-aid boxes and kits",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "first-aid boxes and kits"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3002",
+        "covers": "chemical contraceptive preparations based on hormones, on other products of heading 29.37 or on spermicides",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "basis",
+            "value": "hormones"
+          },
+          {
+            "type": "contains",
+            "field": "basis",
+            "value": "products of heading 29.37"
+          },
+          {
+            "type": "contains",
+            "field": "basis",
+            "value": "spermicides"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "30",
+        "covers": "gel preparations designed to be used in human or veterinary medicine as a lubricant for parts of the body for surgical operations or physical examinations or as a coupling agent between the body and medical instruments",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "gel preparations"
+          },
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "lubricant for surgical operations or physical examinations"
+          },
+          {
+            "type": "contains",
+            "field": "use",
+            "value": "coupling agent between body and medical instruments"
+          },
+          {
+            "type": "contains",
+            "field": "application",
+            "value": "human or veterinary medicine"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "waste pharmaceuticals",
+        "meaning": "pharmaceutical products which are unfit for their original intended purpose due to, for example, expiry of shelf life",
+        "appliesTo": [
+          "3002"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "appliances identifiable for ostomy use",
+        "meaning": "colostomy, ileostomy and urostomy pouches and their adhesive wafers or faceplates",
+        "appliesTo": [
+          "9021"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unmixed products, pure products",
+        "meaning": "products that are unmixed or pure, whether or not containing impurities",
+        "appliesTo": [
+          "28",
+          "29"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "mixed products",
+        "covers": "products classified as mixed products",
+        "conditions": [
+          {
+            "type": "classification_type",
+            "field": "product_nature",
+            "value": "mixed"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "38",
+        "covers": "products dissolved in water or in other solvents",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dissolved"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "water or other solvents"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "unknown",
+        "covers": "products with added stabiliser necessary for preservation or transport",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "stabiliser"
+          },
+          {
+            "type": "purpose",
+            "field": "stabiliser_purpose",
+            "value": "preservation or transport"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "unknown",
+        "covers": "products mentioned in (a), (b)(i) and (b)(ii) with any other additive",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "additive"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "300360,300460",
+        "covers": "medicaments containing artemisinin or specified active ingredients for oral ingestion",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artemisinin"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "amodiaquine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artelinic acid"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artenimol"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artemether"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artemotil"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "artesunate"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "chloroquine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "dihydroartemisinin"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "lumefantrine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "mefloquine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "piperaquine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "pyrimethamine"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sulfadoxine"
+          }
+        ],
+        "applicableIngredients": [
+          "artemisinin",
+          "amodiaquine",
+          "artelinic acid",
+          "artenimol",
+          "artemether",
+          "artemotil",
+          "artesunate",
+          "chloroquine",
+          "dihydroartemisinin",
+          "lumefantrine",
+          "mefloquine",
+          "piperaquine",
+          "pyrimethamine",
+          "sulfadoxine"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

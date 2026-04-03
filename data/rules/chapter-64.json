@@ -1,0 +1,300 @@
+{
+  "chapter": "64",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4304",
+          "6703"
+        ],
+        "reason": "artificial fur or articles thereof classified in headings 4304 or 6703 are excluded, except footwear, headgear or parts thereof"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6309"
+        ],
+        "reason": "worn clothing or other worn articles of heading 6309 are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "62",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "parts of goods from Chapter 64 or 65"
+          },
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "materials described in Section XI"
+          }
+        ],
+        "note": "Clause A: parts of Chapter 64/65 goods route to Chapter 62 if made of Section XI materials; Clause B: Chapter 66 goods remain in Chapter 66 regardless of textile content"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "61",
+          "62",
+          "64",
+          "65"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "textile materials"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "footwear or headgear"
+          },
+          {
+            "type": "equals",
+            "field": "completeness",
+            "value": "incompletely made up"
+          },
+          {
+            "type": "equals",
+            "field": "identifiability",
+            "value": "clearly identifiable as intended for products in Chapters 61, 62, 64, 65"
+          }
+        ],
+        "reason": "Incompletely made up textile articles, footwear, or headgear that are clearly identifiable as intended for specific products must be classified in those product chapters rather than elsewhere"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "XI"
+        ],
+        "reason": "footwear of textile material without an outer sole glued, sewn or otherwise affixed/applied to the upper is excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6309"
+        ],
+        "reason": "worn footwear of heading 6309 is excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6812"
+        ],
+        "reason": "articles of asbestos classified in heading 6812 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9021"
+        ],
+        "reason": "Orthopaedic footwear, other orthopaedic appliances, and parts thereof are excluded and classified in heading 9021"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "toy footwear, skating boots with ice or roller skates attached, and protective sportswear of Chapter 95 are excluded from the current section"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9021",
+        "covers": "orthopaedic appliances, including crutches, surgical belts and trusses",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "orthopaedic appliances"
+          },
+          {
+            "type": "includes",
+            "field": "examples",
+            "value": "crutches"
+          },
+          {
+            "type": "includes",
+            "field": "examples",
+            "value": "surgical belts"
+          },
+          {
+            "type": "includes",
+            "field": "examples",
+            "value": "trusses"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "current",
+        "covers": "articles presented unassembled or disassembled",
+        "conditions": [
+          {
+            "type": "state",
+            "field": "assembly_status",
+            "value": "unassembled or disassembled"
+          }
+        ],
+        "rule": "classify same as assembled article"
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "disposable foot or shoe coverings",
+        "meaning": "coverings of flimsy material (for example, paper, sheeting of plastics) without applied soles",
+        "classificationRule": "classified according to their constituent material",
+        "appliesTo": [
+          "6406"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "parts",
+        "meaning": "excludes pegs, protectors, eyelets, hooks, buckles, ornaments, braid, laces, pompons or other trimmings, buttons or other goods of heading 9606",
+        "appliesTo": [
+          "6406"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "terms": [
+          "rubber",
+          "plastics"
+        ],
+        "meaning": "includes woven fabrics or other textile products with an external layer of rubber or plastics being visible to the naked eye; colour changes are disregarded for this purpose",
+        "appliesTo": [
+          "40",
+          "39"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "leather",
+        "meaning": "goods of headings 4107 and 4112 to 4114",
+        "appliesTo": [
+          "4107",
+          "4112",
+          "4113",
+          "4114"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "material of the upper",
+        "meaning": "the constituent material having the greatest external surface area, excluding accessories or reinforcements such as ankle patches, edging, ornamentation, buckles, tabs, eyelet stays or similar attachments",
+        "appliesTo": [
+          "64"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "constituent material of the outer sole",
+        "meaning": "the material having the greatest surface area in contact with the ground, excluding accessories or reinforcements such as spikes, bars, nails, protectors or similar attachments",
+        "appliesTo": [
+          "64"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6404",
+        "covers": "footwear designed for sporting activity with spikes, sprigs, stops, clips, bars or similar attachments",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sporting activity"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "spikes or sprigs or stops or clips or bars"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6402",
+        "covers": "skating boots, ski-boots, cross-country ski footwear, snowboard boots, wrestling boots, boxing boots, and cycling shoes",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "skating boots"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ski-boots"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cross-country ski footwear"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "snowboard boots"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "wrestling boots"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "boxing boots"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "cycling shoes"
+          }
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

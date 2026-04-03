@@ -1,0 +1,211 @@
+{
+  "chapter": "33",
+  "preScoringRules": [
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "2844,2845,2843,2846,2852",
+        "conditions": [
+          {
+            "type": "priority",
+            "field": "description",
+            "value": "goods matching 2844 or 2845 take priority over all other headings"
+          },
+          {
+            "type": "priority",
+            "field": "description",
+            "value": "goods matching 2843, 2846 or 2852 take priority within Section 6"
+          }
+        ],
+        "priority": "hierarchical",
+        "affectedCodes": [
+          "2843",
+          "2844",
+          "2845",
+          "2846",
+          "2852"
+        ]
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": [
+          "3004",
+          "3005",
+          "3006",
+          "3212",
+          "3303",
+          "3304",
+          "3305",
+          "3306",
+          "3307",
+          "3506",
+          "3707",
+          "3808"
+        ],
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "measured doses"
+          },
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "retail sale"
+          }
+        ],
+        "rule": "These headings take precedence when goods are put up in measured doses or for retail sale"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "Section VI headings",
+        "conditions": [
+          {
+            "type": "priority",
+            "field": "description",
+            "value": "product described by name or function"
+          },
+          {
+            "type": "exclude",
+            "field": "description",
+            "value": "heading 38.27"
+          }
+        ],
+        "reason": "Products with name or function descriptions in Section VI are routed there rather than to 38.27"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "1301",
+          "1302"
+        ],
+        "reason": "natural oleoresins or vegetable extracts of headings 13.01 or 13.02 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3401"
+        ],
+        "reason": "Soap or other products of heading 34.01 are excluded from the scope of this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3805"
+        ],
+        "reason": "gum, wood or sulphate turpentine or other products of heading 38.05 are excluded"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "products put up in a manner clearly identifiable as being intended to be used together without first being repacked",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "clearly identifiable"
+          },
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "intended to be used together"
+          },
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "without repacking"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "",
+        "covers": "items presented together",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "presentation",
+            "value": "together"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "complementary",
+        "meaning": "identifiable by their nature or by the relative proportions in which they are present as being complementary one to another",
+        "appliesTo": [
+          "Chapter context - requires full note context to determine exact heading"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "odoriferous substances",
+        "meaning": "substances of heading 33.01, odoriferous constituents isolated from those substances, or synthetic aromatics",
+        "appliesTo": [
+          "3302"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "headings": [
+          "3303",
+          "3304",
+          "3305",
+          "3306",
+          "3307"
+        ],
+        "covers": "products whether or not mixed, suitable for use as goods of these headings and put up in retail packings",
+        "conditions": [
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "aqueous distillates"
+          },
+          {
+            "type": "excludes",
+            "field": "description",
+            "value": "aqueous solutions of essential oils"
+          },
+          {
+            "type": "contains",
+            "field": "packaging",
+            "value": "retail packing"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "perfumery, cosmetic or toilet preparations",
+        "meaning": "includes scented sachets; odoriferous preparations which operate by burning; perfumed papers and papers impregnated or coated with cosmetics; contact lens or artificial eye solutions; wadding, felt and nonwovens, impregnated, coated or covered with perfume or cosmetics; animal toilet preparations",
+        "appliesTo": [
+          "3307"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

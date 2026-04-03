@@ -1,0 +1,306 @@
+{
+  "chapter": "42",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4303",
+          "4304"
+        ],
+        "reason": "fur skin or artificial fur of headings 43.03 or 43.04 used as apparel linings are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "5608"
+        ],
+        "reason": "made up articles of netting of heading 56.08 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64"
+        ],
+        "reason": "Articles of Chapter 64 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "65"
+        ],
+        "reason": "headgear or parts thereof of Chapter 65 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6602"
+        ],
+        "reason": "whips, riding-crops or other articles of heading 66.02 are excluded"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "3006",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile surgical catgut"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile suture materials"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "4303",
+          "4304"
+        ],
+        "reason": "Articles of apparel and clothing accessories (except gloves, mittens and mitts) lined with furskin or artificial fur or with furskin/artificial fur attached on the outside except as mere trimming are excluded and classified in headings 43.03 or 43.04"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "5608"
+        ],
+        "reason": "made up articles of netting are excluded and classified in heading 56.08"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "64"
+        ],
+        "reason": "articles of Chapter 64 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "65"
+        ],
+        "reason": "headgear or parts thereof of Chapter 65 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6602"
+        ],
+        "reason": "whips, riding-crops or other articles of heading 66.02 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "7117"
+        ],
+        "reason": "cuff-links, bracelets or other imitation jewellery of heading 71.17 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "routing",
+      "params": {
+        "target": "XV",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "fittings or trimmings for harness"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "separately presented"
+          }
+        ],
+        "examples": [
+          "stirrups",
+          "bits",
+          "horse brasses",
+          "buckles"
+        ]
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9209"
+        ],
+        "reason": "Strings, skins for drums or the like, or other parts of musical instruments classified in heading 92.09 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Articles of Chapter 94 (furniture, luminaires and lighting fittings) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Chapter 95 articles (toys, games, sports requisites) are excluded from the current section/chapter"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3006",
+        "covers": "catgut or similar sterile suture materials",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "catgut"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sterile suture materials"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "leather",
+        "meaning": "includes chamois (including combination chamois) leather, patent leather, patent laminated leather and metallised leather",
+        "appliesTo": [
+          "Chapter 42"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "9606",
+        "covers": "buttons, press-fasteners, snap-fasteners, press-studs, button moulds or other parts of these articles, button blanks",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "buttons"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "press-fasteners"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "snap-fasteners"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "button moulds"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "button blanks"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3923",
+        "covers": "bags made of sheeting of plastics, whether or not printed, with handles, not designed for prolonged use",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "material",
+            "value": "plastics"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "bags"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "handles"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "not designed for prolonged use"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "articles of apparel and clothing accessories",
+        "meaning": "includes gloves, mittens and mitts (including those for sport or for protection), aprons and other protective clothing, braces, belts, bandoliers and wrist straps, but excluding watch straps",
+        "appliesTo": [
+          "4203"
+        ],
+        "exclusions": [
+          "9113"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "outer surface",
+        "meaning": "the material of the outer surface of the container being visible to the naked eye, even where this material is the outer layer of a combination of materials which makes up the outer material of the container",
+        "appliesTo": [
+          "4202"
+        ]
+      }
+    }
+  ],
+  "partsRules": [
+    {
+      "clauseType": "parts_rule",
+      "params": {
+        "rule": "essential_character",
+        "affectedCodes": [
+          "4202",
+          "4203"
+        ],
+        "condition": "articles with precious metal parts, pearls, or precious/semi-precious stones remain in headings 4202-4203 unless such parts give the articles their essential character",
+        "routing": "If parts give essential character, classify in Chapter 71"
+      }
+    }
+  ]
+}

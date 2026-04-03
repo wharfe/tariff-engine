@@ -1,0 +1,321 @@
+{
+  "chapter": "69",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "25"
+        ],
+        "reason": "Articles of Chapter 25 (for example, cements) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "71"
+        ],
+        "reason": "articles of Chapter 71 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82"
+        ],
+        "reason": "tools or parts of tools of Chapter 82 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8306"
+        ],
+        "reason": "goods of heading 8306 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8482"
+        ],
+        "reason": "ball or roller bearings of heading 8482 are excluded from the current scope"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "85",
+          "8546"
+        ],
+        "reason": "Articles of Chapter 85 (such as electrical insulators of heading 8546) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9021"
+        ],
+        "reason": "artificial teeth of heading 9021 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "articles of Chapter 91 (clocks or clock cases) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "Articles of Chapter 95 (toys, games, sports requisites) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9606",
+          "9614"
+        ],
+        "reason": "Articles of headings 9606 (buttons) and 9614 (smoking pipes) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "Articles of Chapter 97 (works of art) are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "2844"
+        ],
+        "reason": "products of heading 2844 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6804"
+        ],
+        "reason": "articles of heading 6804 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "71"
+        ],
+        "reason": "Articles of Chapter 71, including imitation jewellery, are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8113"
+        ],
+        "reason": "cermets of heading 8113 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82"
+        ],
+        "reason": "articles of Chapter 82 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8546",
+          "8547"
+        ],
+        "reason": "electrical insulators of heading 8546 and fittings of insulating material of heading 8547 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9021"
+        ],
+        "reason": "artificial teeth of heading 9021 are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "91"
+        ],
+        "reason": "articles of Chapter 91 (clocks or clock cases) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "95"
+        ],
+        "reason": "articles of Chapter 95 (toys, games, sports requisites) are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9606",
+          "9612"
+        ],
+        "reason": "articles of headings 9606 (buttons) and 9612 (transferred typewriter ribbons) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "articles of Chapter 97, such as works of art, are excluded from the current section/chapter"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "4810-4811",
+        "covers": "coated or polished paper and paperboard",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "coated"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "polished"
+          }
+        ],
+        "examples": [
+          "mica powder coated",
+          "graphite coated",
+          "bituminised",
+          "asphalted"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "5903-5906",
+        "covers": "coated, impregnated or covered textile fabric",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "coated"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "impregnated"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "covered"
+          }
+        ],
+        "examples": [
+          "fabric coated or covered with ceramic powder",
+          "bituminised or asphalted fabric"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "6909",
+        "covers": "refractory constructional goods when they form parts of machines or appliances from Section XVI",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "refractory constructional goods"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "parts of machines or appliances"
+          },
+          {
+            "type": "contains",
+            "field": "section",
+            "value": "XVI"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "69",
+        "covers": "ceramic products which have been fired after shaping",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "ceramic"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "fired after shaping"
+          }
+        ],
+        "exclusions": [
+          "6901",
+          "6902",
+          "6903"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "containing, by weight, more than 50 % of the elements Mg, Ca or Cr, expressed as MgO, CaO or Cr2O3",
+        "meaning": "refers to the chemical elements magnesium, calcium and chromium in their elemental form, not their oxide forms",
+        "appliesTo": [
+          "690210"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}

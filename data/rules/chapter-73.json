@@ -1,0 +1,437 @@
+{
+  "chapter": "73",
+  "preScoringRules": [
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "3606"
+        ],
+        "reason": "ferro-cerium or other pyrophoric alloys classified in heading 36.06 are excluded from the current section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6506",
+          "6507"
+        ],
+        "reason": "headgear or parts thereof of headings 65.06 or 65.07 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "6603"
+        ],
+        "reason": "umbrella frames and other articles of heading 66.03 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "71"
+        ],
+        "reason": "goods of Chapter 71 (precious metal alloys, base metal clad with precious metal, imitation jewellery) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "Section XVI"
+        ],
+        "reason": "Articles of Section XVI (machinery, mechanical appliances and electrical goods) are excluded from the current section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "8608",
+          "86",
+          "87",
+          "88",
+          "89",
+          "90"
+        ],
+        "reason": "assembled railway or tramway track (heading 86.08) and other articles of Section XVII (vehicles, ships and boats, aircraft) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "18"
+        ],
+        "reason": "Instruments or apparatus of Section XVIII, including clock or watch springs, are excluded from the current section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9306",
+          "XIX"
+        ],
+        "reason": "lead shot prepared for ammunition (heading 93.06) and other articles of Section XIX (arms and ammunition) are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "94"
+        ],
+        "reason": "Articles of Chapter 94 (furniture, mattress supports, luminaires and lighting fittings, illuminated signs, prefabricated buildings) are excluded from this section/chapter"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "96"
+        ],
+        "reason": "hand sieves, buttons, pens, pencil-holders, pen nibs, monopods, bipods, tripods and similar articles or other articles of Chapter 96 are excluded"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "97"
+        ],
+        "reason": "Chapter 97 (works of art) articles are excluded from this section"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "9114"
+        ],
+        "reason": "Springs and leaves for springs of base metal, other than those classified in heading 91.14 (clock or watch springs), are excluded from the current heading"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "82",
+          "83"
+        ],
+        "reason": "Articles of Chapter 82 or 83 are excluded from Chapters 72 to 76 and 78 to 81, subject to Note 1 to Chapter 83 and excluding parts of general use"
+      }
+    },
+    {
+      "clauseType": "exclusion",
+      "params": {
+        "excludedCodes": [
+          "38"
+        ],
+        "reason": "Section Note: municipal waste as defined in Note 4 to Chapter 38 is excluded from this Section"
+      }
+    }
+  ],
+  "scoringRules": [
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "3207-3210, 3212, 3213, 3215",
+        "covers": "prepared paints, inks or other products with a basis of metallic flakes or powder",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "metallic flakes"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "powder"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "95",
+        "covers": "toys, games, sports requisites",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "toys"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "games"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "sports requisites"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "73",
+        "covers": "articles of headings 73.07, 73.12, 73.15, 73.17, 73.18 and similar articles of other base metal",
+        "conditions": [
+          {
+            "type": "in_list",
+            "field": "heading",
+            "values": [
+              "7307",
+              "7312",
+              "7315",
+              "7317",
+              "7318"
+            ]
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "similar articles of other base metal"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "base metals",
+        "meaning": "iron and steel, copper, nickel, aluminium, lead, zinc, tin, tungsten (wolfram), molybdenum, tantalum, magnesium, cobalt, bismuth, cadmium, titanium, zirconium, antimony, manganese, beryllium, chromium, germanium, vanadium, gallium, hafnium (celtium), indium, niobium (columbium), rhenium and thallium",
+        "appliesTo": [
+          "General"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "cermets",
+        "meaning": "products containing a microscopic heterogeneous combination of a metallic component and a ceramic component; includes sintered metal carbides (metal carbides sintered with a metal)",
+        "appliesTo": [
+          "nomenclature"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloy of base metals",
+        "meaning": "classified as an alloy of the metal which predominates by weight over each of the other metals",
+        "appliesTo": [
+          "Chapter 72-81"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloy composition rule",
+        "meaning": "an alloy composed of base metals of this Section and elements not falling within this Section is treated as an alloy of base metals of this Section if the total weight of base metals equals or exceeds the total weight of other elements present",
+        "appliesTo": [
+          "15"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloys",
+        "meaning": "sintered mixtures of metal powders, heterogeneous intimate mixtures obtained by melting (other than cermets) and intermetallic compounds",
+        "appliesTo": [
+          "15"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "base metal",
+        "meaning": "includes alloys which are classified as alloys of that metal by virtue of Note 5",
+        "appliesTo": [
+          "Chapter 72"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "iron and steel",
+        "meaning": "iron and steel, or different kinds of iron or steel, are regarded as one and the same metal",
+        "appliesTo": [
+          "72"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "alloy composition",
+        "meaning": "an alloy is regarded as being entirely composed of that metal as an alloy of which, by virtue of Note 5, it is classified",
+        "appliesTo": [
+          "Chapter 74-81"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "cermet",
+        "meaning": "a cermet of heading 81.13 is regarded as a single base metal",
+        "appliesTo": [
+          "8113"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Waste and scrap",
+        "meaning": "Metal waste and scrap from the manufacture or mechanical working of metals, and metal goods definitely not usable as such because of breakage, cutting-up, wear or other reasons",
+        "appliesTo": [
+          "72"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Powders",
+        "meaning": "Products of which 90 % or more by weight passes through a sieve having a mesh aperture of 1 mm",
+        "appliesTo": [
+          "Chapter 28, 29, or relevant mineral chapters"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Bars and rods",
+        "meaning": "Rolled, extruded, drawn or forged products, not in coils, with uniform solid cross-section (circles, ovals, rectangles, equilateral triangles, regular convex polygons). Includes cast or sintered products of same forms subsequently worked after production, provided they have not assumed character of articles/products of other headings.",
+        "appliesTo": [
+          "7213",
+          "7214",
+          "7215",
+          "7216",
+          "7221",
+          "7222",
+          "7228"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Profiles",
+        "meaning": "Rolled, extruded, drawn, forged or formed products, coiled or not, of a uniform cross-section along their whole length, which do not conform to any of the definitions of bars, rods, wire, plates, sheets, strip, foil, tubes or pipes. Also includes cast or sintered products of the same forms, which have been subsequently worked after production (otherwise than by simple trimming or de-scaling), provided they have not assumed the character of articles or products of other headings.",
+        "appliesTo": [
+          "Chapter 72-73"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "Wire",
+        "meaning": "Rolled, extruded or drawn products, in coils, which have a uniform solid cross-section along their whole length in the shape of circles, ovals, rectangles (including squares), equilateral triangles or regular convex polygons (including 'flattened circles' and 'modified rectangles'). Products with rectangular, triangular or polygonal cross-section may have corners rounded along their whole length. The thickness of rectangular cross-section products exceeds one-tenth of the width.",
+        "appliesTo": [
+          "72"
+        ]
+      }
+    },
+    {
+      "clauseType": "scope",
+      "params": {
+        "heading": "80",
+        "covers": "Plates, sheets, strip, and foil - flat-surfaced products of solid rectangular cross-section with uniform thickness, including those with patterns, perforations, corrugations, polishing or coatings",
+        "conditions": [
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "flat-surfaced products"
+          },
+          {
+            "type": "contains",
+            "field": "description",
+            "value": "rectangular cross-section"
+          },
+          {
+            "type": "constraint",
+            "field": "thickness",
+            "value": "not exceeding one-tenth of width for rectangular/square shapes"
+          },
+          {
+            "type": "excludes",
+            "field": "character",
+            "value": "must not assume character of articles or products of other headings"
+          }
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "tubes and pipes",
+        "meaning": "hollow products, coiled or not, with uniform cross-section and single enclosed void along whole length in specified shapes (circles, ovals, rectangles, equilateral triangles, regular convex polygons) with uniform wall thickness; may be polished, coated, bent, threaded, drilled, waisted, expanded, cone-shaped or fitted with flanges, collars or rings",
+        "appliesTo": [
+          "73",
+          "76",
+          "78"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "unusable/waste materials",
+        "meaning": "materials that have been rendered unusable for their original purposes by breakage, cutting-up or other processes or are economically unsuitable for repair, refurbishment or renovation to render them fit for their original purposes",
+        "appliesTo": [
+          "Chapter context dependent - typically Chapters 71-79 or 84-85"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "coated with plastics",
+        "meaning": "products coated with a thin film of plastics which may also have been printed (for decoration, brand identification or similar purposes), provided that the coating or printing does not alter the essential character of the product as an article of base metal",
+        "appliesTo": [
+          "General Nomenclature"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "cast iron",
+        "meaning": "products obtained by casting in which iron predominates by weight over each of the other elements and which do not comply with the chemical composition of steel as defined in Note 1 (d) to Chapter 72",
+        "appliesTo": [
+          "73"
+        ]
+      }
+    },
+    {
+      "clauseType": "definition",
+      "params": {
+        "term": "wire",
+        "meaning": "hot or cold-formed products of any cross-sectional shape, of which no cross-sectional dimension exceeds 16 mm",
+        "appliesTo": [
+          "72"
+        ]
+      }
+    }
+  ],
+  "partsRules": []
+}
