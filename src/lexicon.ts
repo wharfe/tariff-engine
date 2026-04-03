@@ -30,7 +30,7 @@ export const STRONG_SYNONYMS: Record<string, string[]> = {
   bottles: ["bottle"],
   mug: ["tableware", "kitchenware"],
   cup: ["tableware", "kitchenware"],
-  toothbrush: ["electro-mechanical"],
+  toothbrush: ["brush", "brushes"],
   scooter: ["motorcycles", "cycles"],
   tractor: ["tractors", "hauling"],
   truck: ["vehicles", "transport", "goods"],
@@ -51,6 +51,24 @@ export const STRONG_SYNONYMS: Record<string, string[]> = {
   foil: ["foil"],
   kitchen: ["knives", "cutting"],
   stainless: ["stainless"],
+  tire: ["tyre", "tyres", "pneumatic"],
+  tyre: ["tire", "tires", "pneumatic"],
+  battery: ["accumulator", "accumulators"],
+  laptop: ["computer", "notebook", "portable"],
+  earphone: ["headphone", "headphones", "earphones"],
+  headphone: ["earphone", "earphones", "headphones"],
+  charger: ["converter", "adapter"],
+  jeans: ["trousers", "denim"],
+  cardigan: ["jerseys", "pullovers"],
+  socks: ["hosiery", "stockings"],
+  tracksuit: ["sportswear"],
+  crib: ["furniture", "bed"],
+  bookshelf: ["shelf", "furniture"],
+  puzzle: ["puzzles", "games"],
+  racket: ["racquet"],
+  lighter: ["lighters"],
+  comb: ["combs"],
+  flask: ["flasks", "thermos"],
 };
 
 // Weak synonyms: broader associations (salmon→fish)
@@ -106,12 +124,18 @@ export const FUNCTION_WORDS = new Set([
   // Furniture (Ch.94)
   "chair", "table", "desk", "bed", "seat", "sofa", "couch",
   "lamp", "lighting", "furniture", "cabinet", "shelf", "mattress",
+  "bookshelf", "crib",
   // Toys/sports (Ch.95)
   "toy", "game", "brush", "broom",
+  "puzzle", "racket", "tennis", "yoga", "swimming",
+  // Miscellaneous (Ch.96)
+  "toothbrush", "lighter", "comb", "flask", "pen", "pencil", "roller",
   // Footwear (Section XII)
   "shoe", "shoes", "boot", "boots", "sandal", "slipper", "sneaker", "footwear",
   // Clothing/garments (Section XI Ch.61-62)
   "shirt", "t-shirt", "dress", "trouser", "jacket", "coat", "garment", "clothing",
+  "jeans", "cardigan", "socks", "tracksuit", "shorts", "blouse", "skirt",
+  "tie", "necktie", "romper", "raincoat", "towel",
   // Bags/luggage (Section VIII Ch.42)
   "backpack", "suitcase", "briefcase", "wallet", "purse", "handbag",
   // Jewelry (Section XIV Ch.71)
@@ -122,6 +146,14 @@ export const FUNCTION_WORDS = new Set([
   "mug", "cup", "plate", "bowl",
   // Instruments (Section XVIII Ch.90-91)
   "thermometer", "tracker", "watch",
+  // Rubber (Section VII Ch.40)
+  "tire", "tyre",
+  // Machinery (Section XVI Ch.84)
+  "computer", "laptop", "engine", "pump", "centrifuge",
+  "conditioner", "washing", "robot",
+  // Electrical (Section XVI Ch.85)
+  "battery", "motor", "cable", "charger", "earphone", "headphone",
+  "camera", "solar", "bulb", "transformer", "breaker", "circuit",
 ]);
 
 // Material words that should be deprioritized when function words are present

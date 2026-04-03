@@ -47,7 +47,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "VII",
     title: "Plastics and articles thereof; rubber and articles thereof",
-    keywords: ["plastic", "rubber", "polymer", "resin", "polyethylene", "pvc", "silicone", "tire", "tyre", "tube", "hose"],
+    keywords: ["plastic", "rubber", "polymer", "resin", "polyethylene", "pvc", "silicone", "tire", "tyre", "tube", "hose", "polypropylene", "acrylic", "latex", "nylon", "polycarbonate"],
     chapters: ["39", "40"],
   },
   {
@@ -101,7 +101,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XVI",
     title: "Machinery and mechanical appliances; electrical equipment",
-    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electric", "electrical", "electronic", "computer", "laptop", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera", "microwave", "air-conditioning", "oven", "toothbrush", "blender", "mixer", "dryer", "heater", "fan", "vacuum"],
+    keywords: ["machine", "machinery", "mechanical", "engine", "motor", "pump", "compressor", "turbine", "electric", "electrical", "electronic", "computer", "laptop", "telephone", "television", "tv", "radio", "battery", "semiconductor", "circuit", "transformer", "generator", "refrigerator", "washing", "printer", "camera", "microwave", "air-conditioning", "oven", "blender", "mixer", "dryer", "heater", "fan", "vacuum", "cable", "charger", "earphone", "headphone", "solar", "conditioner", "centrifuge", "robot", "breaker", "bulb", "led"],
     chapters: ["84", "85"],
   },
   {
@@ -125,7 +125,7 @@ export const SECTION_MAP: SectionEntry[] = [
   {
     section: "XX",
     title: "Miscellaneous manufactured articles",
-    keywords: ["furniture", "bed", "mattress", "lamp", "lighting", "prefabricated", "toy", "game", "sport", "brush", "broom", "button", "pen", "pencil", "chair", "table", "desk", "seat", "dining", "wooden", "cabinet", "shelf", "sofa", "couch"],
+    keywords: ["furniture", "bed", "mattress", "lamp", "lighting", "prefabricated", "toy", "game", "sport", "brush", "broom", "button", "pen", "pencil", "chair", "table", "desk", "seat", "dining", "wooden", "cabinet", "shelf", "sofa", "couch", "puzzle", "racket", "tennis", "yoga", "swimming", "lighter", "comb", "flask", "toothbrush", "roller"],
     chapters: ["94", "95", "96"],
   },
   {
