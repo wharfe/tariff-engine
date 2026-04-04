@@ -1,7 +1,7 @@
 {
   "name": "tariff-engine",
   "version": "0.3.0",
-  "description": "Rule-based HS code classification engine — zero runtime AI, offline-capable, explainable",
+  "description": "Rule-based HS code classification engine — AI at build time, deterministic at runtime, offline-capable, explainable",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
