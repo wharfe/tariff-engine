@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1] - 2026-04-04
+
+### Changed
+- Updated README with v0.3.0 features, accuracy metrics, browser usage, and AI compiler documentation
+- Added heading-level synonym table (LLM-generated, 390 headings) for improved heading selection
+- Top-3 accuracy: 69%, Top-1: 59%, Chapter: 76%
+
 ## [0.3.0] - 2026-04-03
 
 ### Added
