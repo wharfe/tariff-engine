@@ -16,6 +16,7 @@ import { FUNCTION_SECTION_ROUTES, PRODUCT_CHAPTER_ROUTES } from "./routes.js";
 import { SCORING, bestDescScore, scoreSubheading } from "./scoring.js";
 import { loadRules as loadChapterRules, applyPreScoringRules, applyScoringAdjustments, matchesConditions } from "./rule-applier.js";
 import type { ChapterRuleSet, RoutingParams } from "./rule-types.js";
+import { lookup, LOOKUP_THRESHOLD } from "./lookup.js";
 
 let cachedTree: HsNode[] | null = null;
 
@@ -228,7 +229,52 @@ export function scoreNodes(inputTokens: string[], nodes: HsNode[]): ScoredNode[]
 
 export { scoreSubheading } from "./scoring.js";
 
+/**
+ * Classify a product description. A confident hit in the build-time phrase table (src/lookup.ts) becomes the
+ * top candidate; otherwise, and for the remaining candidates, the rule engine decides.
+ */
 export function classify(input: ClassifyInput): ClassifyResult {
+  const ruled = classifyByRules(input);
+  const tree = cachedTree;
+  if (!tree) return ruled;
+  const hit = lookup(input.description, tree);
+  if (!hit || hit.score < LOOKUP_THRESHOLD) return ruled;
+
+  const chapter = tree.find((c) => c.code === hit.row.c.slice(0, 2));
+  const heading = chapter?.children.find((h) => h.code === hit.row.c.slice(0, 4));
+  const sub = heading?.children.find((n) => n.code === hit.row.c);
+  if (!chapter || !heading || !sub) return ruled;
+  const sectionEntry = SECTION_MAP.find((e) => e.chapters.includes(chapter.code));
+
+  const topConfidence = 0.6 + 0.4 * hit.score;
+  const top: Candidate = {
+    hscode: sub.code,
+    description: sub.description,
+    confidence: topConfidence,
+    matchedTokenCount: tokenize(input.description).length,
+    reasoning: [
+      `Section ${sectionEntry?.section ?? "?"}: ${sectionEntry?.title ?? ""}`,
+      `Chapter ${chapter.code}: ${chapter.description}`,
+      `Heading ${heading.code}: ${heading.description}`,
+      `Subheading ${sub.code}: ${sub.description}`,
+      `Lookup: "${hit.row.p}" (score ${hit.score.toFixed(2)})`,
+    ],
+  };
+  const rest = ruled.candidates
+    .filter((c) => c.hscode !== top.hscode)
+    .map((c) => ({ ...c, confidence: Math.min(c.confidence, topConfidence - 0.01) }));
+  const candidates = [top, ...rest].slice(0, 3);
+
+  // Table and rules disagreeing on the chapter while the rules are confident is worth a human look.
+  const ruleTop = ruled.candidates[0];
+  const disagree =
+    ruleTop !== undefined &&
+    ruleTop.hscode.slice(0, 2) !== top.hscode.slice(0, 2) &&
+    ruleTop.confidence >= SCORING.NEEDS_REVIEW_THRESHOLD;
+  return { candidates, needs_review: topConfidence < SCORING.NEEDS_REVIEW_THRESHOLD || disagree };
+}
+
+function classifyByRules(input: ClassifyInput): ClassifyResult {
   const tree = cachedTree;
   if (!tree) {
     throw new Error("Tree not loaded. Call loadTree() first.");

@@ -2,6 +2,8 @@
 
 export { classify, loadTree, setTree, scoreSection, scoreNodes, scoreSubheading } from "./classifier.js";
 export { tokenize } from "./tokenizer.js";
+export { setLookup, lookupStatus, lookup, LOOKUP_THRESHOLD } from "./lookup.js";
+export type { LookupRow, LookupHit } from "./lookup.js";
 export { evaluateCondition } from "./rule-engine.js";
 export { applyGir3a, applyGir3c } from "./gir.js";
 export { SECTION_MAP } from "./section-map.js";
