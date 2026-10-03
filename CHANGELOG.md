@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+- README: added accuracy on 370 real US CBP CROSS rulings (2026-07-01 to 2026-09-25): top-1 heading 10%, subheading 3%.
+  The previously quoted figures (59% / 69% / 76%) hold only on the 144-case development set of short, test-style descriptions.
+
 ## [0.3.1] - 2026-04-04
 
 ### Changed
