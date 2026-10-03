@@ -85,6 +85,8 @@ describe("keeps the rules' answer", () => {
     ["a NaN confidence", (async (_s, _i, o) => ({ choice: Object.keys(o)[0], probabilities: {}, confidence: NaN })) as Decider, "invalid confidence"],
     ["a confidence above 1", (async (_s, _i, o) => ({ choice: Object.keys(o)[0], probabilities: {}, confidence: 1.5 })) as Decider, "invalid confidence"],
     ["no answer", (async () => undefined as unknown as DeciderAnswer) as Decider, "answer not among the options"],
+    ["a jev HTTP status", (async () => { throw new Error("jev: HTTP 402"); }) as Decider, "jev: HTTP 402"],
+    ["a jev-like message with extra text", (async () => { throw new Error("jev: HTTP 401 Bearer secret"); }) as Decider, "decider failed"],
   ])("when the decider gives %s", async (_label, decider, error) => {
     const r = await classifyWithDecider({ description: UNSURE }, { decider });
     expect(r.candidates).toEqual(rulesOnly().candidates);

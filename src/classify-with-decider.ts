@@ -23,6 +23,12 @@ function criteria(nodes: HsNode[]): Record<string, string> {
   return Object.fromEntries(nodes.map((n) => [key(n.code), `${n.code}: ${n.description}`]));
 }
 
+/** jevDecider's errors carry only an HTTP status; anything else is reported generically. */
+function safeMessage(e: unknown): string {
+  const m = e instanceof Error ? e.message : "";
+  return /^jev: (?:HTTP \d{3}|invalid JSON in response|response has no answer)$/.test(m) ? m : "decider failed";
+}
+
 function validConfidence(c: unknown): c is number {
   return typeof c === "number" && Number.isFinite(c) && c >= 0 && c <= 1;
 }
@@ -85,8 +91,8 @@ export async function classifyWithDecider(
     picked = await Promise.race([ask(), deadline]);
   } catch (e) {
     controller.abort();
-    // Only our own messages are reported; a decider's error text could carry request details.
-    const reason = e instanceof DeciderError ? e.message : "decider failed";
+    // Only messages known to be safe are reported; a decider's own error text could carry request details.
+    const reason = e instanceof DeciderError ? e.message : safeMessage(e);
     return { ...ruled, needs_review: true, decider: { used: false, asked: true, error: reason } };
   } finally {
     clearTimeout(timer);
