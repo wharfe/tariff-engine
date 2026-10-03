@@ -67,6 +67,11 @@ export function setTree(tree: HsNode[]): void {
   cachedTree = tree;
 }
 
+/** The tree loaded by loadTree()/setTree(), or null. */
+export function getLoadedTree(): HsNode[] | null {
+  return cachedTree;
+}
+
 export interface ScoredSection {
   section: string;
   title: string;

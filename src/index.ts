@@ -1,6 +1,8 @@
 // src/index.ts
 
-export { classify, loadTree, setTree, scoreSection, scoreNodes, scoreSubheading } from "./classifier.js";
+export { classifyWithDecider } from "./classify-with-decider.js";
+export type { Decider, DeciderAnswer, DeciderReport, ClassifyWithDeciderResult, ClassifyWithDeciderOptions } from "./decider.js";
+export { classify, loadTree, setTree, getLoadedTree, scoreSection, scoreNodes, scoreSubheading } from "./classifier.js";
 export { tokenize } from "./tokenizer.js";
 export { evaluateCondition } from "./rule-engine.js";
 export { applyGir3a, applyGir3c } from "./gir.js";

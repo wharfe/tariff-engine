@@ -9,6 +9,10 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts"
+    },
+    "./jev": {
+      "types": "./dist/jev.d.ts",
+      "import": "./dist/jev.js"
     }
   },
   "bin": {
