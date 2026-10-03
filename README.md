@@ -111,7 +111,18 @@ interface Candidate {
 
 ## Accuracy
 
-20 chapters covered with AI-compiled rules across 13 HS Sections. Measured against 144 manually curated test cases:
+20 chapters covered with AI-compiled rules across 13 HS Sections.
+
+**On real customs rulings, accuracy is low.** Measured against 370 US CBP CROSS rulings issued 2026-07-01 to 2026-09-25
+(product = the ruling's subject line, answer = the first 6 digits of the tariff number decided by CBP; rulings with
+exactly one tariff number, duplicates removed):
+
+| Metric | Score |
+|--------|-------|
+| Top-1 heading accuracy (4-digit) | 10% |
+| Top-1 subheading accuracy (6-digit) | 3% |
+
+On a set of 144 short, test-style descriptions from the covered chapters (the set used during development), it scores:
 
 | Metric | Score |
 |--------|-------|
@@ -120,9 +131,13 @@ interface Candidate {
 | Top-1 heading accuracy (4-digit) | 59% |
 | Classification speed | <100ms |
 
+The gap comes from real product names: they are short and often leave out the facts that decide the code
+(material, use, knitted vs. woven), and they use wording the keyword rules do not know. Treat results as
+candidates to review, not as a classification decision.
+
 **Covered categories**: apparel, electronics, machinery, plastics, rubber, furniture, toys, footwear, jewelry, ceramics, pharmaceuticals, cosmetics, leather goods, paper, wood, iron/steel articles.
 
-> These numbers reflect a keyword-based scoring engine with LLM-compiled rules. The architecture is designed for iterative improvement — each release expands chapter coverage and rule precision.
+> These numbers reflect a keyword-based scoring engine with LLM-compiled rules. Earlier versions of this README quoted only the 144-case figures.
 
 ## How it works
 
